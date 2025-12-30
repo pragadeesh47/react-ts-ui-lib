@@ -2,7 +2,7 @@
 import React from "react";
 import { SideBar } from "@react-ts-ui-lib/ui";
 import type { SideBarItem } from "@react-ts-ui-lib/ui";
-import routeList from "../App/tools/RouteList";
+import routeList from "../app/tools/RouteList.ts";
 //@@viewOff:imports
 
 //@@viewOn:constants

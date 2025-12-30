@@ -23,3 +23,4 @@
 //todo kromě komponent bude to i knihovna funkcí napříklat koopírovat do paměti po kliknutí, ověření mac addresy, ověření carty atdy..
 // popsa všude dark mode true
 
+// přidat do left menu propsu a logiku pro mobilní zobrazení levého panelu
