@@ -15,6 +15,12 @@
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
+    
+    /* Path mapping for monorepo */
+    "baseUrl": ".",
+    "paths": {
+      "@react-ts-ui-lib/ui": ["../../library/ui/src/index.ts"]
+    },
 
     /* Linting */
     "strict": true,

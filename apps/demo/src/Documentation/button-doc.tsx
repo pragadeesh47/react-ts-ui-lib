@@ -1,5 +1,4 @@
 //@@viewOn:imports
-import React from "react";
 //@@viewOff:imports
 
 //@@viewOn:constants

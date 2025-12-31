@@ -1,4 +1,5 @@
 //@@viewOn:imports
+import { Pending } from "@react-ts-ui-lib/ui";
 import { useEffect, useState } from "react";
 //@@viewOff:imports
 
@@ -11,6 +12,14 @@ const repo = "react-ts-ui-lib";
 //@@viewOff:css
 
 //@@viewOn:helpers
+interface GitHubContributor {
+  id: number;
+  login: string;
+  html_url: string;
+  avatar_url: string;
+  contributions: number;
+}
+
 interface Contributor {
   id: number;
   login: string;
@@ -27,14 +36,12 @@ function Contributions() {
   //@@viewOn:private
   const [contributors, setContributions] = useState<Contributor[]>([]);
 
-  async function fetchContributors() {
-    const res = await fetch(
+  const fetchContributors = async () => {
+    const response = await fetch(
       `https://api.github.com/repos/${owner}/${repo}/contributors`
     );
-    if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);
-    const contributors = await res.json();
-
-    const result: Contributor[] = contributors.map((c: any) => ({
+    const data = await response.json();
+    const result: Contributor[] = data.map((c: GitHubContributor) => ({
       id: c.id,
       login: c.login,
       html_url: c.html_url,
@@ -46,12 +53,21 @@ function Contributions() {
   }
 
   useEffect(() => {
-    fetchContributors();
+    const loadContributors = async () => {
+      await fetchContributors();
+    };
+    loadContributors();
   }, []);
+
 
   //@@viewOff:private
 
   //@@viewOn:render
+
+  if(contributors.length === 0){
+    return <Pending />;
+  }
+
   return (
     <div>
       <h3>Contributors</h3>

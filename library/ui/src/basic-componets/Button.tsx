@@ -1,8 +1,8 @@
 //@@viewOn:imports
 import React, { useState } from "react";
-import colors, { type ColorScheme } from "../tools/colors";
-import Pending from "../Pending/Pending";
-import Icon from "../Icon/Icon";
+import { type ColorScheme, getColorScheme } from "../tools/colors";
+import Pending from "./Pending";
+import Icon from "./Icon";
 //@@viewOff:imports
 
 //@@viewOn:constants
@@ -14,44 +14,34 @@ const Css = {
     removeDefaultStyle?: boolean,
     disabled?: boolean,
     pending?: boolean,
-    colorScheme: ColorScheme = "primary"
+    colorScheme: ColorScheme = "primary",
+    darkMode = true
   ): React.CSSProperties => {
     if (removeDefaultStyle) {
       return {};
     }
 
-    const schemeColors = {
-      primary: {
-        base: colors.primary.color,
-        dark: colors.primaryDark.color,
-        text: colors.text.color,
-      },
-      success: {
-        base: colors.success.color,
-        dark: colors.successDark.color,
-        text: colors.text.color,
-      },
-      danger: {
-        base: colors.danger.color,
-        dark: colors.dangerDark.color,
-        text: colors.text.color,
-      },
-      warning: {
-        base: colors.warning.color,
-        dark: colors.warningDark.color,
-        text: colors.background.color,
-      },
-      info: {
-        base: colors.info.color,
-        dark: colors.infoDark.color,
-        text: colors.background.color,
-      },
+    const primaryScheme = getColorScheme("primary", darkMode);
+    const successScheme = getColorScheme("success", darkMode);
+    const dangerScheme = getColorScheme("danger", darkMode);
+    const warningScheme = getColorScheme("warning", darkMode);
+    const infoScheme = getColorScheme("info", darkMode);
+    const surfaceScheme = getColorScheme("surface", darkMode);
+    const mutedScheme = getColorScheme("muted", darkMode);
+
+    const schemeMap: Record<string, typeof primaryScheme> = {
+      primary: primaryScheme,
+      success: successScheme,
+      danger: dangerScheme,
+      warning: warningScheme,
+      info: infoScheme,
     };
 
-    const scheme = schemeColors[colorScheme];
+    const scheme = schemeMap[colorScheme as string];
+    
     const isDisabled = disabled || pending;
-    const background = isDisabled ? colors.surface.color : scheme.base;
-    const textColor = isDisabled ? colors.muted.color : scheme.text;
+    const background = isDisabled ? surfaceScheme.color : scheme.color;
+    const textColor = isDisabled ? mutedScheme.color : scheme.textColor;
 
     return {
       display: "inline-flex",
@@ -76,25 +66,32 @@ const Css = {
     removeDefaultStyle?: boolean,
     disabled?: boolean,
     pending?: boolean,
-    colorScheme: ColorScheme = "primary"
+    colorScheme: ColorScheme = "primary",
+    darkMode = true
   ): React.CSSProperties => {
     if (removeDefaultStyle || disabled || pending) {
       return {};
     }
 
-    const schemeColors = {
-      primary: { dark: colors.primaryDark.color },
-      success: { dark: colors.successDark.color },
-      danger: { dark: colors.dangerDark.color },
-      warning: { dark: colors.warningDark.color },
-      info: { dark: colors.infoDark.color },
+    const primaryDarkScheme = getColorScheme("primaryDark", darkMode);
+    const successDarkScheme = getColorScheme("successDark", darkMode);
+    const dangerDarkScheme = getColorScheme("dangerDark", darkMode);
+    const warningDarkScheme = getColorScheme("warningDark", darkMode);
+    const infoDarkScheme = getColorScheme("infoDark", darkMode);
+
+    const schemeMap: Record<string, typeof primaryDarkScheme> = {
+      primary: primaryDarkScheme,
+      success: successDarkScheme,
+      danger: dangerDarkScheme,
+      warning: warningDarkScheme,
+      info: infoDarkScheme,
     };
 
-    const scheme = schemeColors[colorScheme as ColorScheme];
+    const scheme = schemeMap[colorScheme as string];
 
     return {
       cursor: "pointer",
-      background: scheme.dark,
+      background: scheme.color,
     };
   },
 
@@ -160,6 +157,7 @@ const Button = ({
   onClick,
   icon = "",
   iconPosition = "left",
+  darkMode = true,
 }: ButtonProps) => {
   //@@viewOn:private
   const [hover, setHover] = useState(false);
@@ -174,13 +172,14 @@ const Button = ({
       disabled={isDisabled}
       className={className}
       style={{
-        ...Css.button(removeDefaultStyle, disabled, isPending, colorScheme),
+        ...Css.button(removeDefaultStyle, disabled, isPending, colorScheme, darkMode),
         ...(hover && !isDisabled
           ? Css.buttonHover(
               removeDefaultStyle,
               disabled,
               isPending,
-              colorScheme
+              colorScheme,
+              darkMode
             )
           : {}),
         ...(focus && !isDisabled
@@ -206,7 +205,7 @@ const Button = ({
       </span>
       {isPending && (
         <span style={Css.spinnerContainer()}>
-          <Pending />
+          <Pending darkMode={darkMode} />
         </span>
       )}
     </button>

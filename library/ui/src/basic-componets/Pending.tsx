@@ -1,5 +1,5 @@
 //@@viewOn:imports
-import colors from "../tools/colors";
+import { getColorScheme } from "../tools/colors";
 //@@viewOff:imports
 
 //@@viewOn:constants
@@ -16,12 +16,16 @@ export type PendingProps = {
   className?: string;
   type?: "circular" | "horizontal";
   size?: number;
+  darkMode?: boolean;
 };
 //@@viewOff:propTypes
 
-const Pending = ({ className, type = "circular", size = 18 }: PendingProps) => {
-  const strokeBackground = colors.muted.color;
-  const strokeForeground = colors.text.color;
+const Pending = ({ className, type = "circular", size = 18, darkMode = true }: PendingProps) => {
+  const mutedScheme = getColorScheme("muted", darkMode);
+  const textScheme = getColorScheme("text", darkMode);
+  
+  const strokeBackground = mutedScheme.color;
+  const strokeForeground = textScheme.color;
 
   if (type === "horizontal") {
     // horizontal track with moving foreground bar inside (light track, darker moving bar)

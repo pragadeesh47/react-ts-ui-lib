@@ -258,12 +258,22 @@ export type ThemeName = keyof typeof themes;
 
 export const colorsKeyList = [
   dark.primary.key,
+  dark.primaryHover.key,
+  dark.primaryDark.key,
   dark.success.key,
+  dark.successDark.key,
   dark.danger.key,
+  dark.dangerDark.key,
   dark.warning.key,
+  dark.warningDark.key,
   dark.info.key,
+  dark.infoDark.key,
   dark.surface.key,
   dark.background.key,
+  dark.text.key,
+  dark.muted.key,
+  dark.border.key,
+  dark.shadow.key,
 ] as const;
 
 export type ColorScheme = (typeof colorsKeyList)[number];
@@ -276,8 +286,6 @@ export default dark;
 export const getColorScheme = (colorScheme: ColorScheme, darkMode: boolean) => {
   const themeName: ThemeName = darkMode ? "dark" : "light";
   const theme = getTheme(themeName);
-
-  console.log(theme, themeName);
 
   return theme[colorScheme] as ColorEntry;
 };

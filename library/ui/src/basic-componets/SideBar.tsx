@@ -1,7 +1,6 @@
 //@@viewOn:imports
 import React, { useState } from "react";
-import type { SideBarProps, SideBarItem } from "./SideBar.types";
-import Icon from "../Icon/Icon";
+import Icon from "./Icon";
 import { type ColorScheme } from "../tools/colors";
 import { getColorScheme } from "../tools/colors";
 //@@viewOff:imports
@@ -118,7 +117,6 @@ function SideBar({
   colorScheme = "background",
   darkMode = true,
 }: SideBarProps) {
-  const scheme = getColorScheme(colorScheme, darkMode);
   const [openMap, setOpenMap] = useState<Record<string, boolean>>(() => {
     const initialMap: Record<string, boolean> = {};
     const collectDefaultExpanded = (items: SideBarItem[], parentKey = "") => {
@@ -149,8 +147,8 @@ function SideBar({
     if (onItemClick) onItemClick(item, e);
   };
 
-  const renderItem = (item: SideBarItem, index: number, parentKey = "") => {
-    if (!item || isHidden(item)) return null;
+  const renderItem = (item: SideBarItem | undefined, index: number | undefined, parentKey = "") => {
+    if (!item || index === undefined || isHidden(item)) return null;
     const key = parentKey ? `${parentKey}-${index}` : `${index}`;
     const hasChildren =
       Array.isArray(item.itemList) && item.itemList.length > 0;
@@ -209,7 +207,7 @@ function SideBar({
 
   return (
     <nav
-      style={Css.container(removeDefaultStyle, colorScheme, darkMode, scheme)}
+      style={Css.container(removeDefaultStyle, colorScheme, darkMode)}
     >
       {itemList?.map((item?: SideBarItem, i?: number) => renderItem(item, i))}
     </nav>
