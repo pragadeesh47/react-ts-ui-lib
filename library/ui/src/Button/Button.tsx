@@ -1,5 +1,5 @@
 //@@viewOn:imports
-import React , {useState}from "react";
+import React, { useState } from "react";
 import colors, { type ColorScheme } from "../tools/colors";
 import Pending from "../Pending/Pending";
 import Icon from "../Icon/Icon";
@@ -21,11 +21,31 @@ const Css = {
     }
 
     const schemeColors = {
-      primary: { base: colors.primary.color, dark: colors.primaryDark.color, text: colors.text.color },
-      success: { base: colors.success.color, dark: colors.successDark.color, text: colors.text.color },
-      danger: { base: colors.danger.color, dark: colors.dangerDark.color, text: colors.text.color },
-      warning: { base: colors.warning.color, dark: colors.warningDark.color, text: colors.background.color },
-      info: { base: colors.info.color, dark: colors.infoDark.color, text: colors.background.color },
+      primary: {
+        base: colors.primary.color,
+        dark: colors.primaryDark.color,
+        text: colors.text.color,
+      },
+      success: {
+        base: colors.success.color,
+        dark: colors.successDark.color,
+        text: colors.text.color,
+      },
+      danger: {
+        base: colors.danger.color,
+        dark: colors.dangerDark.color,
+        text: colors.text.color,
+      },
+      warning: {
+        base: colors.warning.color,
+        dark: colors.warningDark.color,
+        text: colors.background.color,
+      },
+      info: {
+        base: colors.info.color,
+        dark: colors.infoDark.color,
+        text: colors.background.color,
+      },
     };
 
     const scheme = schemeColors[colorScheme];
@@ -44,7 +64,8 @@ const Css = {
       color: textColor,
       cursor: isDisabled ? "not-allowed" : "pointer",
       fontWeight: 600,
-      transition: "transform 120ms ease, background 160ms ease, color 160ms ease",
+      transition:
+        "transform 120ms ease, background 160ms ease, color 160ms ease",
       outline: "none",
       WebkitTapHighlightColor: "transparent",
       position: "relative",
@@ -80,7 +101,7 @@ const Css = {
   buttonFocus: (
     removeDefaultStyle?: boolean,
     disabled?: boolean,
-    pending?: boolean,
+    pending?: boolean
   ): React.CSSProperties => {
     if (removeDefaultStyle || disabled || pending) {
       return {};
@@ -108,7 +129,6 @@ const Css = {
 //@@viewOn:helpers
 //@@viewOff:helpers
 
-
 //@@viewOn:propTypes
 export type ButtonProps = {
   children?: React.ReactNode;
@@ -123,9 +143,9 @@ export type ButtonProps = {
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   icon?: string;
   iconPosition?: "left" | "right";
+  darkMode?: boolean;
 };
 //@@viewOff:propTypes
-
 
 const Button = ({
   children,
@@ -147,7 +167,7 @@ const Button = ({
 
   const isDisabled = disabled || isPending;
 
-   //@@viewOff:private
+  //@@viewOff:private
   //@@viewOn:render
   return (
     <button
@@ -155,12 +175,23 @@ const Button = ({
       className={className}
       style={{
         ...Css.button(removeDefaultStyle, disabled, isPending, colorScheme),
-        ...(hover && !isDisabled ? Css.buttonHover(removeDefaultStyle, disabled, isPending, colorScheme) : {}),
-        ...(focus && !isDisabled ? Css.buttonFocus(removeDefaultStyle, disabled, isPending) : {}),
+        ...(hover && !isDisabled
+          ? Css.buttonHover(
+              removeDefaultStyle,
+              disabled,
+              isPending,
+              colorScheme
+            )
+          : {}),
+        ...(focus && !isDisabled
+          ? Css.buttonFocus(removeDefaultStyle, disabled, isPending)
+          : {}),
       }}
       type={type}
       title={tooltip}
-      aria-label={tooltip ?? (typeof children === "string" ? children : undefined)}
+      aria-label={
+        tooltip ?? (typeof children === "string" ? children : undefined)
+      }
       aria-busy={isPending || undefined}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
@@ -169,9 +200,9 @@ const Button = ({
       onClick={onClick}
     >
       <span style={Css.content(isPending)}>
-        {iconPosition === "left" && (<Icon icon={icon}  />)}
+        {iconPosition === "left" && <Icon icon={icon} />}
         {children || label}
-        {iconPosition === "right" && ( <Icon icon={icon}  />)}
+        {iconPosition === "right" && <Icon icon={icon} />}
       </span>
       {isPending && (
         <span style={Css.spinnerContainer()}>

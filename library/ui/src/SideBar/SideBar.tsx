@@ -2,17 +2,22 @@
 import React, { useState } from "react";
 import type { SideBarProps, SideBarItem } from "./SideBar.types";
 import Icon from "../Icon/Icon";
-import colors, { type ColorScheme } from "../tools/colors";
+import { type ColorScheme } from "../tools/colors";
+import { getColorScheme } from "../tools/colors";
 //@@viewOff:imports
 
 //@@viewOn:css
 const Css = {
   container: (
     removeDefaultStyle?: boolean,
-    colorScheme: ColorScheme = "background"
+    colorScheme: ColorScheme = "background",
+    darkMode = true
   ): React.CSSProperties => {
     if (removeDefaultStyle) return {};
-    const scheme = colors[colorScheme];
+    const scheme = getColorScheme(colorScheme, darkMode);
+
+    // Border color: light in dark mode, dark in light mode
+    const borderColor = darkMode ? "#374151" : "#e5e7eb";
 
     return {
       backgroundColor: scheme.color,
@@ -20,7 +25,7 @@ const Css = {
       minHeight: "100vh",
       padding: "8px",
       boxSizing: "border-box",
-      borderRight: `1px solid ${scheme}`,
+      borderRight: `1px solid ${borderColor}`,
     };
   },
   openIcon: (removeDefaultStyle?: boolean) => {
@@ -31,14 +36,12 @@ const Css = {
   },
   item: (
     removeDefaultStyle?: boolean,
-    colorScheme: ColorScheme = "background"
+    colorScheme: ColorScheme = "background",
+    darkMode = true
   ): React.CSSProperties => {
     if (removeDefaultStyle) return {};
 
-    const textColor =
-      colorScheme === "warning" || colorScheme === "info"
-        ? colors.background.color
-        : colors.text.color;
+    const scheme = getColorScheme(colorScheme, darkMode);
 
     return {
       display: "flex",
@@ -48,7 +51,7 @@ const Css = {
       borderRadius: 6,
       cursor: "pointer",
       userSelect: "none",
-      color: textColor,
+      color: scheme.textColor,
       borderColor: "white",
     };
   },
@@ -64,18 +67,15 @@ const Css = {
   },
   title: (
     removeDefaultStyle?: boolean,
-    colorScheme: ColorScheme = "background"
+    colorScheme: ColorScheme = "background",
+    darkMode = true
   ): React.CSSProperties => {
     if (removeDefaultStyle) return {};
-
-    const textColor =
-      colorScheme === "warning" || colorScheme === "info"
-        ? colors.background.color
-        : colors.text.color;
+    const scheme = getColorScheme(colorScheme, darkMode);
 
     return {
       fontSize: 14,
-      color: textColor,
+      color: scheme.textColor,
     };
   },
 };
@@ -104,6 +104,7 @@ export type SideBarProps = {
   onItemClick?: (item: SideBarItem, e?: React.MouseEvent) => void;
   collapsed?: boolean;
   colorScheme?: ColorScheme;
+  darkMode?: boolean;
 };
 //@@viewOff:propTypes
 
@@ -115,7 +116,9 @@ function SideBar({
   onItemClick,
   collapsed = false,
   colorScheme = "background",
+  darkMode = true,
 }: SideBarProps) {
+  const scheme = getColorScheme(colorScheme, darkMode);
   const [openMap, setOpenMap] = useState<Record<string, boolean>>(() => {
     const initialMap: Record<string, boolean> = {};
     const collectDefaultExpanded = (items: SideBarItem[], parentKey = "") => {
@@ -164,15 +167,19 @@ function SideBar({
           }}
           className={className}
           style={{
-            ...Css.item(removeDefaultStyle, colorScheme),
+            ...Css.item(removeDefaultStyle, colorScheme, darkMode),
             ...(hasChildren ? { justifyContent: "space-between" } : {}),
           }}
           title={item.title}
         >
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            {item.icon ? <Icon icon={item.icon} size={1} /> : null}
+            {item.icon ? (
+              <Icon icon={item.icon} darkMode={darkMode} size={1} />
+            ) : null}
             {!collapsed && (
-              <span style={Css.title(removeDefaultStyle, colorScheme)}>
+              <span
+                style={Css.title(removeDefaultStyle, colorScheme, darkMode)}
+              >
                 {item.title}
               </span>
             )}
@@ -181,9 +188,9 @@ function SideBar({
           {hasChildren && !collapsed && (
             <span style={Css.openIcon(removeDefaultStyle)} aria-expanded={open}>
               {open ? (
-                <Icon icon="mdi-chevron-down" />
+                <Icon icon="mdi-chevron-down" darkMode={darkMode} />
               ) : (
-                <Icon icon="mdi-chevron-right" />
+                <Icon icon="mdi-chevron-right" darkMode={darkMode} />
               )}
             </span>
           )}
@@ -201,7 +208,9 @@ function SideBar({
   };
 
   return (
-    <nav style={Css.container(removeDefaultStyle, colorScheme)}>
+    <nav
+      style={Css.container(removeDefaultStyle, colorScheme, darkMode, scheme)}
+    >
       {itemList?.map((item?: SideBarItem, i?: number) => renderItem(item, i))}
     </nav>
   );

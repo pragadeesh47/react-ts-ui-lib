@@ -17,10 +17,11 @@ import routeList from "../app/tools/RouteList.ts";
 //@@viewOn:propTypes
 type LeftMenuPropTypes = {
   setSelectedItem: React.Dispatch<React.SetStateAction<SideBarItem | null>>;
+  darkMode?: boolean;
 };
 //@@viewOff:propTypes
 
-const LeftMenu = ({ setSelectedItem }: LeftMenuPropTypes) => {
+const LeftMenu = ({ setSelectedItem, darkMode }: LeftMenuPropTypes) => {
   //@@viewOn:private
   const handleItemClick = (item: SideBarItem) => {
     setSelectedItem(item);
@@ -28,7 +29,13 @@ const LeftMenu = ({ setSelectedItem }: LeftMenuPropTypes) => {
   //@@viewOff:private
 
   //@@viewOn:render
-  return <SideBar itemList={routeList} onItemClick={handleItemClick} />;
+  return (
+    <SideBar
+      itemList={routeList}
+      onItemClick={handleItemClick}
+      darkMode={darkMode}
+    />
+  );
   //@@viewOff:render
 };
 

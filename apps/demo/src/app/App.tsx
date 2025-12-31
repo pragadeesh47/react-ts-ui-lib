@@ -4,15 +4,33 @@ import LeftMenu from "./LeftMenu";
 import Content from "./Content";
 import type { SideBarItem } from "@react-ts-ui-lib/ui";
 import routeList from "./tools/RouteList";
-import { Navbar, ThemeToggle, Button } from "@react-ts-ui-lib/ui";
+import { Navbar, Button } from "@react-ts-ui-lib/ui";
+import { useTheme } from "./context/ThemeContext";
 
 //@@viewOff:imports
 
 //@@viewOn:constants
-const LOGO = "React TypeScript Ui Lib";
+const LOGO = "React TypeScript Lib";
+const SUNNY = "mdi-white-balance-sunny";
+const MOON = "mdi-moon-waxing-crescent";
 //@@viewOff:constants
 
 //@@viewOn:css
+const getThemeStyles = (darkMode: boolean): React.CSSProperties => {
+  if (darkMode) {
+    return {
+      backgroundColor: "#1b1d1fff",
+      color: "#e6eef8",
+      transition: "background-color 0.2s ease, color 0.2s ease",
+    };
+  } else {
+    return {
+      backgroundColor: "#f4f6f8",
+      color: "#0b1220",
+      transition: "background-color 0.2s ease, color 0.2s ease",
+    };
+  }
+};
 //@@viewOff:css
 
 //@@viewOn:helpers
@@ -23,32 +41,40 @@ const LOGO = "React TypeScript Ui Lib";
 
 function App() {
   //@@viewOn:private
+  const { darkMode, setDarkMode } = useTheme();
   const [selectedItem, setSelectedItem] = useState<SideBarItem | null>(
     routeList[0]
   );
-  const [darkMode, setDarkMode] = useState(true);
 
-  const _rightContent = (
-    <Button
-      icon={darkMode ? "mdi-white-balance-sunny" : "mdi-moon-waxing-crescent"}
-      onClick={() => setDarkMode(!darkMode)}
-    />
-  );
+  const RightContent = () => {
+    return (
+      <Button
+        icon={!darkMode ? SUNNY : MOON}
+        onClick={() => setDarkMode(!darkMode)}
+      />
+    );
+  };
 
   //@@viewOff:private
 
   //@@viewOn:render
   return (
-    <>
-      <Navbar logo={LOGO} rightContent={_rightContent} />
-
-      <div style={{ display: "flex", minHeight: "100vh" }}>
-        <LeftMenu setSelectedItem={setSelectedItem} />
+    <div
+      style={{
+        ...getThemeStyles(darkMode),
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <Navbar logo={LOGO} darkMode={darkMode} rightContent={<RightContent />} />
+      <div style={{ display: "flex", flex: 1 }}>
+        <LeftMenu setSelectedItem={setSelectedItem} darkMode={darkMode} />
         <div style={{ flex: 1, padding: "20px", overflow: "auto" }}>
           <Content selectedItem={selectedItem} />
         </div>
       </div>
-    </>
+    </div>
   );
   //@@viewOff:render
 }

@@ -9,7 +9,6 @@ import * as mdiIcons from "@mdi/js";
 //@@viewOn:css
 //@@viewOff:css
 
-
 //@@viewOn:helpers
 //@@viewOff:helpers
 
@@ -24,9 +23,9 @@ export type IconProps = {
   hidden?: boolean;
   label?: string;
   tooltip?: string;
+  darkMode?: boolean;
 };
 //@@viewOff:propTypes
-
 
 function Icon({
   icon = "mdi-close",
@@ -37,13 +36,13 @@ function Icon({
   removeDefaultStyle = false,
   hidden = false,
   label = "",
+  darkMode = true,
   tooltip,
 }: IconProps) {
   //@@viewOn:private
   if (hidden) return null;
   if (!icon) return null;
   if (typeof icon !== "string") return null;
-
 
   const camelCaseName = icon.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
   const path = (mdiIcons as Record<string, string>)[camelCaseName];
@@ -61,12 +60,16 @@ function Icon({
       className={`inline-flex items-center gap-1 ${className || ""}`}
       onClick={onClick}
       title={tooltip}
-      style={{ cursor: onClick ? "pointer" : "default", display: "flex", alignItems: "center" }}
+      style={{
+        cursor: onClick ? "pointer" : "default",
+        display: "flex",
+        alignItems: "center",
+      }}
     >
       <MdiIcon
         path={path}
         size={size}
-        color={color}
+        color={darkMode ? color : "black"}
         style={removeDefaultStyle ? {} : { display: "flex" }}
       />
       {label && <span>{label}</span>}

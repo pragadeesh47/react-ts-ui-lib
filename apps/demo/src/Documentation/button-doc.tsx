@@ -1,5 +1,5 @@
 //@@viewOn:imports
-import React from 'react'
+import React from "react";
 //@@viewOff:imports
 
 //@@viewOn:constants
@@ -14,7 +14,7 @@ import React from 'react'
 //@@viewOn:propTypes
 //@@viewOff:propTypes
 
-const Button = () => {
+const ButtonDoc = () => {
   //@@viewOn:private
   //@@viewOff:private
 
@@ -22,12 +22,13 @@ const Button = () => {
   return (
     <div>
       Button
+      <></>
     </div>
-  )
+  );
   //@@viewOff:render
-}
+};
 
 //@@viewOn:exports
-export { Button };
-export default Button
+export { ButtonDoc };
+export default ButtonDoc;
 //@@viewOff:exports

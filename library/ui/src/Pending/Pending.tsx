@@ -2,13 +2,11 @@
 import colors from "../tools/colors";
 //@@viewOff:imports
 
-
 //@@viewOn:constants
 //@@viewOff:constants
 
 //@@viewOn:css
 //@@viewOff:css
-
 
 //@@viewOn:helpers
 //@@viewOff:helpers
@@ -21,12 +19,11 @@ export type PendingProps = {
 };
 //@@viewOff:propTypes
 
-
 const Pending = ({ className, type = "circular", size = 18 }: PendingProps) => {
   const strokeBackground = colors.muted.color;
   const strokeForeground = colors.text.color;
 
-  if (type === "horizontal" ) {
+  if (type === "horizontal") {
     // horizontal track with moving foreground bar inside (light track, darker moving bar)
     const trackWidth = Math.max(48, size * 4);
     const height = Math.max(6, Math.floor(size / 4));

@@ -1,17 +1,21 @@
 //@@viewOn:imports
 import React from "react";
 import type { ReactNode } from "react";
-import colors, { type ColorScheme } from "../tools/colors";
+import { type ColorScheme, getColorScheme } from "../tools/colors";
 //@@viewOff:imports
 
 //@@viewOn:css
 const Css = {
   container: (
     removeDefaultStyle?: boolean,
-    colorScheme: ColorScheme = "background"
+    colorScheme: ColorScheme = "background",
+    darkMode = true
   ): React.CSSProperties => {
     if (removeDefaultStyle) return {};
-    const scheme = colors[colorScheme];
+    const scheme = getColorScheme(colorScheme, darkMode);
+
+    // Border color: light in dark mode, dark in light mode
+    const borderColor = darkMode ? "#374151" : "#e5e7eb";
 
     return {
       display: "flex",
@@ -20,9 +24,10 @@ const Css = {
       height: 56,
       padding: "0 16px",
       backgroundColor: scheme.color,
-      borderBottom: `1px solid ${scheme}`,
+      borderBottom: `1px solid ${borderColor}`,
       boxSizing: "border-box",
       minWidth: "100%",
+      color: scheme.textColor,
     };
   },
 
@@ -41,12 +46,15 @@ const Css = {
 
   logo: (
     removeDefaultStyle?: boolean,
+    colorScheme: ColorScheme = "background",
+    darkMode = true
   ): React.CSSProperties => {
     if (removeDefaultStyle) return {};
+    const scheme = getColorScheme(colorScheme, darkMode);
     return {
       fontSize: 18,
       fontWeight: 600,
-      color: colors.text.color,
+      color: scheme.textColor,
       cursor: "pointer",
     };
   },
@@ -70,6 +78,7 @@ export type NavbarProps = {
   onLogoClick?: () => void;
   removeDefaultStyle?: boolean;
   colorScheme?: ColorScheme;
+  darkMode?: boolean;
 };
 //@@viewOff:propTypes
 
@@ -79,16 +88,16 @@ function Navbar({
   centerContent,
   rightContent,
   onLogoClick,
-
   removeDefaultStyle = false,
   colorScheme = "background",
+  darkMode = true,
 }: NavbarProps) {
   return (
-    <header style={Css.container(removeDefaultStyle, colorScheme)}>
+    <header style={Css.container(removeDefaultStyle, colorScheme, darkMode)}>
       {/* LEFT – LOGO */}
       <div style={Css.section("left")}>
         <div
-          style={Css.logo(removeDefaultStyle)}
+          style={Css.logo(removeDefaultStyle, colorScheme, darkMode)}
           onClick={onLogoClick}
         >
           {logo}
