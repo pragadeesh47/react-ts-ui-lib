@@ -71,15 +71,52 @@ const Css = {
 //@@viewOff:css
 
 //@@viewOn:propTypes
-export type NavbarProps = {
-  logo?: string | ReactNode;
-  centerContent?: ReactNode;
-  rightContent?: ReactNode;
-  onLogoClick?: () => void;
-  removeDefaultStyle?: boolean;
-  colorScheme?: ColorScheme;
-  darkMode?: boolean;
+export const NavbarTypeScheme = {
+  logo: {
+    name: "Logo",
+    description: "Content rendered in the left section; string or custom node.",
+    required: false,
+    type: "LOGO" as string | ReactNode,
+  },
+  centerContent: {
+    name: "Center content",
+    description: "Content placed in the centered section of the navbar.",
+    required: false,
+    type: undefined as ReactNode,
+  },
+  rightContent: {
+    name: "Right content",
+    description: "Content placed in the right section (e.g., actions).",
+    required: false,
+    type: undefined as ReactNode,
+  },
+  onLogoClick: {
+    name: "On logo click",
+    description: "Callback fired when the logo is clicked.",
+    required: false,
+    type: undefined as () => void,
+  },
+  removeDefaultStyle: {
+    name: "Remove default style",
+    description: "Disables built-in styling for container, logo, and buttons.",
+    required: false,
+    type: false as boolean,
+  },
+  colorScheme: {
+    name: "Color scheme",
+    description: "Background and text colors based on theme palette.",
+    required: false,
+    type: "background" as ColorScheme,
+  },
+  darkMode: {
+    name: "Dark mode",
+    description: "Use dark mode palette when true.",
+    required: false,
+    type: true as boolean,
+  },
 };
+
+export type NavbarProps = { [K in keyof typeof NavbarTypeScheme]?: (typeof NavbarTypeScheme)[K]["type"] };
 //@@viewOff:propTypes
 
 //@@viewOn:render

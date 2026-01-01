@@ -12,12 +12,34 @@ import { getColorScheme } from "../tools/colors";
 //@@viewOff:helpers
 
 //@@viewOn:propTypes
-export type PendingProps = {
-  className?: string;
-  type?: "circular" | "horizontal";
-  size?: number;
-  darkMode?: boolean;
+export const PendingTypeScheme = {
+  className: {
+    name: "Class name",
+    description: "Additional CSS class names for the SVG element.",
+    required: false,
+    type: "" as string,
+  },
+  type: {
+    name: "Type",
+    description: "Spinner style: circular or horizontal bar.",
+    required: false,
+    type: "circular" as "circular" | "horizontal",
+  },
+  size: {
+    name: "Size",
+    description: "Base size in pixels (affects dimensions).",
+    required: false,
+    type: 18 as number,
+  },
+  darkMode: {
+    name: "Dark mode",
+    description: "Use dark mode palette when true.",
+    required: false,
+    type: true as boolean,
+  },
 };
+
+export type PendingProps = { [K in keyof typeof PendingTypeScheme]?: (typeof PendingTypeScheme)[K]["type"] };
 //@@viewOff:propTypes
 
 const Pending = ({ className, type = "circular", size = 18, darkMode = true }: PendingProps) => {

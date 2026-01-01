@@ -38,7 +38,7 @@ const Css = {
     };
 
     const scheme = schemeMap[colorScheme as string];
-    
+
     const isDisabled = disabled || pending;
     const background = isDisabled ? surfaceScheme.color : scheme.color;
     const textColor = isDisabled ? mutedScheme.color : scheme.textColor;
@@ -127,20 +127,104 @@ const Css = {
 //@@viewOff:helpers
 
 //@@viewOn:propTypes
+export const ButtonTypeScheme = {
+  children: {
+    name: "Children",
+    required: false,
+    description:
+      "Content rendered inside the button (text, icons, custom nodes).",
+    type: undefined as React.ReactNode,
+  },
+  disabled: {
+    name: "Disabled",
+    required: false,
+    description: "Prevents interaction and visually disables the button.",
+    type: false as boolean,
+  },
+  loading: {
+    name: "Loading",
+    description:
+      "Alias for pending state – indicates that an async action is running.",
+    required: false,
+    type: false as boolean,
+  },
+  colorScheme: {
+    name: "Color scheme",
+    description:
+      "Determines visual look of the button based on predefined color palette (primary, success, danger…).",
+    required: false,
+    type: "primary" as ColorScheme,
+  },
+  icon: {
+    name: "Icon",
+    description: "Name of mdi icon rendered inside the button.",
+    required: false,
+    type: "" as string,
+  },
+  iconPosition: {
+    name: "Icon position",
+    description:
+      "Controls whether icon is rendered on the left or right side of the content.",
+    required: false,
+    type: "undefined" as "left" | "right",
+  },
+  label: {
+    name: "Label",
+    description:
+      "Simple text alternative to children – useful for easy text buttons or accessibility.",
+    required: false,
+    type: "" as string,
+  },
+  onClick: {
+    name: "On click",
+    description: "Triggered when the user clicks the button.",
+    required: false,
+    type: undefined as (e: React.MouseEvent<HTMLButtonElement>) => void,
+  },
+  className: {
+    name: "Class name",
+    description:
+      "Additional CSS class names applied to the root button element.",
+    required: false,
+    type: "" as string,
+  },
+  removeDefaultStyle: {
+    name: "Remove default style",
+    description:
+      "Disables built-in styling and leaves only raw button element for full customization.",
+    required: false,
+    type: false as boolean,
+  },
+  tooltip: {
+    name: "Tooltip",
+    description: "Browser default tooltip shown when hovering over the button.",
+    required: false,
+    type: "" as string,
+  },
+  type: {
+    name: "Type",
+    description: "Native button type (button, submit, reset).",
+    required: false,
+    type: "" as "button" | "submit" | "reset",
+  },
+  darkMode: {
+    name: "Dark mode",
+    description:
+      "Renders the button using dark mode palette (affects colorScheme behavior).",
+    required: false,
+    type: true as boolean,
+  },
+  isPending: {
+    name: "Is pending",
+    description:
+      "Shows loading spinner and blocks interactions. Content becomes visually hidden.",
+    required: false,
+    type: false as boolean,
+  },
+};
+
 export type ButtonProps = {
-  children?: React.ReactNode;
-  disabled?: boolean;
-  className?: string;
-  removeDefaultStyle?: boolean;
-  type?: "button" | "submit" | "reset";
-  label?: string;
-  tooltip?: string;
-  isPending?: boolean;
-  colorScheme?: ColorScheme;
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  icon?: string;
-  iconPosition?: "left" | "right";
-  darkMode?: boolean;
+  [K in keyof typeof ButtonTypeScheme]?: (typeof ButtonTypeScheme)[K]["type"];
 };
 //@@viewOff:propTypes
 
@@ -172,7 +256,13 @@ const Button = ({
       disabled={isDisabled}
       className={className}
       style={{
-        ...Css.button(removeDefaultStyle, disabled, isPending, colorScheme, darkMode),
+        ...Css.button(
+          removeDefaultStyle,
+          disabled,
+          isPending,
+          colorScheme,
+          darkMode
+        ),
         ...(hover && !isDisabled
           ? Css.buttonHover(
               removeDefaultStyle,

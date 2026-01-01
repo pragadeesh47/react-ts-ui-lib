@@ -94,17 +94,64 @@ export type SideBarItem = {
   defaultExpandedItem?: boolean;
 };
 
-export type SideBarProps = {
-  itemList: SideBarItem[];
-  className?: string;
-  removeDefaultStyle?: boolean;
-  tooltip?: string;
-  label?: string;
-  onItemClick?: (item: SideBarItem, e?: React.MouseEvent) => void;
-  collapsed?: boolean;
-  colorScheme?: ColorScheme;
-  darkMode?: boolean;
+export const SideBarTypeScheme = {
+  itemList: {
+    name: "Items",
+    description: "Top-level items to render in the sidebar (can be nested).",
+    required: true,
+    type: [] as SideBarItem[],
+  },
+  className: {
+    name: "Class name",
+    description: "Additional class names for the container.",
+    required: false,
+    type: "" as string,
+  },
+  removeDefaultStyle: {
+    name: "Remove default style",
+    description: "Disables built-in container and item styling.",
+    required: false,
+    type: false as boolean,
+  },
+  tooltip: {
+    name: "Tooltip",
+    description: "Optional tooltip on the container (native title).",
+    required: false,
+    type: "" as string,
+  },
+  label: {
+    name: "Label",
+    description: "Optional label text for the container.",
+    required: false,
+    type: "" as string,
+  },
+  onItemClick: {
+    name: "On item click",
+    description: "Callback when an item is clicked; receives item and event.",
+    required: false,
+    type: undefined as (item: SideBarItem, e?: React.MouseEvent) => void,
+  },
+  collapsed: {
+    name: "Collapsed",
+    description: "Whether the sidebar is collapsed.",
+    required: false,
+    type: false as boolean,
+  },
+  colorScheme: {
+    name: "Color scheme",
+    description: "Background and text colors based on theme palette.",
+    required: false,
+    type: "background" as ColorScheme,
+  },
+  darkMode: {
+    name: "Dark mode",
+    description: "Use dark mode palette when true.",
+    required: false,
+    type: true as boolean,
+  },
 };
+
+export type SideBarProps = { [K in keyof typeof SideBarTypeScheme]?: (typeof SideBarTypeScheme)[K]["type"] };
 //@@viewOff:propTypes
 
 //@@viewOn:render

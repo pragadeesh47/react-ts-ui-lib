@@ -1,6 +1,6 @@
 //@@viewOn:imports
 import React, { Suspense } from "react";
-import type { SideBarItem } from "@react-ts-ui-lib/ui";
+import { Pending, type SideBarItem } from "@react-ts-ui-lib/ui";
 import componentMap from "./tools/ComponentMap";
 
 //@@viewOff:imports
@@ -32,8 +32,7 @@ const Content = ({ selectedItem }: ContentProps) => {
   //@@viewOn:render
   return (
     <div>
-      <h1>{selectedItem.title}</h1>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Pending />}>
         {Component ? (
           <Component />
         ) : (

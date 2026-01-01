@@ -18,7 +18,7 @@ const COLORS = {
   darkMuted: "#9ca3af",
 
   // Light theme colors
-  lightBg: "#f4f6f8",
+  lightBg: "#eeeef3",
   lightSurface: "#ffffff",
   lightText: "#0b1220",
   lightBorder: "#e5e7eb",

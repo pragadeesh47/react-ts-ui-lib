@@ -13,18 +13,70 @@ import * as mdiIcons from "@mdi/js";
 //@@viewOff:helpers
 
 //@@viewOn:propTypes
-export type IconProps = {
-  icon: string;
-  size?: number | string;
-  color?: string;
-  className?: string;
-  onClick?: React.MouseEventHandler<HTMLSpanElement>;
-  removeDefaultStyle?: boolean;
-  hidden?: boolean;
-  label?: string;
-  tooltip?: string;
-  darkMode?: boolean;
+export const IconTypeScheme = {
+  icon: {
+    name: "Icon name",
+    description: "Name of the Material Design Icon (mdi-*) to render.",
+    required: false,
+    type: "mdi-close" as string,
+  },
+  size: {
+    name: "Size",
+    description: "Icon size; can be a number (em) or string (CSS size).",
+    required: false,
+    type: 1 as number | string,
+  },
+  color: {
+    name: "Color",
+    description: "Icon color (CSS color value).",
+    required: false,
+    type: "white" as string,
+  },
+  className: {
+    name: "Class name",
+    description: "Additional class names for the wrapper span.",
+    required: false,
+    type: "" as string,
+  },
+  onClick: {
+    name: "On click",
+    description: "Click handler for the icon wrapper.",
+    required: false,
+    type: undefined as React.MouseEventHandler<HTMLSpanElement>,
+  },
+  removeDefaultStyle: {
+    name: "Remove default style",
+    description: "Render without default layout styles.",
+    required: false,
+    type: false as boolean,
+  },
+  hidden: {
+    name: "Hidden",
+    description: "If true, the icon is not rendered.",
+    required: false,
+    type: false as boolean,
+  },
+  label: {
+    name: "Label",
+    description: "Optional text label displayed next to the icon.",
+    required: false,
+    type: "" as string,
+  },
+  tooltip: {
+    name: "Tooltip",
+    description: "Browser tooltip shown on hover.",
+    required: false,
+    type: "" as string,
+  },
+  darkMode: {
+    name: "Dark mode",
+    description: "Use dark mode palette when true.",
+    required: false,
+    type: true as boolean,
+  },
 };
+
+export type IconProps = { [K in keyof typeof IconTypeScheme]?: (typeof IconTypeScheme)[K]["type"] };
 //@@viewOff:propTypes
 
 function Icon({

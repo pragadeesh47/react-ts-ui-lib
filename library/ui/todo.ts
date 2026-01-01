@@ -26,3 +26,5 @@
 // přidat do left menu propsu a logiku pro mobilní zobrazení levého panelu
 //todo na ikonách v button není cursore pointer
 //uložení dakr mode do local storage
+//route params na dokumentace
+//navbar přidat hamburger menu
