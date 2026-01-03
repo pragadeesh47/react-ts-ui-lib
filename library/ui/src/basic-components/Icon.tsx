@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 //@@viewOn:imports
 import { Icon as MdiIcon } from "@mdi/react";
 import * as mdiIcons from "@mdi/js";
@@ -15,61 +16,61 @@ import * as mdiIcons from "@mdi/js";
 //@@viewOn:propTypes
 export const IconTypeScheme = {
   icon: {
-    name: "Icon name",
+    name: "icon",
     description: "Name of the Material Design Icon (mdi-*) to render.",
     required: false,
     type: "mdi-close" as string,
   },
   size: {
-    name: "Size",
+    name: "size",
     description: "Icon size; can be a number (em) or string (CSS size).",
     required: false,
     type: 1 as number | string,
   },
   color: {
-    name: "Color",
+    name: "color",
     description: "Icon color (CSS color value).",
     required: false,
     type: "white" as string,
   },
   className: {
-    name: "Class name",
+    name: "className",
     description: "Additional class names for the wrapper span.",
     required: false,
     type: "" as string,
   },
   onClick: {
-    name: "On click",
+    name: "onClick",
     description: "Click handler for the icon wrapper.",
     required: false,
-    type: undefined as React.MouseEventHandler<HTMLSpanElement>,
+    type: (undefined as unknown) as React.MouseEventHandler<HTMLSpanElement>,
   },
   removeDefaultStyle: {
-    name: "Remove default style",
+    name: "removeDefaultStyle",
     description: "Render without default layout styles.",
     required: false,
     type: false as boolean,
   },
   hidden: {
-    name: "Hidden",
+    name: "hidden",
     description: "If true, the icon is not rendered.",
     required: false,
     type: false as boolean,
   },
   label: {
-    name: "Label",
+    name: "label",
     description: "Optional text label displayed next to the icon.",
     required: false,
     type: "" as string,
   },
   tooltip: {
-    name: "Tooltip",
+    name: "tooltip",
     description: "Browser tooltip shown on hover.",
     required: false,
     type: "" as string,
   },
   darkMode: {
-    name: "Dark mode",
+    name: "darkMode",
     description: "Use dark mode palette when true.",
     required: false,
     type: true as boolean,
@@ -94,7 +95,6 @@ function Icon({
   //@@viewOn:private
   if (hidden) return null;
   if (!icon) return null;
-  if (typeof icon !== "string") return null;
 
   const camelCaseName = icon.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
   const path = (mdiIcons as Record<string, string>)[camelCaseName];

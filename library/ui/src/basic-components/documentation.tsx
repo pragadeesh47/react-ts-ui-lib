@@ -75,25 +75,25 @@ export type DocCategory = {
 //@@viewOn:propTypes
 export const DocumentationTypeScheme = {
   title: {
-    name: "Title",
+    name: "title",
     description: "Optional page title rendered at the top.",
     required: false,
     type: "" as string,
   },
   propTypesList: {
-    name: "Prop types list",
+    name: "propTypesList",
     description: "Array of prop-type meta objects to render in the Prop Types table.",
     required: false,
     type: [] as Array<{ name: string; description?: string; required?: boolean }>,
   },
   componentList: {
-    name: "Component list",
+    name: "componentList",
     description: "Variant groups to preview components in labeled blocks.",
     required: false,
     type: [] as DocCategory[],
   },
   basicInfo: {
-    name: "Basic info",
+    name: "basicInfo",
     description: "Optional object for future general information section.",
     required: false,
     type: {} as object,

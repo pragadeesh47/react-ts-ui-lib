@@ -73,43 +73,43 @@ const Css = {
 //@@viewOn:propTypes
 export const NavbarTypeScheme = {
   logo: {
-    name: "Logo",
+    name: "logo",
     description: "Content rendered in the left section; string or custom node.",
     required: false,
     type: "LOGO" as string | ReactNode,
   },
   centerContent: {
-    name: "Center content",
+    name: "centerContent",
     description: "Content placed in the centered section of the navbar.",
     required: false,
     type: undefined as ReactNode,
   },
   rightContent: {
-    name: "Right content",
+    name: "rightContent",
     description: "Content placed in the right section (e.g., actions).",
     required: false,
     type: undefined as ReactNode,
   },
   onLogoClick: {
-    name: "On logo click",
+    name: "onLogoClick",
     description: "Callback fired when the logo is clicked.",
     required: false,
     type: undefined as () => void,
   },
   removeDefaultStyle: {
-    name: "Remove default style",
+    name: "removeDefaultStyle",
     description: "Disables built-in styling for container, logo, and buttons.",
     required: false,
     type: false as boolean,
   },
   colorScheme: {
-    name: "Color scheme",
+    name: "colorScheme",
     description: "Background and text colors based on theme palette.",
     required: false,
     type: "background" as ColorScheme,
   },
   darkMode: {
-    name: "Dark mode",
+    name: "darkMode",
     description: "Use dark mode palette when true.",
     required: false,
     type: true as boolean,

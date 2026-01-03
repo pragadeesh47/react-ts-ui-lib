@@ -14,25 +14,25 @@ import { getColorScheme } from "../tools/colors";
 //@@viewOn:propTypes
 export const PendingTypeScheme = {
   className: {
-    name: "Class name",
+    name: "className",
     description: "Additional CSS class names for the SVG element.",
     required: false,
     type: "" as string,
   },
   type: {
-    name: "Type",
+    name: "type",
     description: "Spinner style: circular or horizontal bar.",
     required: false,
     type: "circular" as "circular" | "horizontal",
   },
   size: {
-    name: "Size",
+    name: "size",
     description: "Base size in pixels (affects dimensions).",
     required: false,
     type: 18 as number,
   },
   darkMode: {
-    name: "Dark mode",
+    name: "darkMode",
     description: "Use dark mode palette when true.",
     required: false,
     type: true as boolean,

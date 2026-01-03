@@ -129,93 +129,93 @@ const Css = {
 //@@viewOn:propTypes
 export const ButtonTypeScheme = {
   children: {
-    name: "Children",
+    name: "children",
     required: false,
     description:
       "Content rendered inside the button (text, icons, custom nodes).",
     type: undefined as React.ReactNode,
   },
   disabled: {
-    name: "Disabled",
+    name: "disabled",
     required: false,
     description: "Prevents interaction and visually disables the button.",
     type: false as boolean,
   },
   loading: {
-    name: "Loading",
+    name: "loading",
     description:
       "Alias for pending state – indicates that an async action is running.",
     required: false,
     type: false as boolean,
   },
   colorScheme: {
-    name: "Color scheme",
+    name: "colorScheme",
     description:
       "Determines visual look of the button based on predefined color palette (primary, success, danger…).",
     required: false,
     type: "primary" as ColorScheme,
   },
   icon: {
-    name: "Icon",
+    name: "icon",
     description: "Name of mdi icon rendered inside the button.",
     required: false,
     type: "" as string,
   },
   iconPosition: {
-    name: "Icon position",
+    name: "iconPosition",
     description:
       "Controls whether icon is rendered on the left or right side of the content.",
     required: false,
     type: "undefined" as "left" | "right",
   },
   label: {
-    name: "Label",
+    name: "label",
     description:
       "Simple text alternative to children – useful for easy text buttons or accessibility.",
     required: false,
     type: "" as string,
   },
   onClick: {
-    name: "On click",
+    name: "onClick",
     description: "Triggered when the user clicks the button.",
     required: false,
     type: undefined as (e: React.MouseEvent<HTMLButtonElement>) => void,
   },
   className: {
-    name: "Class name",
+    name: "className",
     description:
       "Additional CSS class names applied to the root button element.",
     required: false,
     type: "" as string,
   },
   removeDefaultStyle: {
-    name: "Remove default style",
+    name: "removeDefaultStyle",
     description:
       "Disables built-in styling and leaves only raw button element for full customization.",
     required: false,
     type: false as boolean,
   },
   tooltip: {
-    name: "Tooltip",
+    name: "tooltip",
     description: "Browser default tooltip shown when hovering over the button.",
     required: false,
     type: "" as string,
   },
   type: {
-    name: "Type",
+    name: "type",
     description: "Native button type (button, submit, reset).",
     required: false,
     type: "" as "button" | "submit" | "reset",
   },
   darkMode: {
-    name: "Dark mode",
+    name: "darkMode",
     description:
       "Renders the button using dark mode palette (affects colorScheme behavior).",
     required: false,
     type: true as boolean,
   },
   isPending: {
-    name: "Is pending",
+    name: "isPending",
     description:
       "Shows loading spinner and blocks interactions. Content becomes visually hidden.",
     required: false,
