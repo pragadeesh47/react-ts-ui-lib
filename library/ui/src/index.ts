@@ -5,6 +5,7 @@ export { Icon } from "./basic-components/Icon";
 export { SideBar } from "./basic-components/SideBar";
 export { Navbar } from "./basic-components/Navbar";
 export { Documentation } from "./basic-components/Documentation";
+export { Badge } from "./basic-components/Badge";
 
 // Prop Schemes (for docs)
 export { ButtonTypeScheme } from "./basic-components/Button";
@@ -13,8 +14,10 @@ export { NavbarTypeScheme } from "./basic-components/Navbar";
 export { PendingTypeScheme } from "./basic-components/Pending";
 export { SideBarTypeScheme } from "./basic-components/SideBar";
 export { DocumentationTypeScheme } from "./basic-components/Documentation";
+export { BadgeTypeScheme } from "./basic-components/Badge";
 
 // Types
 export type { PendingProps } from "./basic-components/Pending";
 export type { NavbarProps } from "./basic-components/Navbar";
 export type { SideBarItem, SideBarProps } from "./basic-components/SideBar";
+export type { BadgeProps } from "./basic-components/Badge";

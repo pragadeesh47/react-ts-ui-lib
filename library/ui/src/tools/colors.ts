@@ -289,3 +289,46 @@ export const getColorScheme = (colorScheme: ColorScheme, darkMode: boolean) => {
 
   return theme[colorScheme] as ColorEntry;
 };
+
+// Significance handling
+export type Significance = "common" | "highlighted" | "distinct";
+
+const hexToRgba = (hex: string, alpha: number) => {
+  const sanitized = hex.replace("#", "");
+  const r = parseInt(sanitized.substring(0, 2), 16);
+  const g = parseInt(sanitized.substring(2, 4), 16);
+  const b = parseInt(sanitized.substring(4, 6), 16);
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+};
+
+const highlightedMap: Partial<Record<ColorScheme, ColorScheme>> = {
+  primary: "primaryDark",
+  success: "successDark",
+  danger: "dangerDark",
+  warning: "warningDark",
+  info: "infoDark",
+  primaryHover: "primaryDark",
+};
+
+export const getSignificanceColor = (
+  colorScheme: ColorScheme,
+  significance: Significance = "common",
+  darkMode: boolean = true
+) => {
+  if (significance === "common") {
+    return getColorScheme(colorScheme, darkMode);
+  }
+
+  if (significance === "highlighted") {
+    const mappedScheme = highlightedMap[colorScheme] ?? colorScheme;
+    return getColorScheme(mappedScheme, darkMode);
+  }
+
+  // distinct
+  const baseScheme = getColorScheme(colorScheme, darkMode);
+  return {
+    color: hexToRgba(baseScheme.color, 0.2),
+    textColor: baseScheme.color,
+    key: baseScheme.key,
+  } as ColorEntry;
+};

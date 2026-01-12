@@ -10,6 +10,7 @@ const componentMap: { [key: string]: React.LazyExoticComponent<React.FC> } = {
   Icon: React.lazy(() => import("../../Documentation/Icon-doc")),
   Button: React.lazy(() => import("../../Documentation/Button-doc")),
   Navbar: React.lazy(() => import("../../Documentation/Navbar-doc")),
+  Badge: React.lazy(() => import("../../Documentation/Badge-doc")),
 };
 
 export { componentMap };

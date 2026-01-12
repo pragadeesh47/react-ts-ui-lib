@@ -4,6 +4,7 @@ const componentList = [
   { title: "Pending", icon: "mdi-loading" },
   { title: "SideBar", icon: "mdi-menu-close" },
   { title: "Navbar", icon: "mdi-menu" },
+  { title: "Badge", icon: "mdi-label" },
 ];
 
 export { componentList };
