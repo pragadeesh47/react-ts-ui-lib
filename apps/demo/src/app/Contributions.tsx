@@ -1,6 +1,7 @@
 //@@viewOn:imports
-import { Pending } from "@react-ts-ui-lib/ui";
+import { Pendin, getBorderColor } from "@react-ts-ui-lib/ui";
 import { useEffect, useState } from "react";
+import { useTheme } from "./context/ThemeContext";
 //@@viewOff:imports
 
 //@@viewOn:constants
@@ -34,7 +35,9 @@ interface Contributor {
 
 function Contributions() {
   //@@viewOn:private
+  const { darkMode } = useTheme();
   const [contributors, setContributions] = useState<Contributor[]>([]);
+  const borderColor = getBorderColor(darkMode);
 
   const fetchContributors = async () => {
     const response = await fetch(
@@ -77,7 +80,7 @@ function Contributions() {
             <th
               style={{
                 textAlign: "left",
-                borderBottom: "1px solid #ccc",
+                borderBottom: `1px solid ${borderColor}`,
                 padding: "8px",
               }}
             >
@@ -86,7 +89,7 @@ function Contributions() {
             <th
               style={{
                 textAlign: "left",
-                borderBottom: "1px solid #ccc",
+                borderBottom: `1px solid ${borderColor}`,
                 padding: "8px",
               }}
             >
@@ -95,7 +98,7 @@ function Contributions() {
             <th
               style={{
                 textAlign: "right",
-                borderBottom: "1px solid #ccc",
+                borderBottom: `1px solid ${borderColor}`,
                 padding: "8px",
               }}
             >
@@ -106,7 +109,7 @@ function Contributions() {
         <tbody>
           {contributors.map((c) => (
             <tr key={c.id}>
-              <td style={{ padding: "8px", borderBottom: "1px solid #eee" }}>
+              <td style={{ padding: "8px", borderBottom: `1px solid ${borderColor}` }}>
                 <img
                   src={c.avatar_url}
                   alt={c.login}
@@ -115,7 +118,7 @@ function Contributions() {
                   style={{ borderRadius: 4 }}
                 />
               </td>
-              <td style={{ padding: "8px", borderBottom: "1px solid #eee" }}>
+              <td style={{ padding: "8px", borderBottom: `1px solid ${borderColor}` }}>
                 <a href={c.html_url} target="_blank" rel="noreferrer">
                   {c.login}
                 </a>
@@ -123,7 +126,7 @@ function Contributions() {
               <td
                 style={{
                   padding: "8px",
-                  borderBottom: "1px solid #eee",
+                  borderBottom: `1px solid ${borderColor}`,
                   textAlign: "right",
                 }}
               >

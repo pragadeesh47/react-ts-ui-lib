@@ -1,5 +1,5 @@
 //@@viewOn:imports
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import LeftMenu from "./LeftMenu";
 import Content from "./Content";
 import type { SideBarItem } from "@react-ts-ui-lib/ui";
@@ -8,6 +8,7 @@ import { Navbar, Button } from "@react-ts-ui-lib/ui";
 import { useTheme } from "./context/ThemeContext";
 import { useLanguage } from "./context/LanguageContext";
 import { useTranslation } from "../i18n/useTranslation";
+import { getColorScheme } from "@react-ts-ui-lib/ui";
 
 //@@viewOff:imports
 
@@ -24,19 +25,14 @@ const LANGUAGE_MAP: Record<string, string> = {
 
 //@@viewOn:css
 const getThemeStyles = (darkMode: boolean): React.CSSProperties => {
-  if (darkMode) {
-    return {
-      backgroundColor: "#0d1117",
-      color: "#c9d1d9",
-      transition: "background-color 0.2s ease, color 0.2s ease",
-    };
-  } else {
-    return {
-      backgroundColor: "#ffffff",
-      color: "#24292f",
-      transition: "background-color 0.2s ease, color 0.2s ease",
-    };
-  }
+  const backgroundScheme = getColorScheme("background", darkMode);
+  const textScheme = getColorScheme("text", darkMode);
+  
+  return {
+    backgroundColor: backgroundScheme.color,
+    color: textScheme.color,
+    transition: "background-color 0.2s ease, color 0.2s ease",
+  };
 };
 //@@viewOff:css
 
@@ -55,6 +51,21 @@ function App() {
   const [selectedItem, setSelectedItem] = useState<SideBarItem | null>(() => 
     routeList.length > 0 ? routeList[0] : null
   );
+
+  useEffect(() => {
+    const backgroundScheme = getColorScheme("background", darkMode);
+    document.body.style.backgroundColor = backgroundScheme.color;
+    document.body.style.color = backgroundScheme.textColor;
+    document.documentElement.style.backgroundColor = backgroundScheme.color;
+    document.documentElement.style.color = backgroundScheme.textColor;
+    
+    return () => {
+      document.body.style.backgroundColor = "";
+      document.body.style.color = "";
+      document.documentElement.style.backgroundColor = "";
+      document.documentElement.style.color = "";
+    };
+  }, [darkMode]);
 
   const RightContent = () => {
     return (

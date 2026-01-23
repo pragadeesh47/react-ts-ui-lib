@@ -1,51 +1,58 @@
+/* eslint-disable react-refresh/only-export-components */
 //@@viewOn:imports
 import React from "react";
 import Block from "./Block";
+import { getColorScheme, getBorderColor } from "../tools/colors";
 //@@viewOff:imports
 
 //@@viewOn:constants
 //@@viewOff:constants
 
 //@@viewOn:css
-const Css = {
-  section: {
-    marginTop: 24,
-  } as React.CSSProperties,
-  table: {
-    width: "100%",
-    borderCollapse: "collapse",
-    marginTop: 8,
-  } as React.CSSProperties,
-  th: {
-    textAlign: "left",
-    borderBottom: "1px solid #ccc",
-    padding: "8px",
-  } as React.CSSProperties,
-  td: {
-    borderBottom: "1px solid #eee",
-    padding: "8px",
-    verticalAlign: "middle",
-  } as React.CSSProperties,
-  itemsGrid: {
-    display: "flex",
-    flexWrap: "wrap",
-    gap: 12,
-    alignItems: "stretch",
-  } as React.CSSProperties,
-  itemCard: {
-    display: "inline-flex",
-    flexDirection: "column",
-    alignItems: "center",
-    gap: 6,
-    padding: 8,
-    borderRadius: 8,
-    background: "transparent",
-  } as React.CSSProperties,
-  itemLabel: {
-    fontSize: 12,
-    color: "#666",
-    textAlign: "center",
-  } as React.CSSProperties,
+const getCss = (darkMode: boolean = true) => {
+  const borderColor = getBorderColor(darkMode);
+  const mutedScheme = getColorScheme("muted", darkMode);
+
+  return {
+    section: {
+      marginTop: 24,
+    } as React.CSSProperties,
+    table: {
+      width: "100%",
+      borderCollapse: "collapse",
+      marginTop: 8,
+    } as React.CSSProperties,
+    th: {
+      textAlign: "left",
+      borderBottom: `1px solid ${borderColor}`,
+      padding: "8px",
+    } as React.CSSProperties,
+    td: {
+      borderBottom: `1px solid ${borderColor}`,
+      padding: "8px",
+      verticalAlign: "middle",
+    } as React.CSSProperties,
+    itemsGrid: {
+      display: "flex",
+      flexWrap: "wrap",
+      gap: 12,
+      alignItems: "stretch",
+    } as React.CSSProperties,
+    itemCard: {
+      display: "inline-flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: 6,
+      padding: 8,
+      borderRadius: 8,
+      background: "transparent",
+    } as React.CSSProperties,
+    itemLabel: {
+      fontSize: 12,
+      color: mutedScheme.color,
+      textAlign: "center",
+    } as React.CSSProperties,
+  };
 };
 //@@viewOff:css
 
@@ -120,11 +127,13 @@ const Documentation = ({
   //@@viewOff:private
 
   //@@viewOn:render
+  const Css = getCss(darkMode);
+
   return (
     <div>
       {title && <h1>{title}</h1>}
 
-       {componentList && componentList.length > 0 && (
+      {componentList && componentList.length > 0 && (
         <section style={Css.section}>
           {componentList.map((group, gi) => (
             <Block key={gi} card="full" header={group.category} darkMode={darkMode}>
@@ -140,8 +149,8 @@ const Documentation = ({
           ))}
         </section>
       )}
-
-       {propTypesList && propTypesList.length > 0 && (
+     <Block card="full" darkMode={darkMode}>
+      {propTypesList && propTypesList.length > 0 && (
         <section style={Css.section}>
           <h2>{propTypesTitle}</h2>
           <table style={Css.table}>
@@ -153,6 +162,7 @@ const Documentation = ({
               <th style={Css.th}>{propTypesRequiredLabel}</th>
             </tr>
             <tbody></tbody>
+       
             {propTypesList.map((propType, index: number) => (
               <tr key={index}>
                 <td style={Css.td}>{propType.name}</td>
@@ -163,11 +173,9 @@ const Documentation = ({
             ))}
           </table>
         </section>
+       
       )}
-
-     
-
-     
+       </Block>
     </div>
   );
   //@@viewOff:render

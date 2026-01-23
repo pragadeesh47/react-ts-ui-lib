@@ -1,7 +1,7 @@
 //@@viewOn:imports
 import React, { useState } from "react";
 import Icon from "./Icon";
-import { type ColorScheme, getColorScheme, getBorderColor } from "../tools/colors";
+import { type ColorScheme, getColorScheme, getBorderColor, getRgbaFromScheme } from "../tools/colors";
 //@@viewOff:imports
 
 //@@viewOn:css
@@ -40,6 +40,7 @@ const Css = {
     if (removeDefaultStyle) return {};
 
     const scheme = getColorScheme(colorScheme, darkMode);
+    const primaryScheme = getColorScheme("primary", darkMode);
     
     const baseStyle: React.CSSProperties = {
       display: "flex",
@@ -55,18 +56,26 @@ const Css = {
     };
 
     if (isActive) {
+      const primaryColor = primaryScheme.color;
+      const primaryRgba = getRgbaFromScheme("primary", darkMode, darkMode ? 0.15 : 0.1);
+      
       return {
         ...baseStyle,
-        backgroundColor: darkMode ? "rgba(88, 166, 255, 0.15)" : "rgba(9, 105, 218, 0.1)",
-        color: darkMode ? "#58a6ff" : "#0969da",
+        backgroundColor: primaryRgba,
+        color: primaryColor,
         fontWeight: 500,
+        borderLeft: `3px solid ${primaryColor}`,
+        borderTopLeftRadius: 0,
+        borderBottomLeftRadius: 0,
       };
     }
 
     if (isHovered) {
+      const hoverAlpha = darkMode ? 0.1 : 0.05;
+      const hoverBg = getRgbaFromScheme(darkMode ? "white" : "black", darkMode, hoverAlpha);
       return {
         ...baseStyle,
-        backgroundColor: darkMode ? "rgba(110, 118, 129, 0.1)" : "rgba(208, 215, 222, 0.5)",
+        backgroundColor: hoverBg,
       };
     }
 
@@ -91,10 +100,11 @@ const Css = {
   ): React.CSSProperties => {
     if (removeDefaultStyle) return {};
     const scheme = getColorScheme(colorScheme, darkMode);
+    const primaryScheme = isActive ? getColorScheme("primary", darkMode) : null;
 
     return {
       fontSize: 14,
-      color: isActive ? (darkMode ? "#58a6ff" : "#0969da") : scheme.textColor,
+      color: isActive && primaryScheme ? primaryScheme.color : scheme.textColor,
       fontWeight: isActive ? 500 : 400,
     };
   },
@@ -150,7 +160,7 @@ function SideBar({
   removeDefaultStyle = false,
   onItemClick,
   collapsed = false,
-  colorScheme = "background",
+  colorScheme = "surface",
   darkMode = true,
   selectedItem,
 }: SideBarProps) {

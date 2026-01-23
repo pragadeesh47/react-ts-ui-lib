@@ -1,7 +1,7 @@
 //@@viewOn:imports
 import React from "react";
 import type { ReactNode } from "react";
-import { type ColorScheme, getColorScheme, getBorderColor } from "../tools/colors";
+import { type ColorScheme, getColorScheme, getBorderColor, getRgbaFromScheme } from "../tools/colors";
 //@@viewOff:imports
 
 //@@viewOn:css
@@ -33,7 +33,7 @@ const Css = {
             position: "sticky",
             top: 0,
             zIndex: 1000,
-            backgroundColor: darkMode ? "rgba(13, 17, 23, 0.8)" : "rgba(255, 255, 255, 0.8)",
+            backgroundColor: getRgbaFromScheme(colorScheme, darkMode, 0.9),
           }
         : {}),
     };
@@ -112,7 +112,7 @@ function Navbar({
   rightContent,
   onLogoClick,
   removeDefaultStyle = false,
-  colorScheme = "background",
+  colorScheme = "surface",
   darkMode = true,
   sticky = false,
 }: NavbarProps) {

@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 //@@viewOn:imports
 import React, { useState, useRef, useEffect } from "react";
 import {
@@ -334,29 +333,21 @@ const Block = ({
   const scheme = getSignificanceColor(colorScheme, significance, darkMode);
   const shadowScheme = getColorScheme("shadow", darkMode);
   
-  // Pro barevná schémata (primary, success, danger, atd.) použijeme jemnější border
-  // Pro neutrální schémata (background, surface, text, muted, border) použijeme standardní border
-  const isColorfulScheme = ["primary", "primaryHover", "primaryDark", "success", "successDark", 
-    "danger", "dangerDark", "warning", "warningDark", "info", "infoDark"].includes(colorScheme);
-  
-  const borderColor = isColorfulScheme 
-    ? (darkMode ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)")
-    : getBorderColor(darkMode);
+  const borderColor = getBorderColor(darkMode);
 
-  // Lehce odlišná barva pro Block - jemnější odstín než background
   let background = scheme.color;
   if (colorScheme === "background" || colorScheme === "surface") {
-    background = darkMode 
-      ? "#161b22"  // Lehce světlejší než hlavní background
-      : "#f6f8fa"; // Lehce tmavší než hlavní background
+    const surfaceScheme = getColorScheme("surface", darkMode);
+    background = surfaceScheme.color;
   }
 
   const textColor = scheme.textColor;
   const borderRadiusValue = getRadiusValue(borderRadius);
 
+  const shadowColor = shadowScheme.color;
   const shadow = darkMode
-    ? `0 1px 3px rgba(1, 4, 9, 0.12), 0 8px 24px rgba(1, 4, 9, 0.08)`
-    : `0 1px 3px rgba(27, 31, 36, 0.12), 0 8px 24px rgba(27, 31, 36, 0.08)`;
+    ? `0 1px 2px ${shadowColor}, 0 4px 12px ${shadowColor}`
+    : `0 1px 3px ${shadowColor}, 0 8px 24px ${shadowColor}`;
 
   const hasHeader = header || ActionList || info || collapsible;
 

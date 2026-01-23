@@ -4,25 +4,26 @@ type ColorEntry = {
   key: string;
 };
 
-// Common colors used across themes - GitHub-inspired palette
+// Common colors used across themes - Netflix-inspired palette
 const COLORS = {
   // Whites & Transparent
   white: "#ffffff",
+  black: "#000000",
   transparent: "transparent",
 
-  // Dark theme colors (GitHub dark mode)
-  darkBg: "#0d1117",
-  darkSurface: "#161b22",
-  darkText: "#c9d1d9",
-  darkBorder: "#30363d",
-  darkMuted: "#8b949e",
+  // Dark theme colors (Netflix dark mode)
+  darkBg: "#141414",
+  darkSurface: "#1a1a1a",
+  darkText: "#e5e5e5",
+  darkBorder: "#333333",
+  darkMuted: "#b3b3b3",
 
-  // Light theme colors (GitHub light mode)
-  lightBg: "#ffffff",
-  lightSurface: "#f6f8fa",
-  lightText: "#24292f",
-  lightBorder: "#d0d7de",
-  lightMuted: "#656d76",
+  // Light theme colors (Netflix-inspired light mode)
+  lightBg: "#f5f5f5",
+  lightSurface: "#ffffff",
+  lightText: "#141414",
+  lightBorder: "#e0e0e0",
+  lightMuted: "#808080",
 
   // Primary colors (GitHub blue)
   primary: "#0969da",
@@ -49,9 +50,9 @@ const COLORS = {
   warning: "#9a6700",
   warningDark: "#bf8700",
 
-  // Shadow colors (GitHub shadows)
-  shadowDark: "rgba(1,4,9,0.15)",
-  shadowLight: "rgba(27,31,36,0.15)",
+  // Shadow colors - dark mode uses lighter shadows, light mode uses darker shadows
+  shadowDark: "rgba(255,255,255,0.1)",
+  shadowLight: "rgba(0,0,0,0.15)",
 } as const;
 
 const dark = {
@@ -68,7 +69,7 @@ const dark = {
     key: "surface" as const,
   },
 
-  // Primary action color (buttons, links) - GitHub dark mode
+  // Primary action color (buttons, links) - GitHub blue
   primary: {
     color: COLORS.infoDark,
     textColor: COLORS.white,
@@ -85,7 +86,7 @@ const dark = {
     key: "primaryDark" as const,
   },
 
-  // Informational / accent (GitHub dark mode)
+  // Informational / accent (GitHub blue)
   info: {
     color: COLORS.infoDark,
     textColor: COLORS.white,
@@ -97,7 +98,7 @@ const dark = {
     key: "infoDark" as const,
   },
 
-  // Status colors (GitHub dark mode)
+  // Status colors (GitHub colors)
   success: {
     color: COLORS.successDark,
     textColor: COLORS.white,
@@ -153,6 +154,18 @@ const dark = {
     color: COLORS.shadowDark,
     textColor: COLORS.transparent,
     key: "shadow" as const,
+  },
+  
+  // Utility colors
+  white: {
+    color: COLORS.white,
+    textColor: COLORS.black,
+    key: "white" as const,
+  },
+  black: {
+    color: COLORS.black,
+    textColor: COLORS.white,
+    key: "black" as const,
   },
 } as const;
 
@@ -247,6 +260,18 @@ const light = {
     textColor: COLORS.transparent,
     key: "shadow" as const,
   },
+  
+  // Utility colors
+  white: {
+    color: COLORS.white,
+    textColor: COLORS.black,
+    key: "white" as const,
+  },
+  black: {
+    color: COLORS.black,
+    textColor: COLORS.white,
+    key: "black" as const,
+  },
 } as const;
 
 export const themes = {
@@ -274,6 +299,8 @@ export const colorsKeyList = [
   dark.muted.key,
   dark.border.key,
   dark.shadow.key,
+  dark.white.key,
+  dark.black.key,
 ] as const;
 
 export type ColorScheme = (typeof colorsKeyList)[number];
@@ -292,14 +319,6 @@ export const getColorScheme = (colorScheme: ColorScheme, darkMode: boolean) => {
 
 // Significance handling
 export type Significance = "common" | "highlighted" | "distinct" | "subdued";
-
-const hexToRgba = (hex: string, alpha: number) => {
-  const sanitized = hex.replace("#", "");
-  const r = parseInt(sanitized.substring(0, 2), 16);
-  const g = parseInt(sanitized.substring(2, 4), 16);
-  const b = parseInt(sanitized.substring(4, 6), 16);
-  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-};
 
 const highlightedMap: Partial<Record<ColorScheme, ColorScheme>> = {
   primary: "primaryDark",
@@ -377,4 +396,23 @@ export const getBorderStyle = (
   return {
     border: borderValue,
   };
+};
+
+// Helper function to convert hex to rgba
+export const hexToRgba = (hex: string, alpha: number): string => {
+  const sanitized = hex.replace("#", "");
+  const r = parseInt(sanitized.substring(0, 2), 16);
+  const g = parseInt(sanitized.substring(2, 4), 16);
+  const b = parseInt(sanitized.substring(4, 6), 16);
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+};
+
+// Helper function to get rgba from color scheme
+export const getRgbaFromScheme = (
+  colorScheme: ColorScheme,
+  darkMode: boolean,
+  alpha: number
+): string => {
+  const scheme = getColorScheme(colorScheme, darkMode);
+  return hexToRgba(scheme.color, alpha);
 };

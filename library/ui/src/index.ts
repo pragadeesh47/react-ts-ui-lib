@@ -4,9 +4,13 @@ export { Pending } from "./basic-components/Pending";
 export { Icon } from "./basic-components/Icon";
 export { SideBar } from "./basic-components/SideBar";
 export { Navbar } from "./basic-components/Navbar";
-export { Documentation } from "./basic-components/documentation";
+export { Documentation } from "./basic-components/Documentation";
 export { Badge } from "./basic-components/Badge";
 export { Block } from "./basic-components/Block";
+
+// Color utilities
+export { getColorScheme, getBorderColor, getRgbaFromScheme, hexToRgba } from "./tools/colors";
+export type { ColorScheme } from "./tools/colors";
 
 // Prop Names (for docs)
 export { BUTTON_PROP_NAMES } from "./basic-components/Button";
