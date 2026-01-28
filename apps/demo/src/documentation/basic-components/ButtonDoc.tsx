@@ -1,8 +1,8 @@
 //@@viewOn:imports
 import { Documentation, BUTTON_PROP_NAMES, Button } from "@react-ts-ui-lib/ui";
-import { useTranslation } from "../i18n/useTranslation";
-import { getPropsWithTranslations } from "../i18n/getPropsWithTranslations";
-import { useTheme } from "../app/context/ThemeContext";
+import { useTranslation } from "../../i18n/useTranslation";
+import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
+import { useTheme } from "../../app/context/themeContext";
 //@@viewOff:imports
 
 //@@viewOn:component

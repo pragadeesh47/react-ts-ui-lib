@@ -1,9 +1,9 @@
 //@@viewOn:imports
 import { useState } from "react";
 import { Documentation, NAVBAR_PROP_NAMES, Navbar as UiNavbar, Icon, Button } from "@react-ts-ui-lib/ui";
-import { useTranslation } from "../i18n/useTranslation";
-import { getPropsWithTranslations } from "../i18n/getPropsWithTranslations";
-import { useTheme } from "../app/context/ThemeContext";
+import { useTranslation } from "../../i18n/useTranslation";
+import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
+import { useTheme } from "../../app/context/themeContext";
 //@@viewOff:imports
 
 //@@viewOn:component

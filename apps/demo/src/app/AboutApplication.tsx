@@ -1,8 +1,7 @@
 //@@viewOn:imports
-import React from "react";
 import { Block } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../i18n/useTranslation";
-import { useTheme } from "./context/ThemeContext";
+import { useTheme } from "./context/themeContext";
 //@@viewOff:imports
 
 //@@viewOn:constants

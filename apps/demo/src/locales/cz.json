@@ -337,19 +337,25 @@
     },
     "routes": {
       "home": "Domů",
-      "documentation": "Dokumentace",
+      "basicComponents": "Základní komponenty",
+      "utilities": "Utility",
       "profile": "Profil",
       "contributors": "Přispěvatelé",
       "aboutApplication": "O aplikaci"
     },
     "components": {
-      "button": "Button",
-      "icon": "Icon",
-      "pending": "Pending",
-      "sidebar": "SideBar",
-      "navbar": "Navbar",
-      "badge": "Badge",
-      "block": "Block"
+      "button": "Tlačítko",
+      "icon": "Ikona",
+      "pending": "Načítání",
+      "sidebar": "Postranní menu",
+      "navbar": "Navigační lišta",
+      "badge": "Odznak",
+      "block": "Blok",
+      "number": "Číslo",
+      "input": "Vstupní pole"
+    },
+    "utilities": {
+      "copyToClipboard": "Kopírovat do schránky"
     }
   },
   "block": {
@@ -495,6 +501,119 @@
       "light": "Světlý"
     }
   },
+  "number": {
+    "title": "Number Komponenta",
+    "props": {
+      "value": {
+        "description": "Číselná hodnota k zobrazení.",
+        "type": "number",
+        "required": "true"
+      },
+      "tooltip": {
+        "description": "Volitelný text tooltipu.",
+        "type": "string",
+        "required": "false"
+      },
+      "wholeLengthNumberInTooltip": {
+        "description": "Zobrazí celé číslo v tooltipu.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "minDecimalDigits": {
+        "description": "Minimální počet desetinných míst.",
+        "type": "number",
+        "required": "false"
+      },
+      "className": {
+        "description": "Dodatečné CSS třídy.",
+        "type": "string",
+        "required": "false"
+      }
+    },
+    "examples": {
+      "basic": "Základní",
+      "decimals": "S desetinnými místy",
+      "tooltip": "S tooltipem",
+      "customTooltip": "S vlastním tooltipem"
+    }
+  },
+  "input": {
+    "title": "Input Komponenta",
+    "props": {
+      "className": {
+        "description": "Dodatečné CSS třídy.",
+        "type": "string",
+        "required": "false"
+      },
+      "removeDefaultStyle": {
+        "description": "Odstraní výchozí styling.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "placeholder": {
+        "description": "Text zástupného symbolu zobrazeného v poli vstupu.",
+        "type": "string",
+        "required": "false"
+      },
+      "value": {
+        "description": "Hodnota pole vstupu.",
+        "type": "string",
+        "required": "false"
+      },
+      "required": {
+        "description": "Označuje vstup jako povinný.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "label": {
+        "description": "Text štítku zobrazeného nad vstupem.",
+        "type": "string",
+        "required": "false"
+      },
+      "onChange": {
+        "description": "Volání, když se změní hodnota vstupu.",
+        "type": "function",
+        "required": "false"
+      },
+      "onBlur": {
+        "description": "Volání, když vstup ztratí focus.",
+        "type": "function",
+        "required": "false"
+      },
+      "onFocus": {
+        "description": "Volání, když vstup získá focus.",
+        "type": "function",
+        "required": "false"
+      },
+      "type": {
+        "description": "HTML typ vstupu (text, email, password, atd.).",
+        "type": "string",
+        "required": "false"
+      },
+      "disabled": {
+        "description": "Zakáže pole vstupu.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "id": {
+        "description": "HTML atribut id.",
+        "type": "string",
+        "required": "false"
+      },
+      "name": {
+        "description": "HTML atribut name.",
+        "type": "string",
+        "required": "false"
+      }
+    },
+    "examples": {
+      "basic": "Základní",
+      "withLabel": "Se štítkem",
+      "required": "Povinné",
+      "disabled": "Zakázáno",
+      "noDefault": "Bez výchozího stylu"
+    }
+  },
   "documentation": {
     "propTypes": {
       "title": "Prop Types",
@@ -504,13 +623,62 @@
       "required": "Povinné",
       "yes": "Ano",
       "no": "Ne"
+    },
+    "utility": {
+      "parameters": {
+        "title": "Parametry",
+        "name": "Název",
+        "description": "Popis",
+        "type": "Typ",
+        "required": "Povinné",
+        "yes": "Ano",
+        "no": "Ne"
+      },
+      "usage": {
+        "title": "Příklady použití"
+      }
     }
   },
-  "documentationPage": {
-    "title": "Dokumentace",
-    "description": "Vítejte v dokumentaci komponent. Zde najdete podrobné informace o všech dostupných komponentách v této UI knihovně.",
-    "instructions": "Pro zobrazení dokumentace konkrétní komponenty jednoduše rozklikněte sekci Dokumentace v levém menu a klikněte na komponentu, která vás zajímá."
+  "basicComponentsPage": {
+    "title": "Knihovna základních komponent",
+    "description": "Toto je knihovna jednoduchých, znovupoužitelných UI komponent. Zde najdete podrobné informace o všech dostupných základních komponentách.",
+    "instructions": "Pro zobrazení dokumentace konkrétní komponenty rozklikněte sekci Základní komponenty v levém menu a vyberte komponentu, která vás zajímá."
   },
+  "utilitiesPage": {
+    "title": "Nástroje a utility",
+    "description": "Kolekce pomocných nástrojů a utilit pro vaše projekty.",
+    "instructions": "Vyberte nástroj z levého menu pro zobrazení jeho dokumentace."
+  },
+
+  "copyToClipboard": {
+    "title": "Copy to Clipboard",
+    "description": "Utility funkce pro kopírování textu do schránky pomocí navigator.clipboard API s fallbackem pro starší prohlížeče.",
+    "success": "Text byl zkopírován do schránky.",
+    "error": "Kopírování se nepodařilo.",
+    "parameters": {
+      "text": {
+        "name": "text",
+        "description": "Text, který má být zkopírován do schránky.",
+        "type": "string",
+        "required": "true"
+      }
+    },
+    "returnValue": {
+      "description": "Vrací Promise<boolean> - true pokud bylo kopírování úspěšné, false pokud ne.",
+      "type": "Promise<boolean>"
+    },
+    "usage": {
+      "basic": {
+        "title": "Základní použití",
+        "code": "import { copyToClipboard } from \"@react-ts-ui-lib/utilities\";\n\nconst handleCopy = async () => {\n  const success = await copyToClipboard(\"Hello, World!\");\n  if (success) {\n    console.log(\"Text zkopírován!\");\n  }\n};"
+      },
+      "withErrorHandling": {
+        "title": "S ošetřením chyb",
+        "code": "import { copyToClipboard } from \"@react-ts-ui-lib/utilities\";\n\nconst handleCopy = async () => {\n  try {\n    const success = await copyToClipboard(\"Text k kopírování\");\n    if (success) {\n      // Úspěch\n      alert(\"Zkopírováno!\");\n    } else {\n      // Neúspěch\n      alert(\"Kopírování selhalo.\");\n    }\n  } catch (error) {\n    console.error(\"Chyba při kopírování:\", error);\n  }\n};"
+      }
+    }
+  },
+
   "aboutApplication": {
     "title": "O aplikaci",
     "about": {

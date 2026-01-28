@@ -3,10 +3,10 @@ import { useState, useMemo, useEffect } from "react";
 import LeftMenu from "./LeftMenu";
 import Content from "./Content";
 import type { SideBarItem } from "@react-ts-ui-lib/ui";
-import { getRouteList } from "./tools/RouteList";
+import { getRouteList } from "./tools/routeList";
 import { Navbar, Button } from "@react-ts-ui-lib/ui";
-import { useTheme } from "./context/ThemeContext";
-import { useLanguage } from "./context/LanguageContext";
+import { useTheme } from "./context/themeContext";
+import { useLanguage } from "./context/languageContext";
 import { useTranslation } from "../i18n/useTranslation";
 import { getColorScheme } from "@react-ts-ui-lib/ui";
 //@@viewOff:imports
@@ -55,8 +55,6 @@ function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-
-  console.log(routeList)
   useEffect(() => {
     const backgroundScheme = getColorScheme("background", darkMode);
     document.body.style.backgroundColor = backgroundScheme.color;
