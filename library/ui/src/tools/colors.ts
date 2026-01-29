@@ -416,3 +416,91 @@ export const getRgbaFromScheme = (
   const scheme = getColorScheme(colorScheme, darkMode);
   return hexToRgba(scheme.color, alpha);
 };
+
+export const mixHex = (base: string, mix: string, mixWeight: number): string => {
+  const clamp = (value: number) => Math.max(0, Math.min(255, value));
+  const toRgb = (hex: string) => {
+    const sanitized = hex.replace("#", "");
+    return {
+      r: parseInt(sanitized.substring(0, 2), 16),
+      g: parseInt(sanitized.substring(2, 4), 16),
+      b: parseInt(sanitized.substring(4, 6), 16),
+    };
+  };
+
+  const baseRgb = toRgb(base);
+  const mixRgb = toRgb(mix);
+  const weight = Math.max(0, Math.min(1, mixWeight));
+
+  const r = clamp(Math.round(baseRgb.r * (1 - weight) + mixRgb.r * weight));
+  const g = clamp(Math.round(baseRgb.g * (1 - weight) + mixRgb.g * weight));
+  const b = clamp(Math.round(baseRgb.b * (1 - weight) + mixRgb.b * weight));
+
+  return `#${r.toString(16).padStart(2, "0")}${g
+    .toString(16)
+    .padStart(2, "0")}${b.toString(16).padStart(2, "0")}`;
+};
+
+export const getModernGradient = (
+  colorScheme: ColorScheme,
+  significance: Significance = "common",
+  darkMode: boolean = true,
+) => {
+  const scheme = getSignificanceColor(colorScheme, significance, darkMode);
+  const baseScheme = getColorScheme(colorScheme, darkMode);
+  const surfaceScheme = getColorScheme("surface", darkMode);
+  const white = getColorScheme("white", darkMode).color;
+  const black = getColorScheme("black", darkMode).color;
+  const shadowColor = getColorScheme("shadow", darkMode).color;
+
+  const primaryDarkScheme = getColorScheme("primaryDark", darkMode);
+  const successDarkScheme = getColorScheme("successDark", darkMode);
+  const dangerDarkScheme = getColorScheme("dangerDark", darkMode);
+  const warningDarkScheme = getColorScheme("warningDark", darkMode);
+  const infoDarkScheme = getColorScheme("infoDark", darkMode);
+
+  const hoverSchemeMap: Record<string, typeof primaryDarkScheme> = {
+    primary: primaryDarkScheme,
+    success: successDarkScheme,
+    danger: dangerDarkScheme,
+    warning: warningDarkScheme,
+    info: infoDarkScheme,
+  };
+
+  const mixWeight =
+    significance === "distinct" ? 0.6 : significance === "subdued" ? 0.75 : 0;
+
+  const baseTone = mixWeight
+    ? mixHex(baseScheme.color, surfaceScheme.color, mixWeight)
+    : baseScheme.color;
+  const midTone = mixWeight
+    ? mixHex(scheme.color, surfaceScheme.color, mixWeight)
+    : scheme.color;
+  const hoverTone = mixWeight
+    ? mixHex(
+        hoverSchemeMap[colorScheme as string]?.color ?? scheme.color,
+        surfaceScheme.color,
+        mixWeight,
+      )
+    : hoverSchemeMap[colorScheme as string]?.color ?? scheme.color;
+
+  const gradientFrom = hoverTone;
+  const gradientMid = midTone;
+  const gradientTo = baseTone;
+
+  const highlightOverlay = `linear-gradient(120deg, ${hexToRgba(white, darkMode ? 0.2 : 0.28)} 0%, ${hexToRgba(white, 0)} 40%, ${hexToRgba(black, darkMode ? 0.18 : 0.12)} 100%)`;
+  const overlayGradient = `linear-gradient(135deg, ${hexToRgba(white, darkMode ? 0.18 : 0.26)} 0%, ${hexToRgba(white, 0)} 44%, ${hexToRgba(black, darkMode ? 0.18 : 0.1)} 100%)`;
+  const baseGradient = `linear-gradient(135deg, ${gradientFrom} 0%, ${gradientMid} 45%, ${gradientTo} 100%)`;
+  const hoverGradient = `linear-gradient(135deg, ${gradientTo} 0%, ${gradientMid} 45%, ${gradientFrom} 100%)`;
+  const background = `${highlightOverlay}, ${overlayGradient}, ${baseGradient}`;
+  const hoverBackground = `${highlightOverlay}, ${overlayGradient}, ${hoverGradient}`;
+  const shadow = `0 6px 16px ${shadowColor}`;
+  const hoverShadow = `0 10px 26px ${shadowColor}`;
+
+  return {
+    background,
+    hoverBackground,
+    shadow,
+    hoverShadow,
+  };
+};

@@ -53,12 +53,6 @@ const ButtonDoc = () => {
             />
           ),
         },
-        {
-          label: t("button.examples.info"),
-          components: (
-            <Button label={t("button.examples.info")} colorScheme="info" />
-          ),
-        },
       ],
     },
     {
@@ -129,6 +123,89 @@ const ButtonDoc = () => {
           label: t("button.examples.noDefault"),
           components: (
             <Button label={t("button.examples.rawButton")} removeDefaultStyle />
+          ),
+        },
+      ],
+    },
+    {
+      category: t("button.categories.modern"),
+      itemList: [
+        {
+          label: t("button.examples.modernPrimary"),
+          components: (
+            <Button
+              label={t("button.examples.primary")}
+              colorScheme="primary"
+              modern
+            />
+          ),
+        },
+        {
+          label: t("button.examples.modernSuccess"),
+          components: (
+            <Button
+              label={t("button.examples.success")}
+              colorScheme="success"
+              modern
+            />
+          ),
+        },
+        {
+          label: t("button.examples.modernDanger"),
+          components: (
+            <Button
+              label={t("button.examples.danger")}
+              colorScheme="danger"
+              modern
+            />
+          ),
+        },
+        {
+          label: t("button.examples.modernWarning"),
+          components: (
+            <Button
+              label={t("button.examples.warning")}
+              colorScheme="warning"
+              modern
+            />
+          ),
+        },
+      ],
+    },
+    {
+      category: t("button.categories.modernSignificance"),
+      itemList: [
+        {
+          label: t("button.examples.modernCommon"),
+          components: (
+            <Button
+              label={t("button.examples.common")}
+              colorScheme="primary"
+              significance="common"
+              modern
+            />
+          ),
+        },
+        {
+          label: t("button.examples.modernHighlighted"),
+          components: (
+            <Button
+              label={t("button.examples.highlighted")}
+              colorScheme="primary"
+              significance="highlighted"
+              modern
+            />
+          ),
+        },
+        {
+          label: t("button.examples.modernDistinct"),
+          components: (
+            <Button
+              label={t("button.examples.distinct")}
+              colorScheme="primary"
+              significance="distinct"
+              modern
+            />
           ),
         },
       ],

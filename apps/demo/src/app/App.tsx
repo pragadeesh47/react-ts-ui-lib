@@ -96,10 +96,12 @@ function App() {
           size="sm"
           icon={!darkMode ? SUNNY : MOON}
           onClick={() => setDarkMode(!darkMode)}
+          modern={true}
         />
         <Button
           size="sm"
           onClick={() => setLanguage(language === "en" ? "cz" : "en")}
+          modern={true}
         >
           {LANGUAGE_MAP[language as keyof typeof LANGUAGE_MAP]}
         </Button>
