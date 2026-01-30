@@ -8,13 +8,27 @@ import { Navbar, Button, getColorScheme } from "@react-ts-ui-lib/ui";
 import { useTheme } from "./context/themeContext";
 import { useLanguage } from "./context/languageContext";
 import { useTranslation } from "../i18n/useTranslation";
+import RegisterModal from "./RegisterModal";
 import { storage } from "@react-ts-ui-lib/utilities";
+import { useAuth } from "./context/AuthContext";
+import GoogleUserChip from "./GoogleUserChip";
 //@@viewOff:imports
 
 //@@viewOff:imports
 
 //@@viewOn:constants
-const LOGO = "React TypeScript Lib";
+
+const Logo = ({ isMobile }: { isMobile?: boolean }) => (
+  <img 
+    src={isMobile ? "/images/logo-icon.png" : "/images/logo2.png"}
+    alt="Logo" 
+    style={{
+      width: "auto",
+      height: isMobile ? 40 : 52,
+      objectFit: "contain",
+    }}
+  />
+);
 const SUNNY = "mdi-white-balance-sunny";
 const MOON = "mdi-moon-waxing-crescent";
 
@@ -50,12 +64,14 @@ function App() {
   const { darkMode, setDarkMode } = useTheme();
   const { language, setLanguage } = useLanguage();
   const { t } = useTranslation();
+  const { user, signOut, loading } = useAuth();
   const routeList = useMemo(() => getRouteList(t), [t]);
   const [selectedItem, setSelectedItem] = useState<SideBarItem | null>(() =>
     routeList.length > 0 ? routeList[0] : null,
   );
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     storage.set(STORAGE_KEY_DARK_MODE, darkMode);
@@ -92,11 +108,14 @@ function App() {
   const RightContent = () => {
     return (
       <>
+      {user &&
+       <GoogleUserChip user={user} showDetails={!isMobile} />}
         <Button
           size="sm"
           icon={!darkMode ? SUNNY : MOON}
           onClick={() => setDarkMode(!darkMode)}
           modern={true}
+          
         />
         <Button
           size="sm"
@@ -105,6 +124,30 @@ function App() {
         >
           {LANGUAGE_MAP[language as keyof typeof LANGUAGE_MAP]}
         </Button>
+        {user ? (
+          <>
+           
+            <Button
+              size="sm"
+              onClick={signOut}
+              modern={true}
+              icon="mdi-logout"
+              colorScheme="indigo"
+            >
+              {!isMobile && t("auth.signOut")}
+            </Button>
+          </>
+        ) : (
+          <Button
+            size="sm"
+            onClick={() => setIsModalOpen(true)}
+            modern={true}
+            colorScheme="indigo"
+            disabled={loading}
+          >
+            {t("auth.signIn")}
+          </Button>
+        )}
       </>
     );
   };
@@ -125,8 +168,8 @@ function App() {
   //@@viewOff:private
 
   //@@viewOn:render
-  return (
-    <div
+  return (<>
+   <div
       style={{
         ...getThemeStyles(darkMode),
         minHeight: "100vh",
@@ -136,7 +179,7 @@ function App() {
     >
       <Navbar
         sticky={true}
-        logo={LOGO}
+        logo={<Logo isMobile={isMobile} />}
         darkMode={darkMode}
         rightContent={RightContent()}
         onHamburgerClick={handleHamburgerClick}
@@ -150,12 +193,12 @@ function App() {
           mobileMode={isMobile}
           isOpen={isMobileMenuOpen}
           onClose={() => setIsMobileMenuOpen(false)}
-          navbarHeight={64}
+          navbarHeight={80}
         />
         <div
           style={{
             flex: 1,
-            padding: "32px",
+            padding: "16px",
             overflow: "auto",
             maxWidth: "100%",
           }}
@@ -164,6 +207,9 @@ function App() {
         </div>
       </div>
     </div>
+    <RegisterModal open={isModalOpen} onClose={() => setIsModalOpen(false)} />
+  </>
+   
   );
   //@@viewOff:render
 }

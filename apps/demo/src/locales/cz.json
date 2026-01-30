@@ -568,6 +568,15 @@
       "customTooltip": "S vlastním tooltipem"
     }
   },
+  "auth": {
+    "modalTitle": "Přihlášení přes Google",
+    "googleButton": "Pokračovat s Google",
+    "signIn": "Přihlásit",
+    "signOut": "Odhlásit",
+    "welcome": "Vítej, {name}!",
+    "googleUser": "Uživatel Google",
+    "errorGeneric": "Při přihlášení došlo k chybě"
+  },
   "input": {
     "title": "Input Komponenta",
     "props": {
@@ -673,7 +682,36 @@
   "basicComponentsPage": {
     "title": "Knihovna základních komponent",
     "description": "Toto je knihovna jednoduchých, znovupoužitelných UI komponent. Zde najdete podrobné informace o všech dostupných základních komponentách.",
-    "instructions": "Pro zobrazení dokumentace konkrétní komponenty rozklikněte sekci Základní komponenty v levém menu a vyberte komponentu, která vás zajímá."
+    "instructions": "Pro zobrazení dokumentace konkrétní komponenty rozklikněte sekci Základní komponenty v levém menu a vyberte komponentu, která vás zajímá.",
+    "components": {
+      "buttons": "Tlačítka",
+      "icons": "Ikony",
+      "inputs": "Vstupy",
+      "numbers": "Čísla",
+      "pending": "Načítání",
+      "badges": "Odznaky",
+      "navbar": "Navigační lišta",
+      "sidebar": "Postranní menu"
+    },
+    "examples": {
+      "primary": "Primární",
+      "success": "Úspěch",
+      "purple": "Fialové",
+      "danger": "Nebezpečí",
+      "menu": "Menu",
+      "action": "Akce",
+      "dashboard": "Nástěnka",
+      "settings": "Nastavení",
+      "profile": "Profil",
+      "logo": "Logo",
+      "new": "Nové",
+      "warning": "Varování",
+      "hot": "Horké",
+      "premium": "Prémiové",
+      "primaryInput": "Primární vstup",
+      "successInput": "Úspěšný vstup",
+      "tealInput": "Tyrkysový vstup"
+    }
   },
   "utilitiesPage": {
     "title": "Nástroje a utility",

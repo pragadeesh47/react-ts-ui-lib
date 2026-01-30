@@ -569,6 +569,15 @@
       "customTooltip": "With Custom Tooltip"
     }
   },
+  "auth": {
+    "modalTitle": "Sign in with Google",
+    "googleButton": "Continue with Google",
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "welcome": "Welcome, {name}!",
+    "googleUser": "Google user",
+    "errorGeneric": "An error occurred during sign in"
+  },
   "input": {
     "title": "Input Component",
     "props": {
@@ -674,7 +683,36 @@
   "basicComponentsPage": {
     "title": "Basic Components Library",
     "description": "This is a library of simple, reusable UI components. Here you can find detailed information about all available basic components.",
-    "instructions": "To view documentation for a specific component, expand the Basic Components section in the left menu and select the component you're interested in."
+    "instructions": "To view documentation for a specific component, expand the Basic Components section in the left menu and select the component you're interested in.",
+    "components": {
+      "buttons": "Buttons",
+      "icons": "Icons",
+      "inputs": "Inputs",
+      "numbers": "Numbers",
+      "pending": "Pending",
+      "badges": "Badges",
+      "navbar": "Navbar",
+      "sidebar": "SideBar"
+    },
+    "examples": {
+      "primary": "Primary",
+      "success": "Success",
+      "purple": "Purple",
+      "danger": "Danger",
+      "menu": "Menu",
+      "action": "Action",
+      "dashboard": "Dashboard",
+      "settings": "Settings",
+      "profile": "Profile",
+      "logo": "Logo",
+      "new": "New",
+      "warning": "Warning",
+      "hot": "Hot",
+      "premium": "Premium",
+      "primaryInput": "Primary input",
+      "successInput": "Success input",
+      "tealInput": "Teal input"
+    }
   },
   "utilitiesPage": {
     "title": "Tools and Utilities",

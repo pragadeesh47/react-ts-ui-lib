@@ -53,6 +53,60 @@ const ButtonDoc = () => {
             />
           ),
         },
+        {
+          label: "Purple",
+          components: (
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+              <Button label="Purple" colorScheme="purple" />
+              <Button label="Purple Dark" colorScheme="purpleDark" />
+            </div>
+          ),
+        },
+        {
+          label: "Teal",
+          components: (
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+              <Button label="Teal" colorScheme="teal" />
+              <Button label="Teal Dark" colorScheme="tealDark" />
+            </div>
+          ),
+        },
+        {
+          label: "Pink",
+          components: (
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+              <Button label="Pink" colorScheme="pink" />
+              <Button label="Pink Dark" colorScheme="pinkDark" />
+            </div>
+          ),
+        },
+        {
+          label: "Indigo",
+          components: (
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+              <Button label="Indigo" colorScheme="indigo" />
+              <Button label="Indigo Dark" colorScheme="indigoDark" />
+            </div>
+          ),
+        },
+        {
+          label: "Orange",
+          components: (
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+              <Button label="Orange" colorScheme="orange" />
+              <Button label="Orange Dark" colorScheme="orangeDark" />
+            </div>
+          ),
+        },
+        {
+          label: "Cyan",
+          components: (
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+              <Button label="Cyan" colorScheme="cyan" />
+              <Button label="Cyan Dark" colorScheme="cyanDark" />
+            </div>
+          ),
+        },
       ],
     },
     {
@@ -168,6 +222,60 @@ const ButtonDoc = () => {
               colorScheme="warning"
               modern
             />
+          ),
+        },
+        {
+          label: "Purple",
+          components: (
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+              <Button label="Purple" colorScheme="purple" modern />
+              <Button label="Purple Dark" colorScheme="purpleDark" modern />
+            </div>
+          ),
+        },
+        {
+          label: "Teal",
+          components: (
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+              <Button label="Teal" colorScheme="teal" modern />
+              <Button label="Teal Dark" colorScheme="tealDark" modern />
+            </div>
+          ),
+        },
+        {
+          label: "Pink",
+          components: (
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+              <Button label="Pink" colorScheme="pink" modern />
+              <Button label="Pink Dark" colorScheme="pinkDark" modern />
+            </div>
+          ),
+        },
+        {
+          label: "Indigo",
+          components: (
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+              <Button label="Indigo" colorScheme="indigo" modern />
+              <Button label="Indigo Dark" colorScheme="indigoDark" modern />
+            </div>
+          ),
+        },
+        {
+          label: "Orange",
+          components: (
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+              <Button label="Orange" colorScheme="orange" modern />
+              <Button label="Orange Dark" colorScheme="orangeDark" modern />
+            </div>
+          ),
+        },
+        {
+          label: "Cyan",
+          components: (
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+              <Button label="Cyan" colorScheme="cyan" modern />
+              <Button label="Cyan Dark" colorScheme="cyanDark" modern />
+            </div>
           ),
         },
       ],
