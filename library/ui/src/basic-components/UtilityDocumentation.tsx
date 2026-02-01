@@ -67,80 +67,65 @@ export type UsageExample = {
 export const UtilityDocumentationTypeScheme = {
   title: {
     name: "title",
-    description: "Optional page title rendered at the top.",
     required: false,
     type: "" as string,
   },
   demoComponent: {
     name: "demoComponent",
-    description: "React component to demonstrate the utility function.",
     required: false,
     type: null as React.ReactNode,
   },
   parametersList: {
     name: "parametersList",
-    description:
-      "Array of parameter objects to render in the Parameters table.",
-    required: false,
     type: [] as UtilityParameter[],
   },
   usageExamples: {
     name: "usageExamples",
-    description: "Array of code examples showing how to use the utility.",
     required: false,
     type: [] as UsageExample[],
   },
   parametersTitle: {
     name: "parametersTitle",
-    description: "Title for the parameters section.",
     required: false,
     type: "" as string,
   },
   parametersNameLabel: {
     name: "parametersNameLabel",
-    description: "Label for the parameter name column.",
     required: false,
     type: "" as string,
   },
   parametersDescriptionLabel: {
     name: "parametersDescriptionLabel",
-    description: "Label for the parameter description column.",
     required: false,
     type: "" as string,
   },
   parametersTypeLabel: {
     name: "parametersTypeLabel",
-    description: "Label for the parameter type column.",
     required: false,
     type: "" as string,
   },
   parametersRequiredLabel: {
     name: "parametersRequiredLabel",
-    description: "Label for the parameter required column.",
     required: false,
     type: "" as string,
   },
   parametersYes: {
     name: "parametersYes",
-    description: "Text to display when parameter is required.",
     required: false,
     type: "" as string,
   },
   parametersNo: {
     name: "parametersNo",
-    description: "Text to display when parameter is not required.",
     required: false,
     type: "" as string,
   },
   usageTitle: {
     name: "usageTitle",
-    description: "Title for the usage examples section.",
     required: false,
     type: "" as string,
   },
   darkMode: {
     name: "darkMode",
-    description: "Whether to use dark mode styling.",
     required: false,
     type: true as boolean,
   },
