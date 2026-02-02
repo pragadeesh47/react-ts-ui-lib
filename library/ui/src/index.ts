@@ -11,6 +11,7 @@ export { Block } from "./basic-components/Block";
 export { Modal } from "./basic-components/Modal";
 export { Number } from "./basic-components/Number";
 export { Input } from "./basic-components/Input";
+export { ProfileCard } from "./basic-components/ProfileCard";
 
 // Color utilities
 export { getColorScheme, getBorderColor, getRgbaFromScheme, hexToRgba } from "./tools/colors";
@@ -27,6 +28,7 @@ export { BADGE_PROP_NAMES } from "./basic-components/Badge";
 export { BLOCK_PROP_NAMES } from "./basic-components/Block";
 export { MODAL_PROP_NAMES } from "./basic-components/Modal";
 export { INPUT_PROP_NAMES } from "./basic-components/Input";
+export { PROFILE_CARD_PROP_NAMES } from "./basic-components/ProfileCard";
 
 // Types
 export type { PendingProps } from "./basic-components/Pending";
@@ -35,3 +37,4 @@ export type { SideBarItem, SideBarProps } from "./basic-components/SideBar";
 export type { BadgeProps } from "./basic-components/Badge";
 export type { BlockProps } from "./basic-components/Block";
 export type { ModalProps, ModalSize } from "./basic-components/Modal";
+export type { ProfileCardProps } from "./basic-components/ProfileCard";

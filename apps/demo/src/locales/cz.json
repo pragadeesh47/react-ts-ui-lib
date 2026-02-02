@@ -382,7 +382,8 @@
       "badge": "Odznak",
       "block": "Blok",
       "number": "Číslo",
-      "input": "Vstupní pole"
+      "input": "Vstupní pole",
+      "profileCard": "Profil karta"
     },
     "utilities": {
       "copyToClipboard": "Kopírovat do schránky",
@@ -652,6 +653,171 @@
       "required": "Povinné",
       "disabled": "Zakázáno",
       "noDefault": "Bez výchozího stylu"
+    }
+  },
+  "profileCard": {
+    "title": "ProfileCard komponenta",
+    "props": {
+      "photo": {
+        "description": "URL obrázku nebo vlastní React uzel (např. img) pro profilovou fotku.",
+        "type": "string | ReactNode",
+        "required": "false"
+      },
+      "photoLink": {
+        "description": "URL otevřená po kliknutí na fotku (např. stránka profilu). Při nastavení se otevře v novém tabu.",
+        "type": "string",
+        "required": "false"
+      },
+      "name": {
+        "description": "Zobrazené jméno vedle fotky (pod rolí).",
+        "type": "string",
+        "required": "false"
+      },
+      "role": {
+        "description": "Role nebo titul vedle fotky (nad jménem).",
+        "type": "string",
+        "required": "false"
+      },
+      "labelName": {
+        "description": "Název štítku pro první řádek v těle.",
+        "type": "string",
+        "required": "false"
+      },
+      "labelValue": {
+        "description": "Hodnota štítku pro první řádek v těle.",
+        "type": "string",
+        "required": "false"
+      },
+      "descriptionName": {
+        "description": "Název štítku pro druhý řádek (popis) v těle.",
+        "type": "string",
+        "required": "false"
+      },
+      "descriptionValue": {
+        "description": "Hodnota popisu pro druhý řádek v těle.",
+        "type": "string",
+        "required": "false"
+      },
+      "content": {
+        "description": "Vlastní React uzel (komponenta) vykreslený v sekci těla. Vykreslí se jen když je předán.",
+        "type": "ReactNode",
+        "required": "false"
+      },
+      "actionList": {
+        "description": "Pole komponent (např. tlačítek) v patičce.",
+        "type": "ReactNode[]",
+        "required": "false"
+      },
+      "darkMode": {
+        "description": "Použije tmavé barevné schéma.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "removeDefaultStyle": {
+        "description": "Odstraní výchozí styly.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "className": {
+        "description": "Další CSS třídy.",
+        "type": "string",
+        "required": "false"
+      },
+      "colorScheme": {
+        "description": "Barevné schéma z palety tématu.",
+        "type": "string",
+        "required": "false"
+      },
+      "significance": {
+        "description": "Vizuální význam: common, highlighted, distinct, subdued.",
+        "type": "string",
+        "required": "false"
+      },
+      "modern": {
+        "description": "Zapne moderní gradient a stín.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "layout": {
+        "description": "Režim rozložení: responsive (výchozí) nebo stacked.",
+        "type": "string",
+        "required": "false"
+      },
+      "width": {
+        "description": "Šířka karty (číslo v px nebo řetězec, např. 320 nebo \"20rem\"). Výchozí 320.",
+        "type": "string | number",
+        "required": "false"
+      },
+      "height": {
+        "description": "Výška karty (číslo v px nebo řetězec). Volitelné.",
+        "type": "string | number",
+        "required": "false"
+      },
+      "minWidth": {
+        "description": "Minimální šířka karty.",
+        "type": "string | number",
+        "required": "false"
+      },
+      "minHeight": {
+        "description": "Minimální výška karty. Výchozí 200 když není nastaveno.",
+        "type": "string | number",
+        "required": "false"
+      },
+      "photoCircle": {
+        "description": "Když true, fotka se zobrazí v kolečku s viditelným okrajem. Výchozí true.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "collapsed": {
+        "description": "Když true, sekce těla (labely, popis, obsah) je výchozí sbalená. Tlačítko pro rozbalení/sbalení se zobrazí vždy, když má tělo obsah. Výchozí true.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "noPrint": {
+        "description": "Skryje komponentu při tisku.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "hidden": {
+        "description": "Pokud true, komponenta se nevykreslí.",
+        "type": "boolean",
+        "required": "false"
+      }
+    },
+    "categories": {
+      "basic": "Základní",
+      "actionList": "Akce v patičce",
+      "modern": "Moderní",
+      "modernWithContent": "Moderní s labely a obsahem",
+      "layout": "Rozložení",
+      "colorScheme": "Barevné schéma",
+      "significance": "Význam",
+      "darkMode": "Tmavý režim"
+    },
+    "examples": {
+      "withPhotoUrl": "S URL fotky",
+      "fullContent": "Plný obsah",
+      "withActions": "S akcemi",
+      "roleDeveloper": "Vývojář",
+      "roleDesigner": "Designer",
+      "roleAdmin": "Admin",
+      "labelEmail": "Email",
+      "descriptionBio": "Bio",
+      "bioShort": "Krátký popis.",
+      "edit": "Upravit",
+      "message": "Zpráva",
+      "modernOff": "Klasický",
+      "modernOn": "Moderní",
+      "modernFullContent": "Moderní + labely + popis",
+      "modernWithContent": "Moderní + vlastní obsah",
+      "modernComplete": "Moderní + labely + popis + obsah + akce",
+      "customContentText": "Vlastní odstavec nebo libovolný React uzel v těle.",
+      "layoutResponsive": "Responzivní",
+      "layoutStacked": "Pod sebou",
+      "common": "Common",
+      "highlighted": "Highlighted",
+      "dark": "Tmavý",
+      "light": "Světlý"
     }
   },
   "documentation": {

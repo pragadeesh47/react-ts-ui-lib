@@ -382,7 +382,8 @@
       "badge": "Badge",
       "block": "Block",
       "number": "Number",
-      "input": "Input"
+      "input": "Input",
+      "profileCard": "Profile Card"
     },
     "utilities": {
       "copyToClipboard": "Copy to Clipboard",
@@ -653,6 +654,171 @@
       "required": "Required",
       "disabled": "Disabled",
       "noDefault": "No Default Style"
+    }
+  },
+  "profileCard": {
+    "title": "ProfileCard Component",
+    "props": {
+      "photo": {
+        "description": "Image URL or custom React node (e.g. img element) for the profile photo.",
+        "type": "string | ReactNode",
+        "required": "false"
+      },
+      "photoLink": {
+        "description": "URL opened when the photo is clicked (e.g. profile page). Opens in new tab when set.",
+        "type": "string",
+        "required": "false"
+      },
+      "name": {
+        "description": "Display name shown next to the photo (below role).",
+        "type": "string",
+        "required": "false"
+      },
+      "role": {
+        "description": "Role or title shown next to the photo (above name).",
+        "type": "string",
+        "required": "false"
+      },
+      "labelName": {
+        "description": "Label name for the first info row in the body.",
+        "type": "string",
+        "required": "false"
+      },
+      "labelValue": {
+        "description": "Label value for the first info row in the body.",
+        "type": "string",
+        "required": "false"
+      },
+      "descriptionName": {
+        "description": "Label name for the second info row (description) in the body.",
+        "type": "string",
+        "required": "false"
+      },
+      "descriptionValue": {
+        "description": "Description value for the second info row in the body.",
+        "type": "string",
+        "required": "false"
+      },
+      "content": {
+        "description": "Custom React node (component) rendered in the body section. Rendered only when provided.",
+        "type": "ReactNode",
+        "required": "false"
+      },
+      "actionList": {
+        "description": "Array of components (e.g. buttons) rendered in the footer.",
+        "type": "ReactNode[]",
+        "required": "false"
+      },
+      "darkMode": {
+        "description": "Uses dark mode color palette.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "removeDefaultStyle": {
+        "description": "Removes default styling.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "className": {
+        "description": "Additional CSS class names.",
+        "type": "string",
+        "required": "false"
+      },
+      "colorScheme": {
+        "description": "Color scheme from theme palette.",
+        "type": "string",
+        "required": "false"
+      },
+      "significance": {
+        "description": "Visual significance: common, highlighted, distinct, subdued.",
+        "type": "string",
+        "required": "false"
+      },
+      "modern": {
+        "description": "Enables modern gradient and shadow styling.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "layout": {
+        "description": "Layout mode: responsive (default) or stacked.",
+        "type": "string",
+        "required": "false"
+      },
+      "width": {
+        "description": "Card width (number as px or string, e.g. 320 or \"20rem\"). Default 320.",
+        "type": "string | number",
+        "required": "false"
+      },
+      "height": {
+        "description": "Card height (number as px or string). Optional.",
+        "type": "string | number",
+        "required": "false"
+      },
+      "minWidth": {
+        "description": "Minimum card width.",
+        "type": "string | number",
+        "required": "false"
+      },
+      "minHeight": {
+        "description": "Minimum card height. Default 200 when not set.",
+        "type": "string | number",
+        "required": "false"
+      },
+      "photoCircle": {
+        "description": "When true, photo is shown in a circle with visible border. Default true.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "collapsed": {
+        "description": "When true, the body section (labels, description, content) is collapsed by default. Toggle button is always shown when body has content. Default true.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "noPrint": {
+        "description": "Hides component when printing.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "hidden": {
+        "description": "If true, component is not rendered.",
+        "type": "boolean",
+        "required": "false"
+      }
+    },
+    "categories": {
+      "basic": "Basic",
+      "actionList": "Action List",
+      "modern": "Modern",
+      "modernWithContent": "Modern with labels and content",
+      "layout": "Layout",
+      "colorScheme": "Color Scheme",
+      "significance": "Significance",
+      "darkMode": "Dark Mode"
+    },
+    "examples": {
+      "withPhotoUrl": "With photo URL",
+      "fullContent": "Full content",
+      "withActions": "With actions",
+      "roleDeveloper": "Developer",
+      "roleDesigner": "Designer",
+      "roleAdmin": "Admin",
+      "labelEmail": "Email",
+      "descriptionBio": "Bio",
+      "bioShort": "Short bio text.",
+      "edit": "Edit",
+      "message": "Message",
+      "modernOff": "Classic",
+      "modernOn": "Modern",
+      "modernFullContent": "Modern + labels + description",
+      "modernWithContent": "Modern + custom content",
+      "modernComplete": "Modern + labels + description + content + actions",
+      "customContentText": "Custom paragraph or any React node in the body.",
+      "layoutResponsive": "Responsive",
+      "layoutStacked": "Stacked",
+      "common": "Common",
+      "highlighted": "Highlighted",
+      "dark": "Dark",
+      "light": "Light"
     }
   },
   "documentation": {

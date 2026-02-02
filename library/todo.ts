@@ -24,5 +24,16 @@
 // nová komponenta Copy to Clipboard
 
 // Input -  type, disabled, readOnly, size, width, borderRadius, colorScheme, significance, hidden, noPrint, darkMode, label pozittion
-// bug sidebar při scrolování zmizí, musí se zafixovat k navbaru
+
 // přidat do number možnost měnit color scheme
+// card přidat zlaté bordery podle nějaké propsy mít na výběr nějakou část
+// card napojení na cotributors
+// card přidat iteracti contributorů a přidat jim rámečky podle úspěšosti
+// contributros, přidat zjitění informací o pull requestech
+// card contributors - přidat pak tlačíko na view GitHub 
+// coard contributors - přidat tlačíko na view pull request
+// card přidat borderRadisu propsy
+// card zrušit colapsed ikou pokud není content, či label a description a value
+// card cursor pointer na ikoně kolapsu nefunguje
+// block colabsilbe icon na druhou stranu
+// todo na pending přidat propsu fast medium slow a podle toho rischlost pendingu

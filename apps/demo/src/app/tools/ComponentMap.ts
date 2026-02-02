@@ -35,6 +35,9 @@ const componentMap: { [key: string]: React.LazyExoticComponent<React.FC> } = {
   Input: React.lazy(
     () => import("../../documentation/basic-components/InputDoc"),
   ),
+  ProfileCard: React.lazy(
+    () => import("../../documentation/basic-components/ProfileCardDoc"),
+  ),
 
   //Utilities
   CopyToClipboard: React.lazy(

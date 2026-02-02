@@ -30,4 +30,9 @@ export const getComponentList = (t: (key: string) => string): SideBarItem[] => [
   },
   { title: t("sidebar.components.number"), icon: "mdi-numeric", key: "Number" },
   { title: t("sidebar.components.input"), icon: "mdi-text-box", key: "Input" },
+  {
+    title: t("sidebar.components.profileCard"),
+    icon: "mdi-account-card",
+    key: "ProfileCard",
+  },
 ];
