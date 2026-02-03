@@ -41,162 +41,11 @@ A modern, type-safe React component library built with TypeScript. This library 
 
 ---
 
-## 📦 Components
-
-| Component | Icon | Description |
-|-----------|------|-------------|
-| **Button** | 🔘 | Versatile button component with multiple variants, sizes, and states |
-| **Icon** | 🎨 | Icon component with Material Design Icons support |
-| **Pending** | ⏳ | Loading spinner component for async operations |
-| **SideBar** | 📋 | Sidebar navigation component with customizable items |
-| **Navbar** | 🧭 | Top navigation bar with logo and customizable content |
-| **Badge** | 🏷️ | Badge component for labels, tags, and status indicators |
-
-> 💡 **Note**: Check out our [demo application](#-links--resources) to see all components in action with live examples!
-
----
-
 ## 🚀 Installation & Usage
 
 ### Installation
 
-Install the library using npm, yarn, or pnpm:
 
-```bash
-npm install @react-ts-ui-lib/ui
-# or
-yarn add @react-ts-ui-lib/ui
-# or
-pnpm add @react-ts-ui-lib/ui
-```
-
-### Basic Usage
-
-```tsx
-import { Button, Badge, Icon } from '@react-ts-ui-lib/ui';
-
-function App() {
-  return (
-    <div>
-      <Button 
-        label="Click me" 
-        colorScheme="primary" 
-        onClick={() => console.log('Clicked!')}
-      />
-      <Badge label="New" colorScheme="success" />
-      <Icon icon="mdi-heart" size={24} />
-    </div>
-  );
-}
-```
-
-### Quick Start
-
-1. Install the library (see above)
-2. Import the components you need
-3. Start building! 🎉
-
----
-
-## 💡 Examples
-
-### Button Component
-
-```tsx
-import { Button } from '@react-ts-ui-lib/ui';
-
-// Basic button
-<Button label="Submit" onClick={handleSubmit} />
-
-// Button with icon
-<Button 
-  label="Save" 
-  icon="mdi-content-save" 
-  iconPosition="left"
-  colorScheme="primary"
-/>
-
-// Button with loading state
-<Button 
-  label="Loading..." 
-  isPending 
-  disabled 
-/>
-
-// Different sizes
-<Button label="Small" size="sm" />
-<Button label="Medium" size="md" />
-<Button label="Large" size="lg" />
-```
-
-### Badge Component
-
-```tsx
-import { Badge } from '@react-ts-ui-lib/ui';
-
-// Basic badge
-<Badge label="New" colorScheme="success" />
-
-// Badge with icon
-<Badge 
-  label="Pro" 
-  icon="mdi-star" 
-  colorScheme="warning"
-/>
-
-// Clickable badge
-<Badge 
-  label="Click me" 
-  clickable 
-  onClick={() => alert('Badge clicked!')}
-/>
-```
-
-### Icon Component
-
-```tsx
-import { Icon } from '@react-ts-ui-lib/ui';
-
-// Basic icon
-<Icon icon="mdi-heart" />
-
-// Icon with custom size
-<Icon icon="mdi-star" size={32} />
-
-// Icon with color
-<Icon icon="mdi-check" color="#4CAF50" />
-```
-
-
-
----
-
-## 📜 License
-
-This project is licensed under the **MIT License**.
-
-### What MIT License Allows
-
-✅ **Commercial use** - You can use this library in commercial projects  
-✅ **Modification** - You can modify the code to suit your needs  
-✅ **Distribution** - You can distribute the library or your modifications  
-✅ **Private use** - You can use it in private projects  
-✅ **Sublicensing** - You can include it in projects with different licenses  
-
-### What MIT License Requires
-
-📝 **Include copyright notice** - You must include the original copyright notice  
-📝 **Include license text** - You must include the full MIT license text  
-
-### What MIT License Does NOT Allow
-
-❌ **Removing copyright or license notices** - You cannot remove attribution  
-
-For the full license text, see the [LICENSE](LICENSE) file.
-
-> **Note**: This is a permissive open-source license that allows maximum freedom while protecting the original authors' rights.
-
----
 
 ## 🤝 Contributing
 
@@ -257,10 +106,6 @@ This starts the demo app at `http://localhost:5173` (or similar) where you can s
 This builds the library package in the `library/ui/dist` directory.
 
 #### 5. 🌿 Create a Branch from Development
-
-**⚠️ CRITICAL: Always branch from the `development` branch, NOT `main`!**
-
-The `main` branch is for stable releases. All new features and fixes should be based on `development`.
 
 ```bash
 # Make sure you're up to date

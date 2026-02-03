@@ -33,7 +33,8 @@
 // card contributors - přidat pak tlačíko na view GitHub 
 // coard contributors - přidat tlačíko na view pull request
 // card přidat borderRadisu propsy
-// card zrušit colapsed ikou pokud není content, či label a description a value
+
 // card cursor pointer na ikoně kolapsu nefunguje
 // block colabsilbe icon na druhou stranu
 // todo na pending přidat propsu fast medium slow a podle toho rischlost pendingu
+
