@@ -631,7 +631,8 @@
       "block": "Block",
       "number": "Number",
       "input": "Input",
-      "profileCard": "Profile Card"
+      "profileCard": "Profile Card",
+      "themeToggle": "Theme Toggle"
     },
     "utilities": {
       "copyToClipboard": "Copy to Clipboard",
@@ -1069,6 +1070,54 @@
       "light": "Light"
     }
   },
+  "themeToggle": {
+    "title": "ThemeToggle Component",
+    "ariaLabelDark": "Dark mode",
+    "ariaLabelLight": "Light mode",
+    "props": {
+      "darkMode": {
+        "description": "When true, the toggle reflects dark theme (thumb on left, moon icon visible).",
+        "type": "boolean",
+        "required": "true"
+      },
+      "onToggle": {
+        "description": "Callback fired when the user clicks the switch.",
+        "type": "function",
+        "required": "true"
+      },
+      "className": {
+        "description": "Additional CSS class for the wrapper.",
+        "type": "string",
+        "required": "false"
+      },
+      "removeDefaultStyle": {
+        "description": "Removes default track and thumb styling.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "ariaLabelDark": {
+        "description": "Accessible label when dark mode is active (e.g. for screen readers).",
+        "type": "string",
+        "required": "false"
+      },
+      "ariaLabelLight": {
+        "description": "Accessible label when light mode is active (e.g. for screen readers).",
+        "type": "string",
+        "required": "false"
+      }
+    },
+    "categories": {
+      "darkMode": "Dark / Light",
+      "interactive": "Interactive",
+      "styling": "Styling"
+    },
+    "examples": {
+      "dark": "Dark mode",
+      "light": "Light mode",
+      "interactive": "Interactive (toggle)",
+      "noDefault": "No default style"
+    }
+  },
   "documentation": {
     "propTypes": {
       "title": "Prop Types",
@@ -1106,7 +1155,8 @@
       "pending": "Pending",
       "badges": "Badges",
       "navbar": "Navbar",
-      "sidebar": "SideBar"
+      "sidebar": "SideBar",
+      "themeToggle": "Theme Toggle"
     },
     "examples": {
       "primary": "Primary",

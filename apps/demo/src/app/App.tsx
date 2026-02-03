@@ -4,7 +4,7 @@ import LeftMenu from "./LeftMenu";
 import Content from "./Content";
 import type { SideBarItem } from "@react-ts-ui-lib/ui";
 import { getRouteList } from "./tools/routeList";
-import { Navbar, Button, getColorScheme } from "@react-ts-ui-lib/ui";
+import { Navbar, Button, ThemeToggle, getColorScheme } from "@react-ts-ui-lib/ui";
 import { useTheme } from "./context/themeContext";
 import { useLanguage } from "./context/languageContext";
 import { useTranslation } from "../i18n/useTranslation";
@@ -29,9 +29,6 @@ const Logo = ({ isMobile }: { isMobile?: boolean }) => (
     }}
   />
 );
-const SUNNY = "mdi-white-balance-sunny";
-const MOON = "mdi-moon-waxing-crescent";
-
 const LANGUAGE_MAP: Record<string, string> = {
   en: "EN",
   cz: "CZ",
@@ -110,12 +107,11 @@ function App() {
       <>
       {user &&
        <GoogleUserChip user={user} showDetails={!isMobile} />}
-        <Button
-          size="sm"
-          icon={!darkMode ? SUNNY : MOON}
-          onClick={() => setDarkMode(!darkMode)}
-          modern={true}
-          
+        <ThemeToggle
+          darkMode={darkMode}
+          onToggle={() => setDarkMode(!darkMode)}
+          ariaLabelDark={t("themeToggle.ariaLabelDark")}
+          ariaLabelLight={t("themeToggle.ariaLabelLight")}
         />
         <Button
           size="sm"

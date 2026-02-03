@@ -383,7 +383,8 @@
       "block": "Blok",
       "number": "Číslo",
       "input": "Vstupní pole",
-      "profileCard": "Profil karta"
+      "profileCard": "Profil karta",
+      "themeToggle": "Přepínač motivu"
     },
     "utilities": {
       "copyToClipboard": "Kopírovat do schránky",
@@ -820,6 +821,54 @@
       "light": "Světlý"
     }
   },
+  "themeToggle": {
+    "title": "ThemeToggle komponenta",
+    "ariaLabelDark": "Tmavý režim",
+    "ariaLabelLight": "Světlý režim",
+    "props": {
+      "darkMode": {
+        "description": "Když true, přepínač odpovídá tmavému motivu (kolečko vlevo, ikona měsíce).",
+        "type": "boolean",
+        "required": "true"
+      },
+      "onToggle": {
+        "description": "Callback volaný po kliknutí na přepínač.",
+        "type": "function",
+        "required": "true"
+      },
+      "className": {
+        "description": "Další CSS třída pro obal.",
+        "type": "string",
+        "required": "false"
+      },
+      "removeDefaultStyle": {
+        "description": "Odstraní výchozí styly dráhy a kolečka.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "ariaLabelDark": {
+        "description": "Popisek pro přístupnost při tmavém režimu (např. pro čtečky obrazovky).",
+        "type": "string",
+        "required": "false"
+      },
+      "ariaLabelLight": {
+        "description": "Popisek pro přístupnost při světlém režimu (např. pro čtečky obrazovky).",
+        "type": "string",
+        "required": "false"
+      }
+    },
+    "categories": {
+      "darkMode": "Tmavý / světlý",
+      "interactive": "Interaktivní",
+      "styling": "Styling"
+    },
+    "examples": {
+      "dark": "Tmavý režim",
+      "light": "Světlý režim",
+      "interactive": "Interaktivní (přepni)",
+      "noDefault": "Bez výchozího stylu"
+    }
+  },
   "documentation": {
     "propTypes": {
       "title": "Prop Types",
@@ -857,7 +906,8 @@
       "pending": "Načítání",
       "badges": "Odznaky",
       "navbar": "Navigační lišta",
-      "sidebar": "Postranní menu"
+      "sidebar": "Postranní menu",
+      "themeToggle": "Přepínač motivu"
     },
     "examples": {
       "primary": "Primární",

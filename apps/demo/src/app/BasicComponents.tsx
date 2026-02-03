@@ -1,5 +1,6 @@
 //@@viewOn:imports
-import { Block, Button, Icon, Input, Number, Pending, Badge, Navbar, SideBar } from "@react-ts-ui-lib/ui";
+import { useState } from "react";
+import { Block, Button, Icon, Input, Number, Pending, Badge, Navbar, SideBar, ThemeToggle } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../i18n/useTranslation";
 import { useTheme } from "./context/themeContext";
 //@@viewOff:imports
@@ -44,9 +45,11 @@ const BasicComponents = () => {
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const styles = getStyles();
+  const [demoDark, setDemoDark] = useState(false);
   //@@viewOff:private
 
   //@@viewOn:render
+
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>{t("basicComponentsPage.title")}</h1>
@@ -117,7 +120,7 @@ const BasicComponents = () => {
           <Navbar
             logo={<span style={{ fontWeight: 700 }}>{t("basicComponentsPage.examples.logo")}</span>}
             darkMode={darkMode}
-            leftContent={<Button label={t("basicComponentsPage.examples.menu")} size="sm" modern colorScheme="primary" />}
+            centerContent={<Button label={t("basicComponentsPage.examples.menu")} size="sm" modern colorScheme="primary" />}
             rightContent={
               <>
                 <Button size="sm" modern colorScheme="success">{t("basicComponentsPage.examples.action")}</Button>
@@ -125,6 +128,18 @@ const BasicComponents = () => {
               </>
             }
           />
+        </Block>
+
+           {/* ThemeToggle Example */}
+           <Block card="full" darkMode={darkMode} header={t("basicComponentsPage.components.themeToggle")}>
+          <div style={styles.blockContent}>
+            <ThemeToggle
+              darkMode={demoDark}
+              onToggle={() => setDemoDark(!demoDark)}
+              ariaLabelDark={t("themeToggle.ariaLabelDark")}
+              ariaLabelLight={t("themeToggle.ariaLabelLight")}
+            />
+          </div>
         </Block>
 
         {/* SideBar Example */}
@@ -142,6 +157,8 @@ const BasicComponents = () => {
             />
           </div>
         </Block>
+
+     
       </div>
     </div>
   );

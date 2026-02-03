@@ -35,4 +35,9 @@ export const getComponentList = (t: (key: string) => string): SideBarItem[] => [
     icon: "mdi-account-card",
     key: "ProfileCard",
   },
+  {
+    title: t("sidebar.components.themeToggle"),
+    icon: "mdi-theme-light-dark",
+    key: "ThemeToggle",
+  },
 ];

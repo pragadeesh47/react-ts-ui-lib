@@ -37,4 +37,5 @@
 // card cursor pointer na ikoně kolapsu nefunguje
 // block colabsilbe icon na druhou stranu
 // todo na pending přidat propsu fast medium slow a podle toho rischlost pendingu
-
+// side bar přidat hedader ke by mohl bít další action list a to samé do ffoteru cíelem je aby nahoře se dal vykrelsovat přihlášení atd...
+// copy to clipboard Component

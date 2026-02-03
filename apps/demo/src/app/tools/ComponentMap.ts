@@ -38,6 +38,9 @@ const componentMap: { [key: string]: React.LazyExoticComponent<React.FC> } = {
   ProfileCard: React.lazy(
     () => import("../../documentation/basic-components/ProfileCardDoc"),
   ),
+  ThemeToggle: React.lazy(
+    () => import("../../documentation/basic-components/ThemeToggleDoc"),
+  ),
 
   //Utilities
   CopyToClipboard: React.lazy(
