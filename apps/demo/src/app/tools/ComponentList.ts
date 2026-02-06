@@ -55,4 +55,9 @@ export const getComponentList = (t: (key: string) => string): SideBarItem[] => [
     icon: "mdi-checkbox-marked",
     key: "Checkbox",
   },
+  {
+    title: t("sidebar.components.date"),
+    icon: "mdi-calendar",
+    key: "Date",
+  },
 ];

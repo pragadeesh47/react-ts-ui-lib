@@ -635,7 +635,8 @@
       "themeToggle": "Theme Toggle",
       "infogroup": "Info Group",
       "tabgroup": "Tab Group",
-      "checkbox": "Checkbox"
+      "checkbox": "Checkbox",
+      "date": "Date"
     },
     "utilities": {
       "copyToClipboard": "Copy to Clipboard",
@@ -1381,6 +1382,105 @@
       "noDefaultLabel": "No default styling",
       "errorMessage": "This field is required",
       "requiredErrorMessage": "You must accept this to continue"
+    }
+  },
+  "date": {
+    "title": "Date Component",
+    "props": {
+      "className": {
+        "description": "Additional CSS classes applied to the root element.",
+        "type": "string",
+        "required": "false"
+      },
+      "noPrint": {
+        "description": "Hides the component when printing (adds no-print class).",
+        "type": "boolean",
+        "required": "false"
+      },
+      "hidden": {
+        "description": "If true, the component will not be rendered.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "removeDefaultStyle": {
+        "description": "Disables built-in styling and leaves only raw element for full customization.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "darkMode": {
+        "description": "Renders the component using dark mode palette.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "value": {
+        "description": "Date value in YYYY-MM-DD format.",
+        "type": "string",
+        "required": "false"
+      },
+      "onChange": {
+        "description": "Callback when date changes. Receives the change event.",
+        "type": "function",
+        "required": "false"
+      },
+      "name": {
+        "description": "HTML name attribute for form submission.",
+        "type": "string",
+        "required": "false"
+      },
+      "id": {
+        "description": "HTML id attribute for label association.",
+        "type": "string",
+        "required": "false"
+      },
+      "disabled": {
+        "description": "Disables the date input.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "label": {
+        "description": "Label text displayed above the input.",
+        "type": "string",
+        "required": "false"
+      },
+      "required": {
+        "description": "Marks the field as required (shows asterisk in label).",
+        "type": "boolean",
+        "required": "false"
+      },
+      "error": {
+        "description": "Error state (changes styling to show error).",
+        "type": "boolean",
+        "required": "false"
+      },
+      "errorMessage": {
+        "description": "Error message displayed below input when error is true.",
+        "type": "string",
+        "required": "false"
+      }
+    },
+    "categories": {
+      "basic": "Basic",
+      "states": "States",
+      "validation": "Validation",
+      "styling": "Styling"
+    },
+    "examples": {
+      "basic": "Basic",
+      "withLabel": "With label",
+      "required": "Required",
+      "disabled": "Disabled",
+      "withError": "With error",
+      "requiredWithError": "Required with error",
+      "noDefault": "No default",
+      "basicLabel": "Select date",
+      "dateLabel": "Date of birth",
+      "requiredLabel": "Required date",
+      "disabledLabel": "Disabled date",
+      "errorLabel": "Pick a date",
+      "requiredErrorLabel": "Required field",
+      "noDefaultLabel": "No default styling",
+      "errorMessage": "This field is required",
+      "requiredErrorMessage": "Please select a date"
     }
   },
   "documentation": {

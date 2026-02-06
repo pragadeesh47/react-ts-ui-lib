@@ -387,7 +387,8 @@
       "themeToggle": "Přepínač motivu",
       "infogroup": "Info skupina",
       "tabgroup": "Tab skupina",
-      "checkbox": "Checkbox"
+      "checkbox": "Checkbox",
+      "date": "Datum"
     },
     "utilities": {
       "copyToClipboard": "Kopírovat do schránky",
@@ -1132,6 +1133,105 @@
       "noDefaultLabel": "Bez výchozího stylu",
       "errorMessage": "Toto pole je povinné",
       "requiredErrorMessage": "Musíte toto přijmout pro pokračování"
+    }
+  },
+  "date": {
+    "title": "Date Komponenta",
+    "props": {
+      "className": {
+        "description": "Dodatečné CSS třídy aplikované na root element.",
+        "type": "string",
+        "required": "false"
+      },
+      "noPrint": {
+        "description": "Skryje komponentu při tisku (přidá třídu no-print).",
+        "type": "boolean",
+        "required": "false"
+      },
+      "hidden": {
+        "description": "Pokud true, komponenta se nevyrenderuje.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "removeDefaultStyle": {
+        "description": "Vypne vestavěné styly a ponechá pouze surový element pro plnou přizpůsobitelnost.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "darkMode": {
+        "description": "Renderuje komponentu pomocí tmavé palety barev.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "value": {
+        "description": "Hodnota data ve formátu YYYY-MM-DD.",
+        "type": "string",
+        "required": "false"
+      },
+      "onChange": {
+        "description": "Callback při změně data. Přijímá change event.",
+        "type": "function",
+        "required": "false"
+      },
+      "name": {
+        "description": "HTML name atribut pro odeslání formuláře.",
+        "type": "string",
+        "required": "false"
+      },
+      "id": {
+        "description": "HTML id atribut pro asociaci s label.",
+        "type": "string",
+        "required": "false"
+      },
+      "disabled": {
+        "description": "Zakáže vstup data.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "label": {
+        "description": "Text labelu zobrazený nad vstupem.",
+        "type": "string",
+        "required": "false"
+      },
+      "required": {
+        "description": "Označí pole jako povinné (zobrazí hvězdičku v labelu).",
+        "type": "boolean",
+        "required": "false"
+      },
+      "error": {
+        "description": "Chybový stav (změní styling pro zobrazení chyby).",
+        "type": "boolean",
+        "required": "false"
+      },
+      "errorMessage": {
+        "description": "Chybová zpráva zobrazená pod vstupem když je error true.",
+        "type": "string",
+        "required": "false"
+      }
+    },
+    "categories": {
+      "basic": "Základní",
+      "states": "Stavy",
+      "validation": "Validace",
+      "styling": "Styling"
+    },
+    "examples": {
+      "basic": "Základní",
+      "withLabel": "S labelem",
+      "required": "Povinný",
+      "disabled": "Zakázáno",
+      "withError": "S chybou",
+      "requiredWithError": "Povinný s chybou",
+      "noDefault": "Bez výchozího",
+      "basicLabel": "Vyberte datum",
+      "dateLabel": "Datum narození",
+      "requiredLabel": "Povinné datum",
+      "disabledLabel": "Zakázané datum",
+      "errorLabel": "Vyberte datum",
+      "requiredErrorLabel": "Povinné pole",
+      "noDefaultLabel": "Bez výchozího stylu",
+      "errorMessage": "Toto pole je povinné",
+      "requiredErrorMessage": "Prosím vyberte datum"
     }
   },
   "documentation": {

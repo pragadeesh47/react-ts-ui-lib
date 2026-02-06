@@ -50,6 +50,9 @@ const componentMap: { [key: string]: React.LazyExoticComponent<React.FC> } = {
   Checkbox: React.lazy(
     () => import("../../documentation/basic-components/CheckboxDoc"),
   ),
+  Date: React.lazy(
+    () => import("../../documentation/basic-components/DateDoc"),
+  ),
 
   //Utilities
   CopyToClipboard: React.lazy(
