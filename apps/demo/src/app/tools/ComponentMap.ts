@@ -53,6 +53,9 @@ const componentMap: { [key: string]: React.LazyExoticComponent<React.FC> } = {
   Date: React.lazy(
     () => import("../../documentation/basic-components/DateDoc"),
   ),
+  Select: React.lazy(
+    () => import("../../documentation/basic-components/SelectDoc"),
+  ),
 
   //Utilities
   CopyToClipboard: React.lazy(

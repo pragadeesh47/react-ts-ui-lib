@@ -636,7 +636,8 @@
       "infogroup": "Info Group",
       "tabgroup": "Tab Group",
       "checkbox": "Checkbox",
-      "date": "Date"
+      "date": "Date",
+      "select": "Select"
     },
     "utilities": {
       "copyToClipboard": "Copy to Clipboard",
@@ -1481,6 +1482,73 @@
       "noDefaultLabel": "No default styling",
       "errorMessage": "This field is required",
       "requiredErrorMessage": "Please select a date"
+    }
+  },
+  "select": {
+    "title": "Select Component",
+    "props": {
+      "className": {
+        "description": "Additional CSS classes applied to the root element.",
+        "type": "string",
+        "required": "false"
+      },
+      "noPrint": {
+        "description": "Hides the component when printing (adds no-print class).",
+        "type": "boolean",
+        "required": "false"
+      },
+      "hidden": {
+        "description": "If true, the component will not be rendered.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "removeDefaultStyle": {
+        "description": "Disables built-in styling and leaves only raw element for full customization.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "darkMode": {
+        "description": "Renders the component using dark mode palette.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "itemList": {
+        "description": "Array of options. Each item has value and label.",
+        "type": "SelectItem[]",
+        "required": "true"
+      },
+      "value": {
+        "description": "Selected value (must match one of the item values).",
+        "type": "string | number",
+        "required": "false"
+      },
+      "onChange": {
+        "description": "Callback when selection changes. Receives the change event.",
+        "type": "function",
+        "required": "false"
+      },
+      "name": {
+        "description": "HTML name attribute for form submission.",
+        "type": "string",
+        "required": "false"
+      },
+      "id": {
+        "description": "HTML id attribute for label association.",
+        "type": "string",
+        "required": "false"
+      }
+    },
+    "categories": {
+      "basic": "Basic",
+      "styling": "Styling"
+    },
+    "examples": {
+      "basic": "Basic",
+      "noDefault": "No default",
+      "apple": "Apple",
+      "banana": "Banana",
+      "orange": "Orange",
+      "grape": "Grape"
     }
   },
   "documentation": {

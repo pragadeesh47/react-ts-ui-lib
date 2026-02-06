@@ -60,4 +60,9 @@ export const getComponentList = (t: (key: string) => string): SideBarItem[] => [
     icon: "mdi-calendar",
     key: "Date",
   },
+  {
+    title: t("sidebar.components.select"),
+    icon: "mdi-format-list-bulleted",
+    key: "Select",
+  },
 ];

@@ -17,6 +17,7 @@ export { InfoGroup } from "./basic-components/InfoGroup";
 export { TabGroup } from "./basic-components/TabGroup";
 export { Checkbox } from "./basic-components/Checkbox";
 export { Date } from "./basic-components/Date";
+export { Select } from "./basic-components/Select";
 
 // Color utilities
 export { getColorScheme, getBorderColor, getRgbaFromScheme, hexToRgba } from "./tools/colors";
@@ -39,6 +40,7 @@ export { INFO_GROUP_PROP_NAMES } from "./basic-components/InfoGroup";
 export { TAB_GROUP_PROP_NAMES } from "./basic-components/TabGroup";
 export { CHECKBOX_PROP_NAMES } from "./basic-components/Checkbox";
 export { DATE_PROP_NAMES } from "./basic-components/Date";
+export { SELECT_PROP_NAMES } from "./basic-components/Select";
 
 // Types
 export type { PendingProps } from "./basic-components/Pending";
@@ -53,3 +55,4 @@ export type { InfoGroupProps, InfoGroupItem } from "./basic-components/InfoGroup
 export type { TabGroupProps, TabGroupItem } from "./basic-components/TabGroup";
 export type { CheckboxProps } from "./basic-components/Checkbox";
 export type { DateProps } from "./basic-components/Date";
+export type { SelectProps, SelectItem } from "./basic-components/Select";

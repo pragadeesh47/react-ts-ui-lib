@@ -388,7 +388,8 @@
       "infogroup": "Info skupina",
       "tabgroup": "Tab skupina",
       "checkbox": "Checkbox",
-      "date": "Datum"
+      "date": "Datum",
+      "select": "Select"
     },
     "utilities": {
       "copyToClipboard": "Kopírovat do schránky",
@@ -1232,6 +1233,73 @@
       "noDefaultLabel": "Bez výchozího stylu",
       "errorMessage": "Toto pole je povinné",
       "requiredErrorMessage": "Prosím vyberte datum"
+    }
+  },
+  "select": {
+    "title": "Select Komponenta",
+    "props": {
+      "className": {
+        "description": "Dodatečné CSS třídy aplikované na root element.",
+        "type": "string",
+        "required": "false"
+      },
+      "noPrint": {
+        "description": "Skryje komponentu při tisku (přidá třídu no-print).",
+        "type": "boolean",
+        "required": "false"
+      },
+      "hidden": {
+        "description": "Pokud true, komponenta se nevyrenderuje.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "removeDefaultStyle": {
+        "description": "Vypne vestavěné styly a ponechá pouze surový element pro plnou přizpůsobitelnost.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "darkMode": {
+        "description": "Renderuje komponentu pomocí tmavé palety barev.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "itemList": {
+        "description": "Pole možností. Každá položka má value a label.",
+        "type": "SelectItem[]",
+        "required": "true"
+      },
+      "value": {
+        "description": "Vybraná hodnota (musí odpovídat jedné z item values).",
+        "type": "string | number",
+        "required": "false"
+      },
+      "onChange": {
+        "description": "Callback při změně výběru. Přijímá change event.",
+        "type": "function",
+        "required": "false"
+      },
+      "name": {
+        "description": "HTML name atribut pro odeslání formuláře.",
+        "type": "string",
+        "required": "false"
+      },
+      "id": {
+        "description": "HTML id atribut pro asociaci s label.",
+        "type": "string",
+        "required": "false"
+      }
+    },
+    "categories": {
+      "basic": "Základní",
+      "styling": "Styling"
+    },
+    "examples": {
+      "basic": "Základní",
+      "noDefault": "Bez výchozího",
+      "apple": "Jablko",
+      "banana": "Banán",
+      "orange": "Pomeranč",
+      "grape": "Hrozny"
     }
   },
   "documentation": {
