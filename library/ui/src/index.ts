@@ -18,6 +18,7 @@ export { TabGroup } from "./basic-components/TabGroup";
 export { Checkbox } from "./basic-components/Checkbox";
 export { Date } from "./basic-components/Date";
 export { Select } from "./basic-components/Select";
+export { Radios } from "./basic-components/Radios";
 
 // Color utilities
 export { getColorScheme, getBorderColor, getRgbaFromScheme, hexToRgba } from "./tools/colors";
@@ -41,6 +42,7 @@ export { TAB_GROUP_PROP_NAMES } from "./basic-components/TabGroup";
 export { CHECKBOX_PROP_NAMES } from "./basic-components/Checkbox";
 export { DATE_PROP_NAMES } from "./basic-components/Date";
 export { SELECT_PROP_NAMES } from "./basic-components/Select";
+export { RADIOS_PROP_NAMES } from "./basic-components/Radios";
 
 // Types
 export type { PendingProps } from "./basic-components/Pending";
@@ -56,3 +58,4 @@ export type { TabGroupProps, TabGroupItem } from "./basic-components/TabGroup";
 export type { CheckboxProps } from "./basic-components/Checkbox";
 export type { DateProps } from "./basic-components/Date";
 export type { SelectProps, SelectItem } from "./basic-components/Select";
+export type { RadiosProps, RadiosItem } from "./basic-components/Radios";

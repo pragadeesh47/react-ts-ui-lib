@@ -637,7 +637,8 @@
       "tabgroup": "Tab Group",
       "checkbox": "Checkbox",
       "date": "Date",
-      "select": "Select"
+      "select": "Select",
+      "radios": "Radios"
     },
     "utilities": {
       "copyToClipboard": "Copy to Clipboard",
@@ -1544,6 +1545,89 @@
     },
     "examples": {
       "basic": "Basic",
+      "noDefault": "No default",
+      "apple": "Apple",
+      "banana": "Banana",
+      "orange": "Orange",
+      "grape": "Grape"
+    }
+  },
+  "radios": {
+    "title": "Radios Component",
+    "props": {
+      "className": {
+        "description": "Additional CSS classes applied to the root element.",
+        "type": "string",
+        "required": "false"
+      },
+      "noPrint": {
+        "description": "Hides the component when printing (adds no-print class).",
+        "type": "boolean",
+        "required": "false"
+      },
+      "hidden": {
+        "description": "If true, the component will not be rendered.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "removeDefaultStyle": {
+        "description": "Disables built-in styling and leaves only raw elements for full customization.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "darkMode": {
+        "description": "Renders the component using dark mode palette.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "itemList": {
+        "description": "Array of options. Each item has value and label.",
+        "type": "RadiosItem[]",
+        "required": "true"
+      },
+      "value": {
+        "description": "Selected value (must match one of the item values).",
+        "type": "string | number",
+        "required": "false"
+      },
+      "onChange": {
+        "description": "Callback when selection changes. Receives the change event.",
+        "type": "function",
+        "required": "false"
+      },
+      "onFocus": {
+        "description": "Callback when any radio receives focus.",
+        "type": "function",
+        "required": "false"
+      },
+      "onBlur": {
+        "description": "Callback when any radio loses focus.",
+        "type": "function",
+        "required": "false"
+      },
+      "name": {
+        "description": "HTML name attribute for the radio group (required for grouping).",
+        "type": "string",
+        "required": "false"
+      },
+      "id": {
+        "description": "Base HTML id for the group; each option gets id-{value}.",
+        "type": "string",
+        "required": "false"
+      },
+      "direction": {
+        "description": "Layout direction of options: row or column.",
+        "type": "\"row\" | \"column\"",
+        "required": "false"
+      }
+    },
+    "categories": {
+      "basic": "Basic",
+      "styling": "Styling"
+    },
+    "examples": {
+      "basic": "Basic",
+      "directionRow": "Direction row",
       "noDefault": "No default",
       "apple": "Apple",
       "banana": "Banana",

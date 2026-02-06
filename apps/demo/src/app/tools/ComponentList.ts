@@ -65,4 +65,9 @@ export const getComponentList = (t: (key: string) => string): SideBarItem[] => [
     icon: "mdi-format-list-bulleted",
     key: "Select",
   },
+  {
+    title: t("sidebar.components.radios"),
+    icon: "mdi-radiobox-marked",
+    key: "Radios",
+  },
 ];

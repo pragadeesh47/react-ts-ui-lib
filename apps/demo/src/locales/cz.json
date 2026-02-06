@@ -389,7 +389,8 @@
       "tabgroup": "Tab skupina",
       "checkbox": "Checkbox",
       "date": "Datum",
-      "select": "Select"
+      "select": "Select",
+      "radios": "Radios"
     },
     "utilities": {
       "copyToClipboard": "Kopírovat do schránky",
@@ -1295,6 +1296,89 @@
     },
     "examples": {
       "basic": "Základní",
+      "noDefault": "Bez výchozího",
+      "apple": "Jablko",
+      "banana": "Banán",
+      "orange": "Pomeranč",
+      "grape": "Hrozny"
+    }
+  },
+  "radios": {
+    "title": "Radios Komponenta",
+    "props": {
+      "className": {
+        "description": "Dodatečné CSS třídy aplikované na root element.",
+        "type": "string",
+        "required": "false"
+      },
+      "noPrint": {
+        "description": "Skryje komponentu při tisku (přidá třídu no-print).",
+        "type": "boolean",
+        "required": "false"
+      },
+      "hidden": {
+        "description": "Pokud true, komponenta se nevyrenderuje.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "removeDefaultStyle": {
+        "description": "Vypne vestavěné styly a ponechá pouze surové elementy pro plnou přizpůsobitelnost.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "darkMode": {
+        "description": "Renderuje komponentu pomocí tmavé palety barev.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "itemList": {
+        "description": "Pole možností. Každá položka má value a label.",
+        "type": "RadiosItem[]",
+        "required": "true"
+      },
+      "value": {
+        "description": "Vybraná hodnota (musí odpovídat jedné z item values).",
+        "type": "string | number",
+        "required": "false"
+      },
+      "onChange": {
+        "description": "Callback při změně výběru. Přijímá change event.",
+        "type": "function",
+        "required": "false"
+      },
+      "onFocus": {
+        "description": "Callback když libovolný radio získá focus.",
+        "type": "function",
+        "required": "false"
+      },
+      "onBlur": {
+        "description": "Callback když libovolný radio ztratí focus.",
+        "type": "function",
+        "required": "false"
+      },
+      "name": {
+        "description": "HTML name atribut pro skupinu radio (pro seskupení).",
+        "type": "string",
+        "required": "false"
+      },
+      "id": {
+        "description": "Základní HTML id pro skupinu; každá možnost dostane id-{value}.",
+        "type": "string",
+        "required": "false"
+      },
+      "direction": {
+        "description": "Směr rozložení možností: row nebo column.",
+        "type": "\"row\" | \"column\"",
+        "required": "false"
+      }
+    },
+    "categories": {
+      "basic": "Základní",
+      "styling": "Styling"
+    },
+    "examples": {
+      "basic": "Základní",
+      "directionRow": "Směr řádek",
       "noDefault": "Bez výchozího",
       "apple": "Jablko",
       "banana": "Banán",

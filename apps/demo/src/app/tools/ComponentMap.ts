@@ -56,6 +56,9 @@ const componentMap: { [key: string]: React.LazyExoticComponent<React.FC> } = {
   Select: React.lazy(
     () => import("../../documentation/basic-components/SelectDoc"),
   ),
+  Radios: React.lazy(
+    () => import("../../documentation/basic-components/RadiosDoc"),
+  ),
 
   //Utilities
   CopyToClipboard: React.lazy(
