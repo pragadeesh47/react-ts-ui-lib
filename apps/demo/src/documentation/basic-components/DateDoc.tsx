@@ -2,7 +2,7 @@
 import { Documentation, DATE_PROP_NAMES, Date as DateComponent } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
-import { useTheme } from "../../app/context/themeContext";
+import { useTheme } from "../../app/context/ThemeContext";
 import { useState } from "react";
 //@@viewOff:imports
 

@@ -2,7 +2,7 @@
 import { Documentation, BADGE_PROP_NAMES, Badge } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
-import { useTheme } from "../../app/context/themeContext";
+import { useTheme } from "../../app/context/ThemeContext";
 //@@viewOff:imports
 
 //@@viewOn:component

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Button, UtilityDocumentation } from "@react-ts-ui-lib/ui";
 import { parseQueryString } from "@react-ts-ui-lib/utilities";
-import { useTheme } from "../../app/context/themeContext";
+import { useTheme } from "../../app/context/ThemeContext";
 import { useTranslation } from "../../i18n/useTranslation";
 //@@viewOff:imports
 

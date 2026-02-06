@@ -1,7 +1,7 @@
 //@@viewOn:imports
 import { Pending, getBorderColor, Block } from "@react-ts-ui-lib/ui";
 import { useEffect, useState } from "react";
-import { useTheme } from "./context/themeContext";
+import { useTheme } from "./context/ThemeContext";
 //@@viewOff:imports
 
 //@@viewOn:constants

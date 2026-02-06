@@ -3,7 +3,7 @@ import { Documentation, INFO_GROUP_PROP_NAMES, InfoGroup, Badge, Icon, Number } 
 import type { InfoGroupItem } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
-import { useTheme } from "../../app/context/themeContext";
+import { useTheme } from "../../app/context/ThemeContext";
 //@@viewOff:imports
 
 //@@viewOn:component

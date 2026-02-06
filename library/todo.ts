@@ -43,3 +43,6 @@
 // tabs rounding, display botom line podle aktivní code, a dislpliy line pod všemi taby, do itimeListu přidat možnost tag - ty se budou implementovat déel budou sloužit pro označení napříkald new a bdue to jen přepoužitá badge. 
 // sidebar sortování bug
 //v dokumentacích chybí v itemListu vypsat jaké props můžu mít možná by to šlo sjednoit a udělat globálně
+//sidebar item hegith
+// drobečkou navigaci byla by hezká v dokumentaci, bais componet > Button > props tab
+// sidebar aktuálně se dá otevřít víc root itemů bylo by dobré mít na to propsu a tohle dovolit nebo zakázat aby se při rozklinutí další root tamty ostatní zavřely. 

@@ -1,8 +1,11 @@
 import React from "react";
 
 const componentMap: { [key: string]: React.LazyExoticComponent<React.FC> } = {
-  //Routes
-  BasicComponents: React.lazy(() => import("../BasicComponents")),
+  // Overview pages (category roots)
+  Basic: React.lazy(() => import("../BasicComponents")),
+  Form: React.lazy(() => import("../FormComponents")),
+  LayoutNavigation: React.lazy(() => import("../LayoutNavigationComponents")),
+  Content: React.lazy(() => import("../ContentComponents")),
   Utilities: React.lazy(() => import("../Utilities")),
   Contributors: React.lazy(() => import("../Contributions")),
   AboutApplication: React.lazy(() => import("../AboutApplication")),
@@ -80,13 +83,13 @@ const componentMap: { [key: string]: React.LazyExoticComponent<React.FC> } = {
     () => import("../../documentation/utilities/ParseQueryStringDoc"),
   ),
   GenerateRandomString: React.lazy(
-    () => import("../../documentation/utilities/GenerateRandomStringDoc"),
+    () => import("../../documentation/utilities/GenerateRandomStringDoc.tsx"),
   ),
   ValidateEmail: React.lazy(
-    () => import("../../documentation/utilities/ValidateEmailDoc"),
+    () => import("../../documentation/utilities/ValidateEmailDoc.tsx"),
   ),
   ValidateJson: React.lazy(
-    () => import("../../documentation/utilities/ValidateJsonDoc"),
+    () => import("../../documentation/utilities/ValidateJsonDoc.tsx"),
   ),
 };
 

@@ -621,6 +621,12 @@
       "aboutApplication": "About Application",
       "utilities": "Utilities"
     },
+    "componentCategories": {
+      "basic": "Basic Components",
+      "form": "Form Components",
+      "layoutNavigation": "Layout & Navigation Components",
+      "content": "Content Components"
+    },
     "components": {
       "button": "Button",
       "icon": "Icon",
@@ -1791,19 +1797,18 @@
     }
   },
   "basicComponentsPage": {
-    "title": "Basic Components Library",
-    "description": "This is a library of simple, reusable UI components. Here you can find detailed information about all available basic components.",
-    "instructions": "To view documentation for a specific component, expand the Basic Components section in the left menu and select the component you're interested in.",
+    "title": "Basic Components",
+    "description": "Primitive UI building blocks: buttons, icons, badges, labels, and more. Expand the left menu and select a component for full documentation.",
+    "instructions": "Select a component from the Basic Components section in the left menu to view its documentation.",
     "components": {
       "buttons": "Buttons",
       "icons": "Icons",
-      "inputs": "Inputs",
       "numbers": "Numbers",
       "pending": "Pending",
       "badges": "Badges",
-      "navbar": "Navbar",
-      "sidebar": "SideBar",
-      "themeToggle": "Theme Toggle"
+      "labels": "Labels",
+      "themeToggle": "Theme Toggle",
+      "block": "Block"
     },
     "examples": {
       "primary": "Primary",
@@ -1823,6 +1828,44 @@
       "primaryInput": "Primary input",
       "successInput": "Success input",
       "tealInput": "Teal input"
+    }
+  },
+  "formComponentsPage": {
+    "title": "Form Components",
+    "description": "Inputs and controls for forms: text, checkbox, date, select, radios. Select a component from the left menu for full documentation.",
+    "instructions": "Expand Form Components in the left menu and choose a component.",
+    "components": {
+      "input": "Input",
+      "checkbox": "Checkbox",
+      "date": "Date",
+      "select": "Select",
+      "radios": "Radios"
+    },
+    "examples": {
+      "placeholder": "Placeholder text",
+      "primaryInput": "Primary input",
+      "checkboxLabel": "Accept terms",
+      "checked": "Checked by default"
+    }
+  },
+  "layoutNavigationComponentsPage": {
+    "title": "Layout & Navigation Components",
+    "description": "Navbar, SideBar, TabGroup and other layout or navigation patterns. Select from the left menu for documentation.",
+    "instructions": "Expand Layout & Navigation Components in the left menu.",
+    "components": {
+      "navbar": "Navbar",
+      "sidebar": "SideBar",
+      "tabGroup": "TabGroup"
+    }
+  },
+  "contentComponentsPage": {
+    "title": "Content Components",
+    "description": "InfoGroup, ProfileCard, Popover and similar content or overlay components. Select from the left menu for documentation.",
+    "instructions": "Expand Content Components in the left menu.",
+    "components": {
+      "infoGroup": "InfoGroup",
+      "profileCard": "ProfileCard",
+      "popover": "Popover"
     }
   },
   "utilitiesPage": {

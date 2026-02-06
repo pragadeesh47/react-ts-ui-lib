@@ -1,15 +1,9 @@
 import type { SideBarItem } from "@react-ts-ui-lib/ui";
 import { getComponentList } from "./ComponentList";
-import { getUtilsList } from "./UtilsList";
+import { getUtilsList } from "./utilsList";
 
 export const getRouteList = (t: (key: string) => string): SideBarItem[] => [
-  {
-    title: t("sidebar.routes.basicComponents"),
-    icon: "mdi-home",
-    defaultExpandedItem: true,
-    key: "BasicComponents",
-    itemList: getComponentList(t),
-  },
+  ...getComponentList(t),
   {
     title: t("sidebar.routes.utilities"),
     icon: "mdi-wrench",

@@ -373,6 +373,12 @@
       "contributors": "Přispěvatelé",
       "aboutApplication": "O aplikaci"
     },
+    "componentCategories": {
+      "basic": "Základní komponenty",
+      "form": "Formulářové komponenty",
+      "layoutNavigation": "Layout a navigace komponenty",
+      "content": "Obsahové komponenty"
+    },
     "components": {
       "button": "Tlačítko",
       "icon": "Ikona",
@@ -1548,13 +1554,12 @@
     "components": {
       "buttons": "Tlačítka",
       "icons": "Ikony",
-      "inputs": "Vstupy",
       "numbers": "Čísla",
       "pending": "Načítání",
       "badges": "Odznaky",
-      "navbar": "Navigační lišta",
-      "sidebar": "Postranní menu",
-      "themeToggle": "Přepínač motivu"
+      "labels": "Štítky",
+      "themeToggle": "Přepínač motivu",
+      "block": "Blok"
     },
     "examples": {
       "primary": "Primární",
@@ -1570,10 +1575,45 @@
       "new": "Nové",
       "warning": "Varování",
       "hot": "Horké",
-      "premium": "Prémiové",
+      "premium": "Prémiové"
+    }
+  },
+  "formComponentsPage": {
+    "title": "Formulářové komponenty",
+    "description": "Vstupy a ovládací prvky pro formuláře: text, checkbox, datum, select, radio. V levém menu vyberte komponentu pro dokumentaci.",
+    "instructions": "Rozbalte Formulářové komponenty v levém menu a vyberte komponentu.",
+    "components": {
+      "input": "Input",
+      "checkbox": "Checkbox",
+      "date": "Date",
+      "select": "Select",
+      "radios": "Radios"
+    },
+    "examples": {
+      "placeholder": "Placeholder text",
       "primaryInput": "Primární vstup",
-      "successInput": "Úspěšný vstup",
-      "tealInput": "Tyrkysový vstup"
+      "checkboxLabel": "Přijmout podmínky",
+      "checked": "Zaškrtnuto ve výchozím stavu"
+    }
+  },
+  "layoutNavigationComponentsPage": {
+    "title": "Layout a navigace komponenty",
+    "description": "Navbar, SideBar, TabGroup a další layout nebo navigační vzory. V levém menu vyberte pro dokumentaci.",
+    "instructions": "Rozbalte Layout a navigace komponenty v levém menu.",
+    "components": {
+      "navbar": "Navbar",
+      "sidebar": "SideBar",
+      "tabGroup": "TabGroup"
+    }
+  },
+  "contentComponentsPage": {
+    "title": "Obsahové komponenty",
+    "description": "InfoGroup, ProfileCard, Popover a podobné obsahové nebo overlay komponenty. Vyberte z levého menu.",
+    "instructions": "Rozbalte Obsahové komponenty v levém menu.",
+    "components": {
+      "infoGroup": "InfoGroup",
+      "profileCard": "ProfileCard",
+      "popover": "Popover"
     }
   },
   "utilitiesPage": {

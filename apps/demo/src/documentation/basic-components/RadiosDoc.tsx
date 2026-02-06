@@ -3,7 +3,7 @@ import { Documentation, RADIOS_PROP_NAMES, Radios } from "@react-ts-ui-lib/ui";
 import type { RadiosItem } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
-import { useTheme } from "../../app/context/themeContext";
+import { useTheme } from "../../app/context/ThemeContext";
 import { useState } from "react";
 //@@viewOff:imports
 

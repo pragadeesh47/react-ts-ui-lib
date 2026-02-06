@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Modal, Button } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../i18n/useTranslation";
-import { useTheme } from "./context/themeContext";
+import { useTheme } from "./context/ThemeContext";
 import { useAuth } from "./context/AuthContext";
 //@@viewOff:imports
 

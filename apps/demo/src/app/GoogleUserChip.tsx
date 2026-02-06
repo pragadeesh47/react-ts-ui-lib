@@ -1,7 +1,7 @@
 //@@viewOn:imports
 import { useState, useEffect } from "react";
 import { Icon, getColorScheme } from "@react-ts-ui-lib/ui";
-import { useTheme } from "./context/themeContext";
+import { useTheme } from "./context/ThemeContext";
 import { useTranslation } from "../i18n/useTranslation";
 import type { User } from "firebase/auth";
 //@@viewOff:imports

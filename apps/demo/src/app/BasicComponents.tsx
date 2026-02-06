@@ -1,6 +1,6 @@
 //@@viewOn:imports
 import { useState } from "react";
-import { Block, Button, Icon, Input, Number, Pending, Badge, Navbar, SideBar, ThemeToggle } from "@react-ts-ui-lib/ui";
+import { Block, Button, Icon, Number, Pending, Badge, ThemeToggle, Label } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../i18n/useTranslation";
 import { useTheme } from "./context/ThemeContext";
 //@@viewOff:imports
@@ -49,13 +49,13 @@ const BasicComponents = () => {
   //@@viewOff:private
 
   //@@viewOn:render
-
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>{t("basicComponentsPage.title")}</h1>
+      <p style={{ marginBottom: 24 }}>{t("basicComponentsPage.description")}</p>
+      <p style={{ marginBottom: 24 }}>{t("basicComponentsPage.instructions")}</p>
 
       <div style={styles.grid}>
-        {/* Button Examples */}
         <Block card="full" darkMode={darkMode} header={t("basicComponentsPage.components.buttons")}>
           <div style={styles.blockContent}>
             <Button label={t("basicComponentsPage.examples.primary")} colorScheme="primary" modern />
@@ -65,7 +65,6 @@ const BasicComponents = () => {
           </div>
         </Block>
 
-        {/* Icon Examples */}
         <Block card="full" darkMode={darkMode} header={t("basicComponentsPage.components.icons")}>
           <div style={styles.blockContent}>
             <Icon icon="mdi-heart" color="#ef4444" size="lg" />
@@ -75,26 +74,15 @@ const BasicComponents = () => {
           </div>
         </Block>
 
-        {/* Input Examples */}
-        <Block card="full" darkMode={darkMode} header={t("basicComponentsPage.components.inputs")}>
-          <div style={styles.blockContent}>
-            <Input placeholder={t("basicComponentsPage.examples.primaryInput")} colorScheme="primary" />
-            <Input placeholder={t("basicComponentsPage.examples.successInput")} colorScheme="success" />
-            <Input placeholder={t("basicComponentsPage.examples.tealInput")} colorScheme="teal" />
-          </div>
-        </Block>
-
-        {/* Number Examples */}
         <Block card="full" darkMode={darkMode} header={t("basicComponentsPage.components.numbers")}>
           <div style={styles.blockContent}>
-            <Number value={42} colorScheme="primary" />
-            <Number value={99} colorScheme="danger" />
-            <Number value={156} colorScheme="purple" />
-            <Number value={777} colorScheme="cyan" />
+            <Number value={42} />
+            <Number value={99} />
+            <Number value={156} />
+            <Number value={777} />
           </div>
         </Block>
 
-        {/* Pending Examples */}
         <Block card="full" darkMode={darkMode} header={t("basicComponentsPage.components.pending")}>
           <div style={styles.blockContent}>
             <Pending colorScheme="primary" size="md" />
@@ -104,7 +92,6 @@ const BasicComponents = () => {
           </div>
         </Block>
 
-        {/* Badge Examples */}
         <Block card="full" darkMode={darkMode} header={t("basicComponentsPage.components.badges")}>
           <div style={styles.blockContent}>
             <Badge label={t("basicComponentsPage.examples.new")} colorScheme="primary" />
@@ -115,23 +102,16 @@ const BasicComponents = () => {
           </div>
         </Block>
 
-        {/* Navbar Example */}
-        <Block card="full" darkMode={darkMode} header={t("basicComponentsPage.components.navbar")}>
-          <Navbar
-            logo={<span style={{ fontWeight: 700 }}>{t("basicComponentsPage.examples.logo")}</span>}
-            darkMode={darkMode}
-            centerContent={<Button label={t("basicComponentsPage.examples.menu")} size="sm" modern colorScheme="primary" />}
-            rightContent={
-              <>
-                <Button size="sm" modern colorScheme="success">{t("basicComponentsPage.examples.action")}</Button>
-                <Icon icon="mdi-cog" color="#8b5cf6" size="md" />
-              </>
-            }
-          />
+        <Block card="full" darkMode={darkMode} header={t("basicComponentsPage.components.labels")}>
+          <div style={styles.blockContent}>
+            <Label size="s" darkMode={darkMode}>Small</Label>
+            <Label size="m" darkMode={darkMode}>Medium</Label>
+            <Label size="l" colorScheme="primary" darkMode={darkMode}>Primary</Label>
+            <Label size="xl" darkMode={darkMode}>Large</Label>
+          </div>
         </Block>
 
-           {/* ThemeToggle Example */}
-           <Block card="full" darkMode={darkMode} header={t("basicComponentsPage.components.themeToggle")}>
+        <Block card="full" darkMode={darkMode} header={t("basicComponentsPage.components.themeToggle")}>
           <div style={styles.blockContent}>
             <ThemeToggle
               darkMode={demoDark}
@@ -142,23 +122,13 @@ const BasicComponents = () => {
           </div>
         </Block>
 
-        {/* SideBar Example */}
-        <Block card="full" darkMode={darkMode} header={t("basicComponentsPage.components.sidebar")}>
-          <div style={{ height: 200, overflow: "hidden" }}>
-            <SideBar
-              itemList={[
-                { title: t("basicComponentsPage.examples.dashboard"), icon: "mdi-view-dashboard", key: "1" },
-                { title: t("basicComponentsPage.examples.settings"), icon: "mdi-cog", key: "2" },
-                { title: t("basicComponentsPage.examples.profile"), icon: "mdi-account", key: "3" },
-              ]}
-              selectedItem={{ title: t("basicComponentsPage.examples.dashboard"), icon: "mdi-view-dashboard", key: "1" }}
-              darkMode={darkMode}
-              onItemClick={() => {}}
-            />
+        <Block card="full" darkMode={darkMode} header={t("basicComponentsPage.components.block")}>
+          <div style={styles.blockContent}>
+            <Block darkMode={darkMode} header={t("basicComponentsPage.examples.dashboard")}>
+              <p style={{ margin: 0 }}>{t("basicComponentsPage.description")}</p>
+            </Block>
           </div>
         </Block>
-
-     
       </div>
     </div>
   );

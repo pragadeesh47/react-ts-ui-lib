@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./app/App.tsx";
-import { ThemeProvider } from "../src/app/context/themeContext.tsx";
+import { ThemeProvider } from "../src/app/context/ThemeContext";
 import { LanguageProvider } from "../src/app/context/languageContext.tsx";
 import { AuthProvider } from "../src/app/context/AuthContext.tsx";
 import { storage } from "@react-ts-ui-lib/utilities";

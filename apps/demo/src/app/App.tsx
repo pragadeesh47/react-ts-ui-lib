@@ -5,7 +5,7 @@ import Content from "./Content";
 import type { SideBarItem } from "@react-ts-ui-lib/ui";
 import { getRouteList } from "./tools/routeList";
 import { Navbar, Button, ThemeToggle, getColorScheme } from "@react-ts-ui-lib/ui";
-import { useTheme } from "./context/themeContext";
+import { useTheme } from "./context/ThemeContext";
 import { useLanguage } from "./context/languageContext";
 import { useTranslation } from "../i18n/useTranslation";
 import RegisterModal from "./RegisterModal";
@@ -63,9 +63,11 @@ function App() {
   const { t } = useTranslation();
   const { user, signOut, loading } = useAuth();
   const routeList = useMemo(() => getRouteList(t), [t]);
-  const [selectedItem, setSelectedItem] = useState<SideBarItem | null>(() =>
-    routeList.length > 0 ? routeList[0] : null,
-  );
+  const [selectedItem, setSelectedItem] = useState<SideBarItem | null>(() => {
+    if (routeList.length === 0) return null;
+    const first = routeList[0];
+    return first?.itemList?.[0] ?? first ?? null;
+  });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
