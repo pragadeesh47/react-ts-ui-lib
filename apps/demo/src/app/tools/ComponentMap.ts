@@ -68,6 +68,9 @@ const componentMap: { [key: string]: React.LazyExoticComponent<React.FC> } = {
   Popover: React.lazy(
     () => import("../../documentation/basic-components/PopoverDoc"),
   ),
+  CopyToClipboardComponent: React.lazy(
+    () => import("../../documentation/basic-components/CopyToClipboardDoc.tsx"),
+  ),
 
   //Utilities
   CopyToClipboard: React.lazy(

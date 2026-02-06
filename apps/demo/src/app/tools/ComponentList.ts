@@ -15,6 +15,7 @@ export const getComponentList = (t: (key: string) => string): SideBarItem[] => [
       { title: t("sidebar.components.number"), icon: "mdi-numeric", key: "Number" },
       { title: t("sidebar.components.label"), icon: "mdi-format-title", key: "Label" },
       { title: t("sidebar.components.themeToggle"), icon: "mdi-theme-light-dark", key: "ThemeToggle" },
+      { title: t("sidebar.components.copyToClipboard"), icon: "mdi-content-copy", key: "CopyToClipboardComponent" },
     ],
   },
   {

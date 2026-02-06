@@ -21,6 +21,7 @@ export { Select } from "./basic-components/Select";
 export { Radios } from "./basic-components/Radios";
 export { Label } from "./basic-components/Label";
 export { Popover } from "./basic-components/Popover";
+export { CopyToClipboard } from "./basic-components/CopyToClipboard";
 
 // Color utilities
 export { getColorScheme, getBorderColor, getRgbaFromScheme, hexToRgba } from "./tools/colors";
@@ -49,6 +50,7 @@ export { SELECT_PROP_NAMES } from "./basic-components/Select";
 export { RADIOS_PROP_NAMES } from "./basic-components/Radios";
 export { LABEL_PROP_NAMES } from "./basic-components/Label";
 export { POPOVER_PROP_NAMES } from "./basic-components/Popover";
+export { COPY_TO_CLIPBOARD_PROP_NAMES } from "./basic-components/CopyToClipboard";
 
 // Types
 export type { PendingProps } from "./basic-components/Pending";
@@ -67,3 +69,4 @@ export type { SelectProps, SelectItem } from "./basic-components/Select";
 export type { RadiosProps, RadiosItem } from "./basic-components/Radios";
 export type { LabelProps } from "./basic-components/Label";
 export type { PopoverProps } from "./basic-components/Popover";
+export type { CopyToClipboardProps } from "./basic-components/CopyToClipboard";

@@ -1,6 +1,7 @@
 //@@viewOn:imports
 import { useState } from "react";
-import { Block, Button, Icon, Number, Pending, Badge, ThemeToggle, Label } from "@react-ts-ui-lib/ui";
+import { Block, Button, Icon, Number, Pending, Badge, ThemeToggle, Label, CopyToClipboard } from "@react-ts-ui-lib/ui";
+import { copyToClipboard } from "@react-ts-ui-lib/utilities";
 import { useTranslation } from "../i18n/useTranslation";
 import { useTheme } from "./context/ThemeContext";
 //@@viewOff:imports
@@ -118,6 +119,17 @@ const BasicComponents = () => {
               onToggle={() => setDemoDark(!demoDark)}
               ariaLabelDark={t("themeToggle.ariaLabelDark")}
               ariaLabelLight={t("themeToggle.ariaLabelLight")}
+            />
+          </div>
+        </Block>
+
+        <Block card="full" darkMode={darkMode} header={t("basicComponentsPage.components.copyToClipboard")}>
+          <div style={styles.blockContent}>
+            <CopyToClipboard
+              text="Hello from Basic Components"
+              onCopy={copyToClipboard}
+              label={t("copyToClipboard.examples.copyLabel")}
+              darkMode={darkMode}
             />
           </div>
         </Block>

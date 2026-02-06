@@ -398,7 +398,8 @@
       "select": "Select",
       "radios": "Radios",
       "label": "Label",
-      "popover": "Popover"
+      "popover": "Popover",
+      "copyToClipboard": "Kopírovat do schránky"
     },
     "utilities": {
       "copyToClipboard": "Kopírovat do schránky",
@@ -1559,6 +1560,7 @@
       "badges": "Odznaky",
       "labels": "Štítky",
       "themeToggle": "Přepínač motivu",
+      "copyToClipboard": "Kopírovat do schránky",
       "block": "Blok"
     },
     "examples": {
@@ -1627,6 +1629,59 @@
     "description": "Utility funkce pro kopírování textu do schránky pomocí navigator.clipboard API s fallbackem pro starší prohlížeče.",
     "success": "Text byl zkopírován do schránky.",
     "error": "Kopírování se nepodařilo.",
+    "categories": {
+      "basic": "Základní",
+      "styling": "Vzhled"
+    },
+    "examples": {
+      "default": "Výchozí",
+      "copyLabel": "Kopírovat",
+      "customLabel": "Vlastní popisek",
+      "light": "Světlý režim",
+      "noDefault": "Bez výchozího stylu"
+    },
+    "props": {
+      "text": {
+        "description": "Text ke zkopírování do schránky.",
+        "type": "string",
+        "required": "true"
+      },
+      "onCopy": {
+        "description": "Funkce, která provede kopírování (např. copyToClipboard z @react-ts-ui-lib/utilities).",
+        "type": "(text: string) => Promise<boolean>",
+        "required": "true"
+      },
+      "label": {
+        "description": "Popisek tlačítka.",
+        "type": "string",
+        "required": "false"
+      },
+      "children": {
+        "description": "Vlastní obsah tlačítka (má přednost před label).",
+        "type": "ReactNode",
+        "required": "false"
+      },
+      "darkMode": {
+        "description": "Tmavý režim.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "className": {
+        "description": "Další CSS třída.",
+        "type": "string",
+        "required": "false"
+      },
+      "removeDefaultStyle": {
+        "description": "Odstraní výchozí styl tlačítka.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "borderRadius": {
+        "description": "Zaoblení rohů tlačítka.",
+        "type": "RadiusToken",
+        "required": "false"
+      }
+    },
     "parameters": {
       "text": {
         "name": "text",

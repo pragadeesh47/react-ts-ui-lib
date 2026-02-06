@@ -646,7 +646,8 @@
       "select": "Select",
       "radios": "Radios",
       "label": "Label",
-      "popover": "Popover"
+      "popover": "Popover",
+      "copyToClipboard": "Copy to Clipboard"
     },
     "utilities": {
       "copyToClipboard": "Copy to Clipboard",
@@ -1808,6 +1809,7 @@
       "badges": "Badges",
       "labels": "Labels",
       "themeToggle": "Theme Toggle",
+      "copyToClipboard": "Copy to Clipboard",
       "block": "Block"
     },
     "examples": {
@@ -1878,6 +1880,59 @@
     "description": "Utility function for copying text to clipboard using navigator.clipboard API with fallback for older browsers.",
     "success": "Text was copied to clipboard.",
     "error": "Copying failed.",
+    "categories": {
+      "basic": "Basic",
+      "styling": "Styling"
+    },
+    "examples": {
+      "default": "Default",
+      "copyLabel": "Copy",
+      "customLabel": "Custom label",
+      "light": "Light mode",
+      "noDefault": "No default style"
+    },
+    "props": {
+      "text": {
+        "description": "Text to copy to the clipboard.",
+        "type": "string",
+        "required": "true"
+      },
+      "onCopy": {
+        "description": "Function that performs the copy (e.g. copyToClipboard from @react-ts-ui-lib/utilities).",
+        "type": "(text: string) => Promise<boolean>",
+        "required": "true"
+      },
+      "label": {
+        "description": "Label for the trigger button.",
+        "type": "string",
+        "required": "false"
+      },
+      "children": {
+        "description": "Custom trigger content (overrides label if set).",
+        "type": "ReactNode",
+        "required": "false"
+      },
+      "darkMode": {
+        "description": "Uses dark color scheme.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "className": {
+        "description": "Additional CSS class.",
+        "type": "string",
+        "required": "false"
+      },
+      "removeDefaultStyle": {
+        "description": "Removes default button styling.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "borderRadius": {
+        "description": "Border radius of the button.",
+        "type": "RadiusToken",
+        "required": "false"
+      }
+    },
     "parameters": {
       "text": {
         "name": "text",
