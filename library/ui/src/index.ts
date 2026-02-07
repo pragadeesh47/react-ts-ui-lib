@@ -1,5 +1,6 @@
 //Components
 export { Button } from "./basic-components/Button";
+export { ButtonGroup } from "./basic-components/ButtonGroup";
 export { Pending } from "./basic-components/Pending";
 export { Icon } from "./basic-components/Icon";
 export { SideBar } from "./basic-components/SideBar";
@@ -44,6 +45,7 @@ export { PROFILE_CARD_PROP_NAMES } from "./basic-components/ProfileCard";
 export { THEME_TOGGLE_PROP_NAMES } from "./basic-components/ThemeToggle";
 export { INFO_GROUP_PROP_NAMES } from "./basic-components/InfoGroup";
 export { TAB_GROUP_PROP_NAMES } from "./basic-components/TabGroup";
+export { BUTTON_GROUP_PROP_NAMES } from "./basic-components/ButtonGroup";
 export { CHECKBOX_PROP_NAMES } from "./basic-components/Checkbox";
 export { DATE_PROP_NAMES } from "./basic-components/Date";
 export { SELECT_PROP_NAMES } from "./basic-components/Select";
@@ -63,6 +65,12 @@ export type { ProfileCardProps } from "./basic-components/ProfileCard";
 export type { ThemeToggleProps } from "./basic-components/ThemeToggle";
 export type { InfoGroupProps, InfoGroupItem } from "./basic-components/InfoGroup";
 export type { TabGroupProps, TabGroupItem } from "./basic-components/TabGroup";
+export type {
+  ButtonGroupProps,
+  ButtonGroupItem,
+  ButtonGroupItemButton,
+  ButtonGroupItemCustom,
+} from "./basic-components/ButtonGroup";
 export type { CheckboxProps } from "./basic-components/Checkbox";
 export type { DateProps } from "./basic-components/Date";
 export type { SelectProps, SelectItem } from "./basic-components/Select";

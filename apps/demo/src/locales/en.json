@@ -629,6 +629,7 @@
     },
     "components": {
       "button": "Button",
+      "buttonGroup": "Button Group",
       "icon": "Icon",
       "pending": "Pending",
       "sidebar": "Sidebar",
@@ -1295,6 +1296,80 @@
       "props": "Props",
       "documentation": "Documentation",
       "propsContent": "This tab contains detailed prop documentation and usage examples."
+    }
+  },
+  "buttongroup": {
+    "title": "ButtonGroup Component",
+    "props": {
+      "itemList": {
+        "description": "Array of items. Each item can be Button props (same as Button) or a custom component via the component property.",
+        "type": "ButtonGroupItem[]",
+        "required": "true"
+      },
+      "direction": {
+        "description": "Layout direction: row or column.",
+        "type": "string",
+        "required": "false"
+      },
+      "gap": {
+        "description": "CSS gap between items (e.g. \"0.5rem\").",
+        "type": "string",
+        "required": "false"
+      },
+      "variant": {
+        "description": "Visual style: default (spaced buttons) or segmented (buttons visually joined in one group).",
+        "type": "string",
+        "required": "false"
+      },
+      "borderRadius": {
+        "description": "Border radius token for the group (segmented variant) or default button radius.",
+        "type": "string",
+        "required": "false"
+      },
+      "className": {
+        "description": "Additional CSS classes applied to the root element.",
+        "type": "string",
+        "required": "false"
+      },
+      "noPrint": {
+        "description": "Hides the component when printing (adds no-print class).",
+        "type": "boolean",
+        "required": "false"
+      },
+      "hidden": {
+        "description": "If true, the component will not be rendered.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "removeDefaultStyle": {
+        "description": "Disables built-in styling and leaves only raw element for full customization.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "darkMode": {
+        "description": "Renders the component using dark mode palette.",
+        "type": "boolean",
+        "required": "false"
+      }
+    },
+    "categories": {
+      "basic": "Basic",
+      "variant": "Variant",
+      "styling": "Styling"
+    },
+    "examples": {
+      "default": "Default",
+      "withIcons": "With icons",
+      "customComponent": "With custom component",
+      "custom": "Custom button",
+      "segmented": "Segmented",
+      "column": "Column direction",
+      "noDefault": "No default style",
+      "save": "Save",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "edit": "Edit",
+      "copy": "Copy"
     }
   },
   "checkbox": {

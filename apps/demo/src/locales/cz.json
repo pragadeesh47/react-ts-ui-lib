@@ -381,6 +381,7 @@
     },
     "components": {
       "button": "Tlačítko",
+      "buttonGroup": "Skupina tlačítek",
       "icon": "Ikona",
       "pending": "Načítání",
       "sidebar": "Postranní menu",
@@ -1046,6 +1047,80 @@
       "props": "Props",
       "documentation": "Dokumentace",
       "propsContent": "Tento tab obsahuje detailní dokumentaci props a příklady použití."
+    }
+  },
+  "buttongroup": {
+    "title": "ButtonGroup Komponenta",
+    "props": {
+      "itemList": {
+        "description": "Pole položek. Každá položka může být props pro Button (stejné jako Button) nebo vlastní komponenta přes vlastnost component.",
+        "type": "ButtonGroupItem[]",
+        "required": "true"
+      },
+      "direction": {
+        "description": "Směr layoutu: row nebo column.",
+        "type": "string",
+        "required": "false"
+      },
+      "gap": {
+        "description": "CSS mezera mezi položkami (např. \"0.5rem\").",
+        "type": "string",
+        "required": "false"
+      },
+      "variant": {
+        "description": "Vizuální styl: default (oddělená tlačítka) nebo segmented (tlačítka vizuálně spojená).",
+        "type": "string",
+        "required": "false"
+      },
+      "borderRadius": {
+        "description": "Token zaoblení pro skupinu (variant segmented) nebo výchozí zaoblení tlačítek.",
+        "type": "string",
+        "required": "false"
+      },
+      "className": {
+        "description": "Dodatečné CSS třídy aplikované na root element.",
+        "type": "string",
+        "required": "false"
+      },
+      "noPrint": {
+        "description": "Skryje komponentu při tisku (přidá třídu no-print).",
+        "type": "boolean",
+        "required": "false"
+      },
+      "hidden": {
+        "description": "Pokud true, komponenta se nevyrenderuje.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "removeDefaultStyle": {
+        "description": "Vypne vestavěné styly a ponechá pouze holý element pro plné přizpůsobení.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "darkMode": {
+        "description": "Renderuje komponentu s tmavým motivem.",
+        "type": "boolean",
+        "required": "false"
+      }
+    },
+    "categories": {
+      "basic": "Základní",
+      "variant": "Varianta",
+      "styling": "Styling"
+    },
+    "examples": {
+      "default": "Výchozí",
+      "withIcons": "S ikonami",
+      "customComponent": "S vlastní komponentou",
+      "custom": "Vlastní tlačítko",
+      "segmented": "Segmented",
+      "column": "Směr sloupec",
+      "noDefault": "Bez výchozího stylu",
+      "save": "Uložit",
+      "cancel": "Zrušit",
+      "delete": "Smazat",
+      "edit": "Upravit",
+      "copy": "Kopírovat"
     }
   },
   "checkbox": {

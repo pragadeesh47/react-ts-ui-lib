@@ -23,6 +23,9 @@ const componentMap: { [key: string]: React.LazyExoticComponent<React.FC> } = {
   Button: React.lazy(
     () => import("../../documentation/basic-components/ButtonDoc"),
   ),
+  ButtonGroup: React.lazy(
+    () => import("../../documentation/basic-components/ButtonGroupDoc"),
+  ),
   Navbar: React.lazy(
     () => import("../../documentation/basic-components/NavbarDoc"),
   ),

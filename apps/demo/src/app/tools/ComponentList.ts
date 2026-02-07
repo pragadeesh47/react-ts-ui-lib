@@ -8,6 +8,7 @@ export const getComponentList = (t: (key: string) => string): SideBarItem[] => [
     defaultExpandedItem: true,
     itemList: [
       { title: t("sidebar.components.button"), icon: "mdi-button-cursor", key: "Button" },
+      { title: t("sidebar.components.buttonGroup"), icon: "mdi-format-list-group", key: "ButtonGroup" },
       { title: t("sidebar.components.icon"), icon: "mdi-alpha-i-circle-outline", key: "Icon" },
       { title: t("sidebar.components.pending"), icon: "mdi-loading", key: "Pending" },
       { title: t("sidebar.components.badge"), icon: "mdi-label", key: "Badge" },
