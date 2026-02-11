@@ -619,7 +619,8 @@
       "profile": "Profile",
       "contributors": "Contributors",
       "aboutApplication": "About Application",
-      "utilities": "Utilities"
+      "utilities": "Utilities",
+      "table": "Table"
     },
     "componentCategories": {
       "basic": "Basic Components",

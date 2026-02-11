@@ -9,6 +9,7 @@ const componentMap: { [key: string]: React.LazyExoticComponent<React.FC> } = {
   Utilities: React.lazy(() => import("../Utilities")),
   Contributors: React.lazy(() => import("../Contributions")),
   AboutApplication: React.lazy(() => import("../AboutApplication")),
+  Table: React.lazy(() => import("../Table")),
 
   //Components
   SideBar: React.lazy(

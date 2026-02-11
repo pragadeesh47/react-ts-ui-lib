@@ -5,6 +5,12 @@ import { getUtilsList } from "./utilsList";
 export const getRouteList = (t: (key: string) => string): SideBarItem[] => [
   ...getComponentList(t),
   {
+    title: t("sidebar.routes.table"),
+    icon: "mdi-table-large",
+    defaultExpandedItem: false,
+    key: "Table",
+  },
+  {
     title: t("sidebar.routes.utilities"),
     icon: "mdi-wrench",
     defaultExpandedItem: false,
