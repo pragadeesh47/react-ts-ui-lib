@@ -7,6 +7,13 @@ import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 //@@viewOff:imports
 
+const TAB_GROUP_EXAMPLE_CODE = `<TabGroup
+  itemList={tabsList}
+  codeActive={activeTab}
+  onChange={setActiveTab}
+  darkMode={darkMode}
+/>`;
+
 //@@viewOn:component
 const TabGroupDoc = () => {
   //@@viewOn:private
@@ -255,6 +262,21 @@ const TabGroupDoc = () => {
       <Documentation
         state="inProgress"
         title={t("tabgroup.title")}
+        basicInfo={{
+          description: t("tabgroup.basicInfo.description"),
+          exampleCode: TAB_GROUP_EXAMPLE_CODE,
+          preview: (
+            <TabGroup
+              itemList={basicTabs}
+              codeActive={activeTab}
+              onChange={(code) => setActiveTab(code as string)}
+              darkMode={darkMode}
+            />
+          ),
+        }}
+        basicInfoDescriptionHeader={t("documentation.basicInfo.descriptionHeader")}
+        basicInfoPreviewHeader={t("documentation.basicInfo.previewHeader")}
+        basicInfoCodeHeader={t("documentation.basicInfo.codeHeader")}
         propTypesList={propTypesList}
         componentList={componentList}
         propTypesTitle={t("documentation.propTypes.title")}

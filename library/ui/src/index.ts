@@ -5,7 +5,12 @@ export { Pending } from "./basic-components/Pending";
 export { Icon } from "./basic-components/Icon";
 export { SideBar } from "./basic-components/SideBar";
 export { Navbar } from "./basic-components/Navbar";
-export { Documentation } from "./basic-components/Documentation";
+export {
+  Documentation,
+  type BasicInfo,
+  type DocCategory,
+  type DocItem,
+} from "./basic-components/Documentation";
 export { UtilityDocumentation } from "./basic-components/UtilityDocumentation";
 export { Badge } from "./basic-components/Badge";
 export { Block } from "./basic-components/Block";

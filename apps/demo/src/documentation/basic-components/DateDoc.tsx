@@ -6,6 +6,13 @@ import { useTheme } from "../../app/context/ThemeContext";
 import { useState } from "react";
 //@@viewOff:imports
 
+const DATE_EXAMPLE_CODE = `<Date
+  value={new Date()}
+  format="d.M.yyyy"
+  locale="cs"
+  darkMode={darkMode}
+/>`;
+
 //@@viewOn:component
 const DateDoc = () => {
   //@@viewOn:private
@@ -134,6 +141,21 @@ const DateDoc = () => {
       <Documentation
         state="inProgress"
         title={t("date.title")}
+        basicInfo={{
+          description: t("date.basicInfo.description"),
+          exampleCode: DATE_EXAMPLE_CODE,
+          preview: (
+            <Date
+              value={basicValue}
+              format="d.M.yyyy"
+              locale="cs"
+              darkMode={darkMode}
+            />
+          ),
+        }}
+        basicInfoDescriptionHeader={t("documentation.basicInfo.descriptionHeader")}
+        basicInfoPreviewHeader={t("documentation.basicInfo.previewHeader")}
+        basicInfoCodeHeader={t("documentation.basicInfo.codeHeader")}
         propTypesList={propTypesList}
         componentList={componentList}
         propTypesTitle={t("documentation.propTypes.title")}

@@ -1,6 +1,9 @@
 {
   "badge": {
     "title": "Badge Component",
+    "basicInfo": {
+      "description": "Displays status or category as a colored badge. Use for state labels (new, approved, draft), item types, or counts. Supports icons and color schemes."
+    },
     "props": {
       "children": {
         "description": "Content of badge (text or custom node).",
@@ -128,6 +131,9 @@
   },
   "button": {
     "title": "Button Component",
+    "basicInfo": {
+      "description": "Button for actions (submit, confirm, navigate). Supports icons, loading state, color schemes and sizes."
+    },
     "props": {
       "children": {
         "description": "Content rendered inside the button (text, icons, custom nodes).",
@@ -292,6 +298,9 @@
   },
   "icon": {
     "title": "Icon Component",
+    "basicInfo": {
+      "description": "Renders an icon from Material Design Icons (mdi-*). Supports size, color, tooltip and click."
+    },
     "props": {
       "icon": {
         "description": "Name of the Material Design Icon (mdi-*) to render.",
@@ -379,6 +388,9 @@
   },
   "pending": {
     "title": "Pending Component",
+    "basicInfo": {
+      "description": "Loading indicator – circular or horizontal spinner. Used during async operations."
+    },
     "props": {
       "style": {
         "description": "Optional inline styles (React.CSSProperties) merged with default styles.",
@@ -439,6 +451,9 @@
   },
   "navbar": {
     "title": "Navbar Component",
+    "basicInfo": {
+      "description": "Top navigation bar with logo, center content and right section. Shows hamburger menu on mobile."
+    },
     "props": {
       "logo": {
         "description": "Content rendered in the left section; string or custom node.",
@@ -524,6 +539,9 @@
   },
   "sidebar": {
     "title": "SideBar Component",
+    "basicInfo": {
+      "description": "Side navigation panel with menu items. Can be collapsed, responds to mobile breakpoint and optionally shows icons."
+    },
     "props": {
       "itemList": {
         "description": "Top-level items to render in the sidebar (can be nested).",
@@ -663,6 +681,9 @@
   },
   "block": {
     "title": "Block Component",
+    "basicInfo": {
+      "description": "Universal container with optional header and card styles. Used for documentation sections, forms or content groups."
+    },
     "props": {
       "children": {
         "description": "Main content of the block.",
@@ -807,6 +828,9 @@
   },
   "number": {
     "title": "Number Component",
+    "basicInfo": {
+      "description": "Formats numbers with thousand separators and decimal places. Long numbers can show a shortened value with the full number in a tooltip."
+    },
     "props": {
       "value": {
         "description": "The numeric value to display.",
@@ -863,6 +887,9 @@
   },
   "input": {
     "title": "Input Component",
+    "basicInfo": {
+      "description": "Text, number or password input with optional label, placeholder, error state and validation."
+    },
     "props": {
       "style": {
         "description": "Optional inline styles (React.CSSProperties) merged with default styles.",
@@ -945,6 +972,9 @@
   },
   "profileCard": {
     "title": "ProfileCard Component",
+    "basicInfo": {
+      "description": "Card for displaying user profile – avatar, name, description and optional actions. Can be styled and extended with custom content."
+    },
     "props": {
       "photo": {
         "description": "Image URL or custom React node (e.g. img element) for the profile photo.",
@@ -1110,6 +1140,9 @@
   },
   "themeToggle": {
     "title": "ThemeToggle Component",
+    "basicInfo": {
+      "description": "Toggle between light and dark mode. Shows sun/moon icon and calls callback on change."
+    },
     "ariaLabelDark": "Dark mode",
     "ariaLabelLight": "Light mode",
     "props": {
@@ -1158,6 +1191,9 @@
   },
   "infogroup": {
     "title": "InfoGroup Component",
+    "basicInfo": {
+      "description": "Groups label–value pairs (e.g. name, email). Suited for detail views or summaries."
+    },
     "props": {
       "itemList": {
         "description": "Array of items to display. Each item can have title, subtitle, and optional icon.",
@@ -1234,6 +1270,9 @@
   },
   "tabgroup": {
     "title": "TabGroup Component",
+    "basicInfo": {
+      "description": "Tabs for switching between content sections. Each tab has a title and content shown when active."
+    },
     "props": {
       "itemList": {
         "description": "Array of tab items. Each item must have title, content, and code. Optionally subtitle, icon, and onClick.",
@@ -1263,6 +1302,31 @@
       "style": {
         "description": "Optional inline styles (React.CSSProperties) merged with default styles.",
         "type": "React.CSSProperties",
+        "required": "false"
+      },
+      "contentStyle": {
+        "description": "Optional inline styles applied to the content area below the tabs.",
+        "type": "React.CSSProperties",
+        "required": "false"
+      },
+      "borderTop": {
+        "description": "Whether to show a border on the top edge of the tab bar.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "borderRight": {
+        "description": "Whether to show a border on the right edge of the tab bar.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "borderBottom": {
+        "description": "Whether to show a border on the bottom edge of the tab bar.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "borderLeft": {
+        "description": "Whether to show a border on the left edge of the tab bar.",
+        "type": "boolean",
         "required": "false"
       },
       "noPrint": {
@@ -1317,6 +1381,9 @@
   },
   "buttongroup": {
     "title": "ButtonGroup Component",
+    "basicInfo": {
+      "description": "Group of buttons in a row or column. Items can be Button config or custom component."
+    },
     "props": {
       "itemList": {
         "description": "Array of items. Each item can be Button props (same as Button) or a custom component via the component property.",
@@ -1391,6 +1458,9 @@
   },
   "checkbox": {
     "title": "Checkbox Component",
+    "basicInfo": {
+      "description": "Toggle for yes/no selection. Supports label, disabled state and custom change handling."
+    },
     "props": {
       "style": {
         "description": "Optional inline styles (React.CSSProperties) merged with default styles.",
@@ -1494,6 +1564,9 @@
   },
   "date": {
     "title": "Date Component",
+    "basicInfo": {
+      "description": "Formats and displays a date in the given format and locale. Supports timezone and custom format string."
+    },
     "props": {
       "style": {
         "description": "Optional inline styles (React.CSSProperties) merged with default styles.",
@@ -1593,6 +1666,9 @@
   },
   "select": {
     "title": "Select Component",
+    "basicInfo": {
+      "description": "Dropdown to choose from predefined options. Supports label and pre-selected value."
+    },
     "props": {
       "style": {
         "description": "Optional inline styles (React.CSSProperties) merged with default styles.",
@@ -1660,6 +1736,9 @@
   },
   "radios": {
     "title": "Radios Component",
+    "basicInfo": {
+      "description": "Group of radio options to select one of several choices. Each option has value and label."
+    },
     "props": {
       "style": {
         "description": "Optional inline styles (React.CSSProperties) merged with default styles.",
@@ -1743,6 +1822,9 @@
   },
   "label": {
     "title": "Label Component",
+    "basicInfo": {
+      "description": "Text label with optional emphasis. Used for section headings, field labels or section titles."
+    },
     "props": {
       "style": {
         "description": "Optional inline styles (React.CSSProperties) merged with default styles.",
@@ -1812,6 +1894,9 @@
   },
   "popover": {
     "title": "Popover Component",
+    "basicInfo": {
+      "description": "Popover anchored to a trigger element. Shows content on click or hover and can be closed by clicking outside."
+    },
     "props": {
       "style": {
         "description": "Optional inline styles (React.CSSProperties) merged with default styles.",
@@ -1885,6 +1970,11 @@
       "examples": "Examples",
       "usage": "Usage",
       "propTypes": "Prop Types"
+    },
+    "basicInfo": {
+      "descriptionHeader": "Description",
+      "previewHeader": "Preview",
+      "codeHeader": "Code"
     },
     "utility": {
       "parameters": {
@@ -1981,6 +2071,9 @@
   },
   "copyToClipboard": {
     "title": "Copy to Clipboard",
+    "basicInfo": {
+      "description": "Component with a button to copy text to clipboard. Shows confirmation after copy."
+    },
     "description": "Utility function for copying text to clipboard using navigator.clipboard API with fallback for older browsers.",
     "success": "Text was copied to clipboard.",
     "error": "Copying failed.",

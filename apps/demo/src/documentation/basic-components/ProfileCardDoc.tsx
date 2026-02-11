@@ -10,6 +10,13 @@ import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 //@@viewOff:imports
 
+const PROFILE_CARD_EXAMPLE_CODE = `<ProfileCard
+  name="Jméno"
+  description="Popis"
+  avatarSrc="/avatar.jpg"
+  darkMode={darkMode}
+/>`;
+
 //@@viewOn:component
 const ProfileCardDoc = () => {
   //@@viewOn:private
@@ -315,6 +322,20 @@ const ProfileCardDoc = () => {
       <Documentation
         state="inProgress"
         title={t("profileCard.title")}
+        basicInfo={{
+          description: t("profileCard.basicInfo.description"),
+          exampleCode: PROFILE_CARD_EXAMPLE_CODE,
+          preview: (
+            <ProfileCard
+              name="Jane Doe"
+              role={t("profileCard.examples.roleDeveloper")}
+              darkMode={darkMode}
+            />
+          ),
+        }}
+        basicInfoDescriptionHeader={t("documentation.basicInfo.descriptionHeader")}
+        basicInfoPreviewHeader={t("documentation.basicInfo.previewHeader")}
+        basicInfoCodeHeader={t("documentation.basicInfo.codeHeader")}
         propTypesList={propTypesList}
         componentList={componentList}
         propTypesTitle={t("documentation.propTypes.title")}

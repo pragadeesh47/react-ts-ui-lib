@@ -5,6 +5,10 @@ import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 //@@viewOff:imports
 
+const LABEL_EXAMPLE_CODE = `<Label darkMode={darkMode}>
+  Nadpis sekce
+</Label>`;
+
 //@@viewOn:component
 const LabelDoc = () => {
   //@@viewOn:private
@@ -84,6 +88,14 @@ const LabelDoc = () => {
       <Documentation
         state="inProgress"
         title={t("label.title")}
+        basicInfo={{
+          description: t("label.basicInfo.description"),
+          exampleCode: LABEL_EXAMPLE_CODE,
+          preview: <Label darkMode={darkMode}>Nadpis sekce</Label>,
+        }}
+        basicInfoDescriptionHeader={t("documentation.basicInfo.descriptionHeader")}
+        basicInfoPreviewHeader={t("documentation.basicInfo.previewHeader")}
+        basicInfoCodeHeader={t("documentation.basicInfo.codeHeader")}
         propTypesList={propTypesList}
         componentList={componentList}
         propTypesTitle={t("documentation.propTypes.title")}

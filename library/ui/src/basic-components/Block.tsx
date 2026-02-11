@@ -50,9 +50,11 @@ const Css = {
     };
 
     if (cardType === "none") {
+      const p = padding ?? DEFAULT_PADDING;
+      const topPadding = Math.round(p * 0.4);
       return {
         ...baseStyle,
-        padding: `${padding}px`,
+        padding: `${topPadding}px ${p}px ${p}px ${p}px`,
       };
     }
 
@@ -82,10 +84,17 @@ const Css = {
       width: "100%",
     };
 
-    if (cardType === "full" || cardType === "none") {
+    if (cardType === "full") {
       return {
         ...baseStyle,
         padding: `${padding}px`,
+      };
+    }
+
+    if (cardType === "none") {
+      return {
+        ...baseStyle,
+        padding: "8px 0",
       };
     }
 
@@ -131,7 +140,7 @@ const Css = {
       width: "100%",
       height: 1,
       backgroundColor: borderColor,
-      margin: 0,
+      margin: "0 0 12px 0",
       border: "none",
     };
   },

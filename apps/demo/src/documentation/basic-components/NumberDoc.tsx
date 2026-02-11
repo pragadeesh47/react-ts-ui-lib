@@ -5,6 +5,12 @@ import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 //@@viewOff:imports
 
+const NUMBER_EXAMPLE_CODE = `<Number
+  value={12345.678}
+  minDecimalDigits={2}
+  darkMode={darkMode}
+/>`;
+
 //@@viewOn:component
 const NumberDoc = () => {
   //@@viewOn:private
@@ -125,6 +131,16 @@ const NumberDoc = () => {
       <Documentation
         state="draft"
         title={t("number.title")}
+        basicInfo={{
+          description: t("number.basicInfo.description"),
+          exampleCode: NUMBER_EXAMPLE_CODE,
+          preview: (
+            <Number value={12345.678} minDecimalDigits={2} darkMode={darkMode} />
+          ),
+        }}
+        basicInfoDescriptionHeader={t("documentation.basicInfo.descriptionHeader")}
+        basicInfoPreviewHeader={t("documentation.basicInfo.previewHeader")}
+        basicInfoCodeHeader={t("documentation.basicInfo.codeHeader")}
         propTypesList={propTypesList}
         componentList={componentList}
         propTypesTitle={t("documentation.propTypes.title")}

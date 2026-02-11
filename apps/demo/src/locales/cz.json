@@ -1,6 +1,9 @@
 {
   "badge": {
     "title": "Badge Komponenta",
+    "basicInfo": {
+      "description": "Komponenta slouží k zobrazení stavu nebo kategorie pomocí barevného odznaku. Hodí se pro štítky stavů (nový, schváleno, draft), typy položek nebo počty. Lze kombinovat s ikonkou a různými barevnými schématy."
+    },
     "props": {
       "children": {
         "description": "Obsah badge (text nebo vlastní node).",
@@ -128,6 +131,9 @@
   },
   "button": {
     "title": "Button Komponenta",
+    "basicInfo": {
+      "description": "Tlačítko pro akce (odeslání formuláře, potvrzení, navigace). Podporuje ikony, loading stav, barevná schémata a různé velikosti."
+    },
     "props": {
       "children": { "description": "Obsah renderovaný uvnitř tlačítka (text, ikony, vlastní node).", "type": "ReactNode", "required": "false" },
       "disabled": { "description": "Zabrání interakci a vizuálně deaktivuje tlačítko.", "type": "boolean", "required": "false" },
@@ -216,6 +222,9 @@
   },
   "icon": {
     "title": "Icon Komponenta",
+    "basicInfo": {
+      "description": "Zobrazuje ikonu z Material Design Icons (mdi-*). Lze nastavit velikost, barvu, tooltip a kliknutí."
+    },
     "props": {
       "icon": { "description": "Název Material Design Icon (mdi-*) k renderování.", "type": "string", "required": "false" },
       "size": { "description": "Icon size token (xs, sm, md, lg, xl) nebo číslo (em) pro vlastní velikost.", "type": "string | number", "required": "false" },
@@ -263,6 +272,9 @@
   },
   "pending": {
     "title": "Pending Komponenta",
+    "basicInfo": {
+      "description": "Indikátor načítání – kruhový nebo horizontální spinner. Používá se při asynchronních operacích."
+    },
     "props": {
       "style": { "description": "Volitelné inline styly (React.CSSProperties) sloučené s výchozími styly.", "type": "React.CSSProperties", "required": "false" },
       "type": { "description": "Styl spinneru: circular nebo horizontal bar.", "type": "string", "required": "false" },
@@ -295,6 +307,9 @@
   },
   "navbar": {
     "title": "Navbar Komponenta",
+    "basicInfo": {
+      "description": "Horní navigační lišta s logem, středním obsahem a pravou sekcí. Na mobilu zobrazuje hamburger menu."
+    },
     "props": {
       "logo": { "description": "Obsah renderovaný v levé sekci; string nebo vlastní node.", "type": "string | ReactNode", "required": "false" },
       "centerContent": { "description": "Obsah umístěný ve střední sekci navbaru.", "type": "ReactNode", "required": "false" },
@@ -332,6 +347,9 @@
   },
   "sidebar": {
     "title": "SideBar Komponenta",
+    "basicInfo": {
+      "description": "Boční navigační panel s položkami menu. Lze sbalit, reaguje na mobilní breakpoint a volitelně zobrazuje ikony."
+    },
     "props": {
       "itemList": { "description": "Položky nejvyšší úrovně k renderování v sidebaru (mohou být vnořené).", "type": "array", "required": "true" },
       "style": { "description": "Volitelné inline styly (React.CSSProperties) sloučené s výchozími styly.", "type": "React.CSSProperties", "required": "false" },
@@ -415,6 +433,9 @@
   },
   "block": {
     "title": "Block Komponenta",
+    "basicInfo": {
+      "description": "Univerzální kontejner s volitelným nadpisem a styly karty. Používá se pro sekce dokumentace, formuláře nebo skupiny obsahu."
+    },
     "props": {
       "children": {
         "description": "Hlavní obsah bloku.",
@@ -558,6 +579,9 @@
   },
   "number": {
     "title": "Number Komponenta",
+    "basicInfo": {
+      "description": "Formátuje čísla s oddělovači tisíců a desetinnými místy. U dlouhých čísel lze zobrazit zkrácenou hodnotu s celým číslem v tooltipu."
+    },
     "props": {
       "value": {
         "description": "Číselná hodnota k zobrazení.",
@@ -614,6 +638,9 @@
   },
   "input": {
     "title": "Input Komponenta",
+    "basicInfo": {
+      "description": "Vstupní pole pro text, čísla nebo hesla. Podporuje label, placeholder, chybový stav a validaci."
+    },
     "props": {
       "style": {
         "description": "Volitelné inline styly (React.CSSProperties) sloučené s výchozími styly.",
@@ -696,6 +723,9 @@
   },
   "profileCard": {
     "title": "ProfileCard komponenta",
+    "basicInfo": {
+      "description": "Karta pro zobrazení profilu uživatele – avatar, jméno, popis a volitelné akce. Lze stylovat a rozšířit o vlastní obsah."
+    },
     "props": {
       "photo": {
         "description": "URL obrázku nebo vlastní React uzel (např. img) pro profilovou fotku.",
@@ -861,6 +891,9 @@
   },
   "themeToggle": {
     "title": "ThemeToggle komponenta",
+    "basicInfo": {
+      "description": "Přepínač mezi světlým a tmavým režimem. Zobrazuje ikonu slunce/měsíce a volá callback při změně."
+    },
     "ariaLabelDark": "Tmavý režim",
     "ariaLabelLight": "Světlý režim",
     "props": {
@@ -909,6 +942,9 @@
   },
   "infogroup": {
     "title": "InfoGroup Komponenta",
+    "basicInfo": {
+      "description": "Seskupuje dvojice label–hodnota (např. jméno, email). Vhodné pro detailní zobrazení dat nebo souhrny."
+    },
     "props": {
       "itemList": {
         "description": "Pole položek k zobrazení. Každá položka může mít title, subtitle a volitelnou ikonu.",
@@ -985,6 +1021,9 @@
   },
   "tabgroup": {
     "title": "TabGroup Komponenta",
+    "basicInfo": {
+      "description": "Záložky pro přepínání mezi sekcemi obsahu. Každá záložka má titul a přidružený obsah zobrazený při aktivní volbě."
+    },
     "props": {
       "itemList": {
         "description": "Pole tab položek. Každá položka musí mít title, content a code. Volitelně subtitle, icon a onClick.",
@@ -1014,6 +1053,31 @@
       "style": {
         "description": "Volitelné inline styly (React.CSSProperties) sloučené s výchozími styly.",
         "type": "React.CSSProperties",
+        "required": "false"
+      },
+      "contentStyle": {
+        "description": "Volitelné inline styly pro oblast obsahu pod záložkami.",
+        "type": "React.CSSProperties",
+        "required": "false"
+      },
+      "borderTop": {
+        "description": "Zda zobrazit ohraničení na horní hraně lišty záložek.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "borderRight": {
+        "description": "Zda zobrazit ohraničení na pravé hraně lišty záložek.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "borderBottom": {
+        "description": "Zda zobrazit ohraničení na dolní hraně lišty záložek.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "borderLeft": {
+        "description": "Zda zobrazit ohraničení na levé hraně lišty záložek.",
+        "type": "boolean",
         "required": "false"
       },
       "noPrint": {
@@ -1068,6 +1132,9 @@
   },
   "buttongroup": {
     "title": "ButtonGroup Komponenta",
+    "basicInfo": {
+      "description": "Skupina tlačítek v řadě nebo sloupci. Položky mohou být konfigurace Button nebo vlastní komponenta."
+    },
     "props": {
       "itemList": {
         "description": "Pole položek. Každá položka může být props pro Button (stejné jako Button) nebo vlastní komponenta přes vlastnost component.",
@@ -1142,6 +1209,9 @@
   },
   "checkbox": {
     "title": "Checkbox Komponenta",
+    "basicInfo": {
+      "description": "Přepínač pro výběr ano/ne. Lze použít s labelem, v disabled stavu a s vlastním zpracováním změny."
+    },
     "props": {
       "style": {
         "description": "Volitelné inline styly (React.CSSProperties) sloučené s výchozími styly.",
@@ -1245,6 +1315,9 @@
   },
   "date": {
     "title": "Date Komponenta",
+    "basicInfo": {
+      "description": "Formátuje a zobrazuje datum v zadaném formátu a lokalizaci. Podporuje časové pásmo a vlastní formát řetězce."
+    },
     "props": {
       "style": {
         "description": "Volitelné inline styly (React.CSSProperties) sloučené s výchozími styly.",
@@ -1344,6 +1417,9 @@
   },
   "select": {
     "title": "Select Komponenta",
+    "basicInfo": {
+      "description": "Rozbalovací výběr z předdefinovaných možností. Lze použít s labelem a předvybranou hodnotou."
+    },
     "props": {
       "style": {
         "description": "Volitelné inline styly (React.CSSProperties) sloučené s výchozími styly.",
@@ -1411,6 +1487,9 @@
   },
   "radios": {
     "title": "Radios Komponenta",
+    "basicInfo": {
+      "description": "Skupina radio tlačítek pro výběr jedné možnosti z několika. Každá možnost má hodnotu a label."
+    },
     "props": {
       "style": {
         "description": "Volitelné inline styly (React.CSSProperties) sloučené s výchozími styly.",
@@ -1494,6 +1573,9 @@
   },
   "label": {
     "title": "Label Komponenta",
+    "basicInfo": {
+      "description": "Textový štítek s volitelným zvýrazněním. Používá se pro nadpisy, popisky polí nebo označení sekcí."
+    },
     "props": {
       "style": {
         "description": "Volitelné inline styly (React.CSSProperties) sloučené s výchozími styly.",
@@ -1563,6 +1645,9 @@
   },
   "popover": {
     "title": "Popover Komponenta",
+    "basicInfo": {
+      "description": "Vyskakovací okno vázané na trigger element. Zobrazí obsah po kliknutí nebo hoveru a lze ho zavřít kliknutím mimo."
+    },
     "props": {
       "style": {
         "description": "Volitelné inline styly (React.CSSProperties) sloučené s výchozími styly.",
@@ -1636,6 +1721,11 @@
       "examples": "Příklady",
       "usage": "Použití",
       "propTypes": "Prop Types"
+    },
+    "basicInfo": {
+      "descriptionHeader": "Základní popis",
+      "previewHeader": "Ukázka",
+      "codeHeader": "Kód"
     },
     "utility": {
       "parameters": {
@@ -1730,6 +1820,9 @@
 
   "copyToClipboard": {
     "title": "Copy to Clipboard",
+    "basicInfo": {
+      "description": "Komponenta s tlačítkem pro kopírování textu do schránky. Zobrazuje potvrzení po zkopírování."
+    },
     "description": "Utility funkce pro kopírování textu do schránky pomocí navigator.clipboard API s fallbackem pro starší prohlížeče.",
     "success": "Text byl zkopírován do schránky.",
     "error": "Kopírování se nepodařilo.",

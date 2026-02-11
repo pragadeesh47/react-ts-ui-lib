@@ -5,6 +5,13 @@ import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 //@@viewOff:imports
 
+const BADGE_EXAMPLE_CODE = `<Badge
+  colorScheme="success"
+  darkMode={true}
+>
+  Schváleno
+</Badge>`;
+
 //@@viewOn:component
 const BadgeDoc = () => {
   //@@viewOn:private
@@ -261,6 +268,26 @@ const BadgeDoc = () => {
       <Documentation
         state="production"
         title={t("badge.title")}
+        basicInfo={{
+          description: t("badge.basicInfo.description"),
+          exampleCode: BADGE_EXAMPLE_CODE,
+          preview: (
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+              <Badge colorScheme="success" darkMode={darkMode}>
+                {t("badge.examples.success")}
+              </Badge>
+              <Badge colorScheme="warning" darkMode={darkMode}>
+                {t("badge.examples.warning")}
+              </Badge>
+              <Badge colorScheme="info" darkMode={darkMode}>
+                {t("badge.examples.info")}
+              </Badge>
+            </div>
+          ),
+        }}
+        basicInfoDescriptionHeader={t("documentation.basicInfo.descriptionHeader")}
+        basicInfoPreviewHeader={t("documentation.basicInfo.previewHeader")}
+        basicInfoCodeHeader={t("documentation.basicInfo.codeHeader")}
         propTypesList={propTypesList}
         componentList={componentList}
         propTypesTitle={t("documentation.propTypes.title")}

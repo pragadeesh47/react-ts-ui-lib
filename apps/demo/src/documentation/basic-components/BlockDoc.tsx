@@ -10,6 +10,14 @@ import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 //@@viewOff:imports
 
+const BLOCK_EXAMPLE_CODE = `<Block
+  header="Nadpis"
+  darkMode={darkMode}
+  card="full"
+>
+  Obsah
+</Block>`;
+
 //@@viewOn:component
 const BlockDoc = () => {
   //@@viewOn:private
@@ -524,6 +532,18 @@ const BlockDoc = () => {
       <Documentation
         state="nearlyReady"
         title={t("block.title")}
+        basicInfo={{
+          description: t("block.basicInfo.description"),
+          exampleCode: BLOCK_EXAMPLE_CODE,
+          preview: (
+            <Block header={t("block.examples.basic")} darkMode={darkMode} card="full">
+              Obsah
+            </Block>
+          ),
+        }}
+        basicInfoDescriptionHeader={t("documentation.basicInfo.descriptionHeader")}
+        basicInfoPreviewHeader={t("documentation.basicInfo.previewHeader")}
+        basicInfoCodeHeader={t("documentation.basicInfo.codeHeader")}
         propTypesList={propTypesList}
         componentList={componentList}
         propTypesTitle={t("documentation.propTypes.title")}

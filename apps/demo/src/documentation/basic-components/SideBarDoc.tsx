@@ -10,6 +10,13 @@ import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 //@@viewOff:imports
 
+const SIDEBAR_EXAMPLE_CODE = `<SideBar
+  itemList={itemList}
+  collapsed={collapsed}
+  onItemClick={handleClick}
+  darkMode={darkMode}
+/>`;
+
 //@@viewOn:component
 const SideBarDoc = () => {
   //@@viewOn:private
@@ -65,6 +72,24 @@ const SideBarDoc = () => {
       <Documentation
         state="draft"
         title={t("sidebar.title")}
+        basicInfo={{
+          description: t("sidebar.basicInfo.description"),
+          exampleCode: SIDEBAR_EXAMPLE_CODE,
+          preview: (
+            <UiSideBar
+              itemList={[
+                { title: t("sidebar.examples.dashboard"), icon: "mdi-view-dashboard" },
+                { title: t("sidebar.examples.settings"), icon: "mdi-cog" },
+              ]}
+              collapsed={false}
+              darkMode={darkMode}
+              onItemClick={() => {}}
+            />
+          ),
+        }}
+        basicInfoDescriptionHeader={t("documentation.basicInfo.descriptionHeader")}
+        basicInfoPreviewHeader={t("documentation.basicInfo.previewHeader")}
+        basicInfoCodeHeader={t("documentation.basicInfo.codeHeader")}
         propTypesList={propTypesList}
         componentList={componentList}
         propTypesTitle={t("documentation.propTypes.title")}

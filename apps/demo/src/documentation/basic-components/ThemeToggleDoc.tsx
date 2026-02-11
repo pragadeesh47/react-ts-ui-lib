@@ -10,6 +10,11 @@ import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 //@@viewOff:imports
 
+const THEME_TOGGLE_EXAMPLE_CODE = `<ThemeToggle
+  darkMode={darkMode}
+  onToggle={setDarkMode}
+/>`;
+
 //@@viewOn:component
 const ThemeToggleDoc = () => {
   const { darkMode, setDarkMode } = useTheme();
@@ -89,6 +94,21 @@ const ThemeToggleDoc = () => {
       <Documentation
         state="inProgress"
         title={t("themeToggle.title")}
+        basicInfo={{
+          description: t("themeToggle.basicInfo.description"),
+          exampleCode: THEME_TOGGLE_EXAMPLE_CODE,
+          preview: (
+            <UiThemeToggle
+              darkMode={demoDark}
+              onToggle={() => setDemoDark(!demoDark)}
+              ariaLabelDark={t("themeToggle.ariaLabelDark")}
+              ariaLabelLight={t("themeToggle.ariaLabelLight")}
+            />
+          ),
+        }}
+        basicInfoDescriptionHeader={t("documentation.basicInfo.descriptionHeader")}
+        basicInfoPreviewHeader={t("documentation.basicInfo.previewHeader")}
+        basicInfoCodeHeader={t("documentation.basicInfo.codeHeader")}
         propTypesList={propTypesList}
         componentList={componentList}
         propTypesTitle={t("documentation.propTypes.title")}

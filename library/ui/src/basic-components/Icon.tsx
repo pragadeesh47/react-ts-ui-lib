@@ -89,7 +89,7 @@ function Icon({
       <MdiIcon
         path={path}
         size={iconSize}
-        color={darkMode ? color : "black"}
+        color={color}
         style={removeDefaultStyle ? {} : { display: "flex" }}
       />
       {label && <span>{label}</span>}

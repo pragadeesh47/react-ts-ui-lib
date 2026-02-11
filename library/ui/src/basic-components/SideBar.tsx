@@ -162,6 +162,7 @@ const isHidden = (item?: SideBarItem) => !!(item && item.hidden);
 export type SideBarItem = {
   title: string;
   icon?: string;
+  iconColor?: ColorScheme;
   onClick?: (e?: React.MouseEvent) => void;
   hidden?: boolean;
   itemList?: SideBarItem[];
@@ -275,6 +276,8 @@ function SideBar({
     const open = !!openMap[key];
     const isActive = isItemSelected(item);
     const isHovered = hoveredKey === key;
+    const scheme = getColorScheme(colorScheme, darkMode);
+    const primaryScheme = getColorScheme("primary", darkMode);
 
     return (
       <div key={key}>
@@ -301,7 +304,18 @@ function SideBar({
         >
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
             {item.icon ? (
-              <Icon icon={item.icon} darkMode={darkMode} size={1} />
+              <Icon
+                icon={item.icon}
+                darkMode={darkMode}
+                size={1}
+                color={
+                  item.iconColor
+                    ? getColorScheme(item.iconColor, darkMode).color
+                    : isActive
+                      ? primaryScheme.color
+                      : scheme.textColor
+                }
+              />
             ) : null}
             {!collapsed && (
               <span

@@ -11,6 +11,12 @@ import { useTheme } from "../../app/context/ThemeContext";
 import { useRef, useState } from "react";
 //@@viewOff:imports
 
+const POPOVER_EXAMPLE_CODE = `<Popover
+  trigger={<Button label="Otevřít" />}
+  content={<div>Obsah popoveru</div>}
+  darkMode={darkMode}
+/>`;
+
 //@@viewOn:component
 const PopoverDoc = () => {
   //@@viewOn:private
@@ -93,6 +99,31 @@ const PopoverDoc = () => {
       <Documentation
         state="draft"
         title={t("popover.title")}
+        basicInfo={{
+          description: t("popover.basicInfo.description"),
+          exampleCode: POPOVER_EXAMPLE_CODE,
+          preview: (
+            <>
+              <div ref={triggerRef} style={{ display: "inline-block" }}>
+                <Button
+                  darkMode={darkMode}
+                  label={t("popover.examples.trigger")}
+                  onClick={() => setOpen(!open)}
+                />
+              </div>
+              <Popover
+                triggerRef={triggerRef}
+                open={open}
+                onOpenChange={setOpen}
+                content={<div style={{ padding: 8 }}>{t("popover.examples.contentText")}</div>}
+                darkMode={darkMode}
+              />
+            </>
+          ),
+        }}
+        basicInfoDescriptionHeader={t("documentation.basicInfo.descriptionHeader")}
+        basicInfoPreviewHeader={t("documentation.basicInfo.previewHeader")}
+        basicInfoCodeHeader={t("documentation.basicInfo.codeHeader")}
         propTypesList={propTypesList}
         componentList={componentList}
         propTypesTitle={t("documentation.propTypes.title")}

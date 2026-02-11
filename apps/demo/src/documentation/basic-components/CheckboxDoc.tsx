@@ -6,6 +6,13 @@ import { useTheme } from "../../app/context/ThemeContext";
 import { useState } from "react";
 //@@viewOff:imports
 
+const CHECKBOX_EXAMPLE_CODE = `<Checkbox
+  label="Souhlasím"
+  checked={checked}
+  onChange={setChecked}
+  darkMode={darkMode}
+/>`;
+
 //@@viewOn:component
 const CheckboxDoc = () => {
   //@@viewOn:private
@@ -156,6 +163,21 @@ const CheckboxDoc = () => {
       <Documentation
         state="inProgress"
         title={t("checkbox.title")}
+        basicInfo={{
+          description: t("checkbox.basicInfo.description"),
+          exampleCode: CHECKBOX_EXAMPLE_CODE,
+          preview: (
+            <Checkbox
+              label={t("checkbox.examples.label")}
+              checked={false}
+              darkMode={darkMode}
+              onChange={() => {}}
+            />
+          ),
+        }}
+        basicInfoDescriptionHeader={t("documentation.basicInfo.descriptionHeader")}
+        basicInfoPreviewHeader={t("documentation.basicInfo.previewHeader")}
+        basicInfoCodeHeader={t("documentation.basicInfo.codeHeader")}
         propTypesList={propTypesList}
         componentList={componentList}
         propTypesTitle={t("documentation.propTypes.title")}

@@ -7,6 +7,17 @@ import { useTheme } from "../../app/context/ThemeContext";
 import { useState } from "react";
 //@@viewOff:imports
 
+const RADIOS_EXAMPLE_CODE = `<Radios
+  name="choice"
+  itemList={[
+    { value: 'a', label: 'A' },
+    { value: 'b', label: 'B' }
+  ]}
+  value={value}
+  onChange={setValue}
+  darkMode={darkMode}
+/>`;
+
 //@@viewOn:component
 const RadiosDoc = () => {
   //@@viewOn:private
@@ -82,6 +93,22 @@ const RadiosDoc = () => {
       <Documentation
         state="draft"
         title={t("radios.title")}
+        basicInfo={{
+          description: t("radios.basicInfo.description"),
+          exampleCode: RADIOS_EXAMPLE_CODE,
+          preview: (
+            <Radios
+              name="radios-preview"
+              itemList={fruitItems}
+              value={basicValue}
+              onChange={(e) => setBasicValue(e.target.value)}
+              darkMode={darkMode}
+            />
+          ),
+        }}
+        basicInfoDescriptionHeader={t("documentation.basicInfo.descriptionHeader")}
+        basicInfoPreviewHeader={t("documentation.basicInfo.previewHeader")}
+        basicInfoCodeHeader={t("documentation.basicInfo.codeHeader")}
         propTypesList={propTypesList}
         componentList={componentList}
         propTypesTitle={t("documentation.propTypes.title")}

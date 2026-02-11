@@ -6,6 +6,13 @@ import { useTheme } from "../../app/context/ThemeContext";
 import { useState } from "react";
 //@@viewOff:imports
 
+const INPUT_EXAMPLE_CODE = `<Input
+  label="Email"
+  value={value}
+  onChange={(e) => setValue(e.target.value)}
+  darkMode={darkMode}
+/>`;
+
 //@@viewOn:component
 const InputDoc = () => {
   //@@viewOn:private
@@ -168,6 +175,21 @@ const InputDoc = () => {
       <Documentation
         state="draft"
         title={t("input.title")}
+        basicInfo={{
+          description: t("input.basicInfo.description"),
+          exampleCode: INPUT_EXAMPLE_CODE,
+          preview: (
+            <Input
+              label="Email"
+              value="example@mail.com"
+              darkMode={darkMode}
+              onChange={() => {}}
+            />
+          ),
+        }}
+        basicInfoDescriptionHeader={t("documentation.basicInfo.descriptionHeader")}
+        basicInfoPreviewHeader={t("documentation.basicInfo.previewHeader")}
+        basicInfoCodeHeader={t("documentation.basicInfo.codeHeader")}
         propTypesList={propTypesList}
         componentList={componentList}
         propTypesTitle={t("documentation.propTypes.title")}

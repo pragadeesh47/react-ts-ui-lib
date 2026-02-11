@@ -30,13 +30,15 @@ const STATES: Record<
   draft: "muted",
 };
 
-
 //@@viewOff:constants
 
 //@@viewOn:css
 const Css = {
   section: (): React.CSSProperties => ({
     marginTop: 0,
+  }),
+  sectionBlock: (): React.CSSProperties => ({
+    marginBottom: 0,
   }),
   table: (): React.CSSProperties => ({
     width: "100%",
@@ -55,15 +57,15 @@ const Css = {
   itemsGrid: (): React.CSSProperties => ({
     display: "flex",
     flexWrap: "wrap",
-    gap: 12,
+    gap: 0,
     alignItems: "stretch",
   }),
   itemCard: (): React.CSSProperties => ({
     display: "inline-flex",
     flexDirection: "column",
     alignItems: "center",
-    gap: 6,
-    padding: 8,
+    gap: 0,
+    padding: 0,
     borderRadius: 8,
     background: "transparent",
   }),
@@ -79,6 +81,31 @@ const Css = {
     gap: 12,
     justifyContent: "space-between",
   }),
+  basicInfoDescription: (): React.CSSProperties => ({
+    marginBottom: 0,
+  }),
+  twoColRow: (): React.CSSProperties => ({
+    display: "flex",
+    flexDirection: "row",
+    gap: 0,
+    alignItems: "stretch",
+    flexWrap: "wrap",
+  }),
+  twoColItem: (flex: number): React.CSSProperties => ({
+    flex: `${flex} 1 0`,
+    minWidth: 280,
+  }),
+  code: (borderColor: string): React.CSSProperties => ({
+    margin: 0,
+    padding: 12,
+    borderRadius: 8,
+    border: `1px solid ${borderColor}`,
+    backgroundColor: "rgba(0,0,0,0.03)",
+    fontSize: 13,
+    lineHeight: 1.5,
+    overflow: "auto",
+    whiteSpace: "pre",
+  }),
 };
 //@@viewOff:css
 
@@ -91,6 +118,12 @@ export type DocItem = {
 export type DocCategory = {
   category: string;
   itemList: DocItem[];
+};
+
+export type BasicInfo = {
+  description: string;
+  exampleCode: string;
+  preview: React.ReactNode;
 };
 //@@viewOff:helpers
 
@@ -122,9 +155,10 @@ export const DocumentationTypeScheme = {
   },
   basicInfo: {
     name: "basicInfo",
-    description: "Optional object for future general information section.",
+    description:
+      "Object with description, exampleCode (string), and preview (ReactNode) for the Basic Info tab.",
     required: false,
-    type: {} as object,
+    type: undefined as unknown as BasicInfo,
   },
   state: {
     name: "state",
@@ -148,6 +182,9 @@ export type DocumentationProps = {
   tabExamplesLabel?: string;
   tabUsageLabel?: string;
   tabPropTypesLabel?: string;
+  basicInfoDescriptionHeader?: string;
+  basicInfoPreviewHeader?: string;
+  basicInfoCodeHeader?: string;
   darkMode?: boolean;
   state?: "production" | "nearlyReady" | "inProgress" | "draft";
 };
@@ -157,6 +194,7 @@ const Documentation = ({
   title,
   propTypesList,
   componentList,
+  basicInfo,
   propTypesTitle = "Prop Types",
   propTypesNameLabel = "Name",
   propTypesDescriptionLabel = "Description",
@@ -168,6 +206,9 @@ const Documentation = ({
   tabExamplesLabel = "Examples",
   tabUsageLabel = "Usage",
   tabPropTypesLabel = "Prop Types",
+  basicInfoDescriptionHeader = "Basic Description",
+  basicInfoPreviewHeader = "Preview",
+  basicInfoCodeHeader = "Code",
   darkMode = true,
   state = "draft",
 }: DocumentationProps) => {
@@ -180,11 +221,49 @@ const Documentation = ({
   const tabsList: TabGroupItem[] = [
     {
       title: tabBasicInfoLabel,
-      content: <div>{tabBasicInfoLabel}</div>,
       code: BASIC_INFO,
       onClick: () => {
         setActiveTab(BASIC_INFO);
       },
+      content: (
+        <div>
+          {basicInfo ? (
+            <>
+              <Block
+                header={basicInfoDescriptionHeader}
+                darkMode={darkMode}
+                style={Css.basicInfoDescription()}
+              >
+                <p style={{ margin: 0, lineHeight: 1.6 }}>
+                  {basicInfo.description}
+                </p>
+              </Block>
+              <div style={Css.twoColRow()}>
+                <div style={Css.twoColItem(1)}>
+                  <Block
+                    header={basicInfoPreviewHeader}
+                    darkMode={darkMode}
+                    minHeight={300}
+                  >
+                    {basicInfo.preview}
+                  </Block>
+                </div>
+                <div style={Css.twoColItem(1)}>
+                  <Block
+                    header={basicInfoCodeHeader}
+                    darkMode={darkMode}
+                    minHeight={300}
+                  >
+                    <pre style={Css.code(borderColor)}>
+                      {basicInfo.exampleCode}
+                    </pre>
+                  </Block>
+                </div>
+              </div>
+            </>
+          ) : null}
+        </div>
+      ),
     },
     {
       title: tabExamplesLabel,
@@ -198,9 +277,9 @@ const Documentation = ({
             {componentList.map((group, gi) => (
               <Block
                 key={gi}
-                card="full"
                 header={group.category}
                 darkMode={darkMode}
+                style={Css.sectionBlock()}
               >
                 <div style={Css.itemsGrid()}>
                   {group.itemList.map((item, ii) => (

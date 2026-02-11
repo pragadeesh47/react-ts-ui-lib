@@ -10,6 +10,12 @@ import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 //@@viewOff:imports
 
+const COPY_TO_CLIPBOARD_EXAMPLE_CODE = `<CopyToClipboard
+  text="Text ke zkopírování"
+  onCopy={() => {}}
+  darkMode={darkMode}
+/>`;
+
 //@@viewOn:component
 const CopyToClipboardDoc = () => {
   const { darkMode } = useTheme();
@@ -82,6 +88,21 @@ const CopyToClipboardDoc = () => {
     <Documentation
       state="inProgress"
       title={t("copyToClipboard.title")}
+      basicInfo={{
+        description: t("copyToClipboard.basicInfo.description"),
+        exampleCode: COPY_TO_CLIPBOARD_EXAMPLE_CODE,
+        preview: (
+          <CopyToClipboard
+            text="Text to copy"
+            onCopy={copyToClipboard}
+            label={t("copyToClipboard.examples.copyLabel")}
+            darkMode={darkMode}
+          />
+        ),
+      }}
+      basicInfoDescriptionHeader={t("documentation.basicInfo.descriptionHeader")}
+      basicInfoPreviewHeader={t("documentation.basicInfo.previewHeader")}
+      basicInfoCodeHeader={t("documentation.basicInfo.codeHeader")}
       propTypesList={propTypesList}
       componentList={componentList}
       propTypesTitle={t("documentation.propTypes.title")}

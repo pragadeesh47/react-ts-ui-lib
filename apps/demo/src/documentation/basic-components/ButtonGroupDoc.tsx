@@ -11,6 +11,15 @@ import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 //@@viewOff:imports
 
+const BUTTON_GROUP_EXAMPLE_CODE = `<ButtonGroup
+  itemList={[
+    { label: 'Ok' },
+    { label: 'Zrušit' }
+  ]}
+  direction="row"
+  darkMode={darkMode}
+/>`;
+
 //@@viewOn:component
 const ButtonGroupDoc = () => {
   //@@viewOn:private
@@ -140,6 +149,23 @@ const ButtonGroupDoc = () => {
       <Documentation
         state="inProgress"
         title={t("buttongroup.title")}
+        basicInfo={{
+          description: t("buttongroup.basicInfo.description"),
+          exampleCode: BUTTON_GROUP_EXAMPLE_CODE,
+          preview: (
+            <ButtonGroup
+              itemList={[
+                { label: "Ok" },
+                { label: t("button.examples.danger") },
+              ]}
+              direction="row"
+              darkMode={darkMode}
+            />
+          ),
+        }}
+        basicInfoDescriptionHeader={t("documentation.basicInfo.descriptionHeader")}
+        basicInfoPreviewHeader={t("documentation.basicInfo.previewHeader")}
+        basicInfoCodeHeader={t("documentation.basicInfo.codeHeader")}
         propTypesList={propTypesList}
         componentList={componentList}
         propTypesTitle={t("documentation.propTypes.title")}

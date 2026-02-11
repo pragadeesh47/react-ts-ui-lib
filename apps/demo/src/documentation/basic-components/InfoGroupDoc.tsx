@@ -6,6 +6,14 @@ import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 //@@viewOff:imports
 
+const INFO_GROUP_EXAMPLE_CODE = `<InfoGroup
+  itemList={[
+    { title: 'Jméno', subtitle: 'Jan' },
+    { title: 'Email', subtitle: 'jan@example.com' }
+  ]}
+  darkMode={darkMode}
+/>`;
+
 //@@viewOn:component
 const InfoGroupDoc = () => {
   //@@viewOn:private
@@ -193,6 +201,19 @@ const InfoGroupDoc = () => {
       <Documentation
         state="nearlyReady"
         title={t("infogroup.title")}
+        basicInfo={{
+          description: t("infogroup.basicInfo.description"),
+          exampleCode: INFO_GROUP_EXAMPLE_CODE,
+          preview: (
+            <InfoGroup
+              itemList={basicItems}
+              darkMode={darkMode}
+            />
+          ),
+        }}
+        basicInfoDescriptionHeader={t("documentation.basicInfo.descriptionHeader")}
+        basicInfoPreviewHeader={t("documentation.basicInfo.previewHeader")}
+        basicInfoCodeHeader={t("documentation.basicInfo.codeHeader")}
         propTypesList={propTypesList}
         componentList={componentList}
         propTypesTitle={t("documentation.propTypes.title")}

@@ -12,6 +12,12 @@ import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 //@@viewOff:imports
 
+const NAVBAR_EXAMPLE_CODE = `<Navbar
+  logo="Logo"
+  rightContent={<Button label="Akce" />}
+  darkMode={darkMode}
+/>`;
+
 //@@viewOn:component
 const NavbarDoc = () => {
   //@@viewOn:private
@@ -142,6 +148,20 @@ const NavbarDoc = () => {
       <Documentation
         state="draft"
         title={t("navbar.title")}
+        basicInfo={{
+          description: t("navbar.basicInfo.description"),
+          exampleCode: NAVBAR_EXAMPLE_CODE,
+          preview: (
+            <UiNavbar
+              logo="Logo"
+              rightContent={<Button label={t("button.examples.primary")} />}
+              darkMode={darkMode}
+            />
+          ),
+        }}
+        basicInfoDescriptionHeader={t("documentation.basicInfo.descriptionHeader")}
+        basicInfoPreviewHeader={t("documentation.basicInfo.previewHeader")}
+        basicInfoCodeHeader={t("documentation.basicInfo.codeHeader")}
         propTypesList={propTypesList}
         componentList={componentList}
         propTypesTitle={t("documentation.propTypes.title")}

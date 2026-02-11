@@ -7,6 +7,13 @@ import { useTheme } from "../../app/context/ThemeContext";
 import { useState } from "react";
 //@@viewOff:imports
 
+const SELECT_EXAMPLE_CODE = `<Select
+  itemList={options}
+  value={value}
+  onChange={setValue}
+  darkMode={darkMode}
+/>`;
+
 //@@viewOn:component
 const SelectDoc = () => {
   //@@viewOn:private
@@ -66,6 +73,21 @@ const SelectDoc = () => {
       <Documentation
         state="draft"
         title={t("select.title")}
+        basicInfo={{
+          description: t("select.basicInfo.description"),
+          exampleCode: SELECT_EXAMPLE_CODE,
+          preview: (
+            <Select
+              itemList={fruitItems}
+              value={basicValue}
+              onChange={(e) => setBasicValue(e.target.value)}
+              darkMode={darkMode}
+            />
+          ),
+        }}
+        basicInfoDescriptionHeader={t("documentation.basicInfo.descriptionHeader")}
+        basicInfoPreviewHeader={t("documentation.basicInfo.previewHeader")}
+        basicInfoCodeHeader={t("documentation.basicInfo.codeHeader")}
         propTypesList={propTypesList}
         componentList={componentList}
         propTypesTitle={t("documentation.propTypes.title")}

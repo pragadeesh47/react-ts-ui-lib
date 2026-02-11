@@ -5,6 +5,12 @@ import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 //@@viewOff:imports
 
+const BUTTON_EXAMPLE_CODE = `<Button
+  label="Uložit"
+  colorScheme="primary"
+  onClick={() => {}}
+/>`;
+
 //@@viewOn:component
 const ButtonDoc = () => {
   //@@viewOn:private
@@ -470,6 +476,20 @@ const ButtonDoc = () => {
       <Documentation
         state={"production"}
         title={t("button.title")}
+        basicInfo={{
+          description: t("button.basicInfo.description"),
+          exampleCode: BUTTON_EXAMPLE_CODE,
+          preview: (
+            <Button
+              label={t("button.examples.primary")}
+              colorScheme="primary"
+              darkMode={darkMode}
+            />
+          ),
+        }}
+        basicInfoDescriptionHeader={t("documentation.basicInfo.descriptionHeader")}
+        basicInfoPreviewHeader={t("documentation.basicInfo.previewHeader")}
+        basicInfoCodeHeader={t("documentation.basicInfo.codeHeader")}
         propTypesList={propTypesList}
         componentList={componentList}
         propTypesTitle={t("documentation.propTypes.title")}

@@ -9,6 +9,13 @@ import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 //@@viewOff:imports
 
+const PENDING_EXAMPLE_CODE = `<Pending
+  type="circular"
+  size="md"
+  colorScheme="primary"
+  darkMode={darkMode}
+/>`;
+
 //@@viewOn:component
 const PendingDoc = () => {
   //@@viewOn:private
@@ -119,6 +126,21 @@ const PendingDoc = () => {
       <Documentation
         state="nearlyReady"
         title={t("pending.title")}
+        basicInfo={{
+          description: t("pending.basicInfo.description"),
+          exampleCode: PENDING_EXAMPLE_CODE,
+          preview: (
+            <UiPending
+              type="circular"
+              size="md"
+              colorScheme="primary"
+              darkMode={darkMode}
+            />
+          ),
+        }}
+        basicInfoDescriptionHeader={t("documentation.basicInfo.descriptionHeader")}
+        basicInfoPreviewHeader={t("documentation.basicInfo.previewHeader")}
+        basicInfoCodeHeader={t("documentation.basicInfo.codeHeader")}
         propTypesList={propTypesList}
         componentList={componentList}
         propTypesTitle={t("documentation.propTypes.title")}
