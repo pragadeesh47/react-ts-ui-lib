@@ -394,6 +394,7 @@ const Documentation = ({
       </Box>
       <TabGroup
         itemList={tabsList}
+        darkMode={darkMode}
         codeActive={activeTab}
         onChange={(code) => setActiveTab(code as string)}
         contentStyle={{ paddingTop: 0 }}
