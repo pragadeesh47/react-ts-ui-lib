@@ -276,7 +276,6 @@ function SideBar({
     const open = !!openMap[key];
     const isActive = isItemSelected(item);
     const isHovered = hoveredKey === key;
-    const scheme = getColorScheme(colorScheme, darkMode);
     const primaryScheme = getColorScheme("primary", darkMode);
     const iconDefaultColor = getColorScheme(
     "background",

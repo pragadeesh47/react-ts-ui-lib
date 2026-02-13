@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 //@@viewOn:imports
 import React from "react";
 import { getBorderColor } from "../tools/colors";
@@ -162,7 +161,9 @@ const ButtonGroup = ({
           );
         }
 
-        const { key: _itemKey, ...buttonProps } = item;
+        // Omit key so it isn't spread onto Button (key is only for the list item wrapper)
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars -- key intentionally excluded from buttonProps
+        const { key: _key, ...buttonProps } = item;
         return (
           <div key={key} style={itemStyle}>
             <Button

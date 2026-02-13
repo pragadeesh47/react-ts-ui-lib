@@ -2069,6 +2069,11 @@
     "description": "A collection of helpful tools and utilities for your projects.",
     "instructions": "Select a tool from the left menu to view its documentation."
   },
+  "contributions": {
+    "role": "GitHub Contributor",
+    "labelName": "Contributions",
+    "viewProfile": "View Profile"
+  },
   "copyToClipboard": {
     "title": "Copy to Clipboard",
     "basicInfo": {
@@ -2385,24 +2390,6 @@
         "title": "Basic usage",
         "code": "import { validateJson } from \"@react-ts-ui-lib/utilities\";\n\nconst ok = validateJson('{\"x\": 1}');\n// true"
       }
-    }
-  },
-  "aboutApplication": {
-    "title": "About Application",
-    "about": {
-      "title": "About",
-      "description": "This is a React TypeScript UI component library demo application. It showcases various reusable UI components that can be used in your projects."
-    },
-    "features": {
-      "title": "Features",
-      "feature1": "Modern and responsive UI components",
-      "feature2": "Full TypeScript support",
-      "feature3": "Dark mode support",
-      "feature4": "Comprehensive documentation"
-    },
-    "technology": {
-      "title": "Technology",
-      "description": "Built with React, TypeScript, and modern web technologies. All components are designed to be accessible, customizable, and easy to use."
     }
   }
 }

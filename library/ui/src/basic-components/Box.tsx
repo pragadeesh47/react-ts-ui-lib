@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 //@@viewOn:imports
 import React from "react";
 import { getBorderColor } from "../tools/colors";

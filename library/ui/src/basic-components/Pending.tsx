@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 //@@viewOn:imports
 import { type ColorScheme, getColorScheme } from "../tools/colors";
 import { getPendingSize, type SizeToken } from "../tools/size";

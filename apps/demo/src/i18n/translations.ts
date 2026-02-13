@@ -12,17 +12,20 @@ const translations: Record<string, Translations> = {
  * Gets a nested value from an object using dot notation
  * Example: getNestedValue(obj, "badge.props.children.description")
  */
-const getNestedValue = (obj: any, path: string): string => {
+const getNestedValue = (obj: Record<string, unknown>, path: string): string => {
   const keys = path.split(".");
-  let current = obj;
-  
+  let current: unknown = obj;
+
   for (const key of keys) {
     if (current === null || current === undefined) {
       return path; // Return key as fallback
     }
-    current = current[key];
+    if (typeof current !== "object") {
+      return path;
+    }
+    current = (current as Record<string, unknown>)[key];
   }
-  
+
   return typeof current === "string" ? current : path;
 };
 

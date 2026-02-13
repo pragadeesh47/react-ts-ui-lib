@@ -10,8 +10,8 @@ export {
   type BasicInfo,
   type DocCategory,
   type DocItem,
-} from "./basic-components/Documentation";
-export { UtilityDocumentation } from "./basic-components/UtilityDocumentation";
+} from "./app-components/Documentation";
+export { UtilityDocumentation } from "./app-components/UtilityDocumentation";
 export { Badge } from "./basic-components/Badge";
 export { Block } from "./basic-components/Block";
 export { Box } from "./basic-components/Box";
@@ -29,10 +29,11 @@ export { Radios } from "./basic-components/Radios";
 export { Label } from "./basic-components/Label";
 export { Popover } from "./basic-components/Popover";
 export { CopyToClipboard } from "./basic-components/CopyToClipboard";
-export { UnderConstruction } from "./basic-components/UnderConstruction";
+export { UnderConstruction } from "./app-components/UnderConstruction";
+export { NotFoundRoute } from "./app-components/NotFoundRoute";
 
 // Color utilities
-export { getColorScheme, getBorderColor, getRgbaFromScheme, hexToRgba } from "./tools/colors";
+export { getColorScheme, getBorderColor, getRgbaFromScheme, hexToRgba, getModernCardGradient } from "./tools/colors";
 export type { ColorScheme } from "./tools/colors";
 export { getLabelSize } from "./tools/labelSize";
 export type { LabelSizeToken } from "./tools/labelSize";

@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 //@@viewOn:imports
 import React, { useEffect } from "react";
 import { getBorderColor, getColorScheme, getRgbaFromScheme } from "../tools/colors";

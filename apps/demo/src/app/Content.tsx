@@ -1,6 +1,6 @@
 //@@viewOn:imports
 import { Suspense } from "react";
-import { Pending, type SideBarItem } from "@react-ts-ui-lib/ui";
+import { Pending, NotFoundRoute, type SideBarItem } from "@react-ts-ui-lib/ui";
 import componentMap from "./tools/ComponentMap";
 
 //@@viewOff:imports
@@ -37,7 +37,7 @@ const Content = ({ selectedItem }: ContentProps) => {
         {Component ? (
           <Component />
         ) : (
-          <div>Component "{selectedItem.title}" not found in map</div>
+          <NotFoundRoute />
         )}
       </Suspense>
     </div>

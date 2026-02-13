@@ -1829,7 +1829,11 @@
     "description": "Kolekce pomocných nástrojů a utilit pro vaše projekty.",
     "instructions": "Vyberte nástroj z levého menu pro zobrazení jeho dokumentace."
   },
-
+  "contributions": {
+    "role": "Přispěvatel na GitHubu",
+    "labelName": "Příspěvky",
+    "viewProfile": "Zobrazit profil"
+  },
   "copyToClipboard": {
     "title": "Copy to Clipboard",
     "basicInfo": {
@@ -2147,24 +2151,6 @@
         "title": "Základní použití",
         "code": "import { validateJson } from \"@react-ts-ui-lib/utilities\";\n\nconst ok = validateJson('{\"x\": 1}');\n// true"
       }
-    }
-  },
-  "aboutApplication": {
-    "title": "O aplikaci",
-    "about": {
-      "title": "O aplikaci",
-      "description": "Toto je demo aplikace React TypeScript UI komponentové knihovny. Představuje různé znovupoužitelné UI komponenty, které můžete použít ve svých projektech."
-    },
-    "features": {
-      "title": "Funkce",
-      "feature1": "Moderní a responzivní UI komponenty",
-      "feature2": "Plná podpora TypeScriptu",
-      "feature3": "Podpora tmavého režimu",
-      "feature4": "Komplexní dokumentace"
-    },
-    "technology": {
-      "title": "Technologie",
-      "description": "Vytvořeno pomocí Reactu, TypeScriptu a moderních webových technologií. Všechny komponenty jsou navrženy tak, aby byly přístupné, přizpůsobitelné a snadno použitelné."
     }
   }
 }

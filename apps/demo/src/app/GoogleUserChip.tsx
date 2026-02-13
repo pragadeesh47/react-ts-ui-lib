@@ -1,5 +1,5 @@
 //@@viewOn:imports
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Icon, getColorScheme } from "@react-ts-ui-lib/ui";
 import { useTheme } from "./context/ThemeContext";
 import { useTranslation } from "../i18n/useTranslation";
@@ -88,11 +88,8 @@ const GoogleUserChip = ({ user, showDetails = true }: GoogleUserChipProps) => {
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const authCss = getAuthStyles(darkMode);
-  const [imgError, setImgError] = useState(false);
-
-  useEffect(() => {
-    setImgError(false);
-  }, [user.photoURL]);
+  const [failedPhotoURL, setFailedPhotoURL] = useState<string | null>(null);
+  const imgError = user.photoURL != null && failedPhotoURL === user.photoURL;
   //@@viewOff:private
 
   //@@viewOn:render
@@ -103,7 +100,7 @@ const GoogleUserChip = ({ user, showDetails = true }: GoogleUserChipProps) => {
           src={user.photoURL}
           alt={user.displayName || "User"}
           style={authCss.avatar}
-          onError={() => setImgError(true)}
+          onError={() => setFailedPhotoURL(user.photoURL)}
         />
       ) : (
         <span style={authCss.googleIcon}>

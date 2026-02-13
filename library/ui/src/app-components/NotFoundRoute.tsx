@@ -4,9 +4,9 @@ import { getColorScheme, getBorderColor } from "../tools/colors";
 //@@viewOff:imports
 
 //@@viewOn:component
-type UnderConstructionProps = { darkMode?: boolean };
+type NotFoundRouteProps = { darkMode?: boolean };
 
-const UnderConstruction: React.FC<UnderConstructionProps> = ({
+const NotFoundRoute: React.FC<NotFoundRouteProps> = ({
   darkMode = true,
 }) => {
   //@@viewOn:private
@@ -52,7 +52,7 @@ const UnderConstruction: React.FC<UnderConstructionProps> = ({
             color: accentScheme.color,
           }}
         >
-          Under construction
+          Page not found
         </div>
         <h1
           style={{
@@ -63,7 +63,7 @@ const UnderConstruction: React.FC<UnderConstructionProps> = ({
             color: textScheme.color,
           }}
         >
-          This section is on the way
+          This route doesn&apos;t exist
         </h1>
         <p
           style={{
@@ -74,8 +74,8 @@ const UnderConstruction: React.FC<UnderConstructionProps> = ({
             color: mutedScheme.color,
           }}
         >
-          We&apos;re currently building out this part of the documentation.
-          Check back soon for fully interactive examples and usage guides.
+          The page you&apos;re looking for might have been removed or the URL might be incorrect.
+          Try selecting an item from the menu.
         </p>
       </div>
     </div>
@@ -85,7 +85,6 @@ const UnderConstruction: React.FC<UnderConstructionProps> = ({
 //@@viewOff:component
 
 //@@viewOn:exports
-export { UnderConstruction };
-export default UnderConstruction;
+export { NotFoundRoute };
+export default NotFoundRoute;
 //@@viewOff:exports
-
