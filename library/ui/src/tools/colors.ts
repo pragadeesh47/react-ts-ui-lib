@@ -25,16 +25,17 @@ export const COLORS = {
   lightBorder: "#e0e0e0",
   lightMuted: "#808080",
 
-  // Primary colors (GitHub blue)
-  primary: "#0969da",
-  primaryHover: "#0860ca",
-  primaryDark: "#0550ae",
+  // Primary colors – default for buttons and links in BOTH light and dark theme.
+  // Only these three are used when colorScheme="primary" (Button default).
+  primary: "#0862c9",
+  primaryHover: "#0758b8",
+  primaryDark: "#064a9e",
 
-  // Info colors (GitHub blue variants)
-  infoDark: "#2083f4",
-  infoDarkVariant: "#4493f8",
-  infoLight: "#0969da",
-  infoLightVariant: "#0860ca",
+  // Info colors – only for explicit info UI (badges, alerts). Not used for primary buttons.
+  infoDark: "#2d7ae5",
+  infoDarkVariant: "#4a8eef",
+  infoLight: "#0862c9",
+  infoLightVariant: "#0758b8",
 
   // Success colors (GitHub green)
   success: "#1a7f37",
@@ -74,6 +75,14 @@ export const COLORS = {
   cyan: "#06b6d4",
   cyanDark: "#0891b2",
 
+  // Medal / tier colors
+  gold: "#d4af37",
+  goldDark: "#b8960c",
+  silver: "#a8a8a8",
+  silverDark: "#888888",
+  bronze: "#cd7f32",
+  bronzeDark: "#a06628",
+
   // Shadow colors - dark mode uses lighter shadows, light mode uses darker shadows
   shadowDark: "rgba(255,255,255,0.1)",
   shadowLight: "rgba(0,0,0,0.15)",
@@ -93,19 +102,19 @@ const dark = {
     key: "surface" as const,
   },
 
-  // Primary action color (buttons, links) - GitHub blue
+  // Primary – default for buttons/links. Uses COLORS.primary (same as light theme).
   primary: {
-    color: COLORS.infoDark,
+    color: COLORS.primary,
     textColor: COLORS.white,
     key: "primary" as const,
   },
   primaryHover: {
-    color: COLORS.infoDarkVariant,
+    color: COLORS.primaryHover,
     textColor: COLORS.white,
     key: "primaryHover" as const,
   },
   primaryDark: {
-    color: "#1f6feb",
+    color: COLORS.primaryDark,
     textColor: COLORS.white,
     key: "primaryDark" as const,
   },
@@ -226,6 +235,38 @@ const dark = {
     key: "cyanDark" as const,
   },
 
+  // Gold / Silver / Bronze (medals, tiers)
+  gold: {
+    color: COLORS.gold,
+    textColor: COLORS.black,
+    key: "gold" as const,
+  },
+  goldDark: {
+    color: COLORS.goldDark,
+    textColor: COLORS.black,
+    key: "goldDark" as const,
+  },
+  silver: {
+    color: COLORS.silver,
+    textColor: COLORS.black,
+    key: "silver" as const,
+  },
+  silverDark: {
+    color: COLORS.silverDark,
+    textColor: COLORS.black,
+    key: "silverDark" as const,
+  },
+  bronze: {
+    color: COLORS.bronze,
+    textColor: COLORS.white,
+    key: "bronze" as const,
+  },
+  bronzeDark: {
+    color: COLORS.bronzeDark,
+    textColor: COLORS.white,
+    key: "bronzeDark" as const,
+  },
+
   // Typography / neutral
   text: {
     color: COLORS.darkText,
@@ -277,6 +318,7 @@ const light = {
     key: "surface" as const,
   },
 
+  // Primary – default for buttons/links. Uses COLORS.primary.
   primary: {
     color: COLORS.primary,
     textColor: COLORS.white,
@@ -407,6 +449,38 @@ const light = {
     key: "cyanDark" as const,
   },
 
+  // Gold / Silver / Bronze (medals, tiers)
+  gold: {
+    color: COLORS.gold,
+    textColor: COLORS.black,
+    key: "gold" as const,
+  },
+  goldDark: {
+    color: COLORS.goldDark,
+    textColor: COLORS.black,
+    key: "goldDark" as const,
+  },
+  silver: {
+    color: COLORS.silver,
+    textColor: COLORS.black,
+    key: "silver" as const,
+  },
+  silverDark: {
+    color: COLORS.silverDark,
+    textColor: COLORS.black,
+    key: "silverDark" as const,
+  },
+  bronze: {
+    color: COLORS.bronze,
+    textColor: COLORS.white,
+    key: "bronze" as const,
+  },
+  bronzeDark: {
+    color: COLORS.bronzeDark,
+    textColor: COLORS.white,
+    key: "bronzeDark" as const,
+  },
+
   text: {
     color: COLORS.lightText,
     textColor: COLORS.lightBg,
@@ -473,6 +547,12 @@ export const colorsKeyList = [
   dark.orangeDark.key,
   dark.cyan.key,
   dark.cyanDark.key,
+  dark.gold.key,
+  dark.goldDark.key,
+  dark.silver.key,
+  dark.silverDark.key,
+  dark.bronze.key,
+  dark.bronzeDark.key,
   dark.surface.key,
   dark.background.key,
   dark.text.key,
@@ -513,6 +593,9 @@ const highlightedMap: Partial<Record<ColorScheme, ColorScheme>> = {
   indigo: "indigoDark",
   orange: "orangeDark",
   cyan: "cyanDark",
+  gold: "goldDark",
+  silver: "silverDark",
+  bronze: "bronzeDark",
 };
 
 export const getSignificanceColor = (
@@ -645,12 +728,19 @@ export const getModernGradient = (
   const warningDarkScheme = getColorScheme("warningDark", darkMode);
   const infoDarkScheme = getColorScheme("infoDark", darkMode);
 
+  const goldDarkScheme = getColorScheme("goldDark", darkMode);
+  const silverDarkScheme = getColorScheme("silverDark", darkMode);
+  const bronzeDarkScheme = getColorScheme("bronzeDark", darkMode);
+
   const hoverSchemeMap: Record<string, typeof primaryDarkScheme> = {
     primary: primaryDarkScheme,
     success: successDarkScheme,
     danger: dangerDarkScheme,
     warning: warningDarkScheme,
     info: infoDarkScheme,
+    gold: goldDarkScheme,
+    silver: silverDarkScheme,
+    bronze: bronzeDarkScheme,
   };
 
   const mixWeight =
@@ -682,6 +772,79 @@ export const getModernGradient = (
   const hoverBackground = `${highlightOverlay}, ${overlayGradient}, ${hoverGradient}`;
   const shadow = `0 6px 16px ${shadowColor}`;
   const hoverShadow = `0 10px 26px ${shadowColor}`;
+
+  return {
+    background,
+    hoverBackground,
+    shadow,
+    hoverShadow,
+  };
+};
+
+/**
+ * Softer modern gradient for cards and similar surfaces (e.g. ProfileCard).
+ * Uses stronger mix with surface and gentler overlay so the gradient does not
+ * appear as a harsh white-to-black band on narrow widths. Does not affect
+ * Button or other components that use getModernGradient.
+ */
+export const getModernCardGradient = (
+  colorScheme: ColorScheme,
+  significance: Significance = "common",
+  darkMode: boolean = true,
+) => {
+  const scheme = getSignificanceColor(colorScheme, significance, darkMode);
+  const baseScheme = getColorScheme(colorScheme, darkMode);
+  const surfaceScheme = getColorScheme("surface", darkMode);
+  const white = getColorScheme("white", darkMode).color;
+  const black = getColorScheme("black", darkMode).color;
+  const shadowColor = getColorScheme("shadow", darkMode).color;
+
+  const primaryDarkScheme = getColorScheme("primaryDark", darkMode);
+  const successDarkScheme = getColorScheme("successDark", darkMode);
+  const dangerDarkScheme = getColorScheme("dangerDark", darkMode);
+  const warningDarkScheme = getColorScheme("warningDark", darkMode);
+  const infoDarkScheme = getColorScheme("infoDark", darkMode);
+  const goldDarkScheme = getColorScheme("goldDark", darkMode);
+  const silverDarkScheme = getColorScheme("silverDark", darkMode);
+  const bronzeDarkScheme = getColorScheme("bronzeDark", darkMode);
+
+  const hoverSchemeMap: Record<string, typeof primaryDarkScheme> = {
+    primary: primaryDarkScheme,
+    success: successDarkScheme,
+    danger: dangerDarkScheme,
+    warning: warningDarkScheme,
+    info: infoDarkScheme,
+    gold: goldDarkScheme,
+    silver: silverDarkScheme,
+    bronze: bronzeDarkScheme,
+  };
+
+  const significanceMix =
+    significance === "distinct" ? 0.6 : significance === "subdued" ? 0.75 : 0;
+  const cardMixWeight = 0.5 + significanceMix * 0.15;
+
+  const baseTone = mixHex(baseScheme.color, surfaceScheme.color, cardMixWeight);
+  const midTone = mixHex(scheme.color, surfaceScheme.color, cardMixWeight * 0.9);
+  const hoverTone = mixHex(
+    hoverSchemeMap[colorScheme as string]?.color ?? scheme.color,
+    surfaceScheme.color,
+    cardMixWeight,
+  );
+
+  const gradientFrom = hoverTone;
+  const gradientMid = midTone;
+  const gradientTo = baseTone;
+
+  const softWhite = darkMode ? 0.07 : 0.08;
+  const softBlack = darkMode ? 0.05 : 0.04;
+  const highlightOverlay = `linear-gradient(120deg, ${hexToRgba(white, softWhite)} 0%, ${hexToRgba(white, 0)} 50%, ${hexToRgba(black, softBlack)} 100%)`;
+  const overlayGradient = `linear-gradient(135deg, ${hexToRgba(white, softWhite * 0.8)} 0%, ${hexToRgba(white, 0)} 45%, ${hexToRgba(black, softBlack * 0.8)} 100%)`;
+  const baseGradient = `linear-gradient(135deg, ${gradientFrom} 0%, ${gradientMid} 50%, ${gradientTo} 100%)`;
+  const hoverGradient = `linear-gradient(135deg, ${gradientTo} 0%, ${gradientMid} 50%, ${gradientFrom} 100%)`;
+  const background = `${highlightOverlay}, ${overlayGradient}, ${baseGradient}`;
+  const hoverBackground = `${highlightOverlay}, ${overlayGradient}, ${hoverGradient}`;
+  const shadow = `0 2px 8px ${shadowColor}`;
+  const hoverShadow = `0 4px 12px ${shadowColor}`;
 
   return {
     background,

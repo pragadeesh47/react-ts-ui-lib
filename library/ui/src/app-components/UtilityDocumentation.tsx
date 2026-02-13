@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 //@@viewOn:imports
 import React from "react";
-import Block from "./Block";
+import Block from "../basic-components/Block";
 import { getColorScheme, getBorderColor } from "../tools/colors";
 //@@viewOff:imports
 

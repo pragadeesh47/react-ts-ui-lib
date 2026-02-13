@@ -5,7 +5,7 @@ import {
   type Significance,
   getColorScheme,
   getSignificanceColor,
-  getModernGradient,
+  getModernCardGradient,
   getBorderColor,
 } from "../tools/colors";
 import { getRadiusValue, type RadiusToken } from "../tools/radius";
@@ -232,8 +232,11 @@ const Css = {
     }
     return {
       display: "flex",
-      flexDirection: "column",
-      gap: 4,
+      flexDirection: "row",
+      alignItems: "baseline",
+      gap: 6,
+      flexWrap: "wrap",
+      justifyContent: "space-between",
     };
   },
 
@@ -270,9 +273,11 @@ const Css = {
     if (removeDefaultStyle) {
       return {};
     }
+
     return {
       display: "flex",
       alignItems: "center",
+      justifyContent: "flex-end",
       gap: 8,
       flexWrap: "wrap",
       padding: `${padding}px`,
@@ -387,7 +392,7 @@ const ProfileCard = ({
   let shadow: string | undefined;
 
   if (modern) {
-    const modernStyle = getModernGradient(colorScheme, significance, darkMode);
+    const modernStyle = getModernCardGradient(colorScheme, significance, darkMode);
     background = modernStyle.background;
     textColor = getSignificanceColor(colorScheme, significance, darkMode).textColor;
     shadow = modernStyle.shadow;

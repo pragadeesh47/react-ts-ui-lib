@@ -1,12 +1,12 @@
 /* eslint-disable react-refresh/only-export-components */
 //@@viewOn:imports
 import React, { useState } from "react";
-import Block from "./Block";
-import Label from "./Label";
-import Box from "./Box";
-import Badge from "./Badge";
+import Block from "../basic-components/Block";
+import Label from "../basic-components/Label";
+import Box from "../basic-components/Box";
+import Badge from "../basic-components/Badge";
 import UnderConstruction from "./UnderConstruction";
-import TabGroup, { type TabGroupItem } from "./TabGroup";
+import TabGroup, { type TabGroupItem } from "../basic-components/TabGroup";
 import {
   getColorScheme,
   getBorderColor,
@@ -59,7 +59,7 @@ const Css = {
   itemsGrid: (): React.CSSProperties => ({
     display: "flex",
     flexWrap: "wrap",
-    gap: 0,
+    gap: 16,
     alignItems: "stretch",
   }),
   itemCard: (): React.CSSProperties => ({
@@ -92,10 +92,15 @@ const Css = {
     gap: 0,
     alignItems: "stretch",
     flexWrap: "wrap",
+    marginTop: 0,
   }),
   twoColItem: (flex: number): React.CSSProperties => ({
     flex: `${flex} 1 0`,
     minWidth: 280,
+    marginBottom: 0,
+  }),
+  twoColBlock: (): React.CSSProperties => ({
+    marginBottom: 0,
   }),
   code: (borderColor: string): React.CSSProperties => ({
     margin: 0,
@@ -265,7 +270,7 @@ const Documentation = ({
                 darkMode={darkMode}
                 style={Css.basicInfoDescription()}
               >
-                <p style={{ margin: 0, lineHeight: 1.6 }}>
+                <p style={{ margin: 0 }}>
                   {basicInfo.description}
                 </p>
               </Block>
@@ -275,6 +280,7 @@ const Documentation = ({
                     header={basicInfoPreviewHeader}
                     darkMode={darkMode}
                     minHeight={300}
+                    style={Css.twoColBlock()}
                   >
                     {basicInfo.preview}
                   </Block>
@@ -284,6 +290,7 @@ const Documentation = ({
                     header={basicInfoCodeHeader}
                     darkMode={darkMode}
                     minHeight={300}
+                    style={Css.twoColBlock()}
                   >
                     <pre style={Css.code(borderColor)}>
                       {basicInfo.exampleCode}

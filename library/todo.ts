@@ -52,3 +52,4 @@
 // po vytvoření welcome stránky jí dát na rozkliknutí na logo
 // předělat halvní sekce kompnenty vypadají hrozně
 // spojit content componest a basic components
+// do contributors dát  nahoru infogroup a tam dát součty lidí a clelkových commitů atd.. všechny zajimavé informace

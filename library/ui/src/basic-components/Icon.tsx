@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 //@@viewOn:imports
 import { Icon as MdiIcon } from "@mdi/react";
 import * as mdiIcons from "@mdi/js";

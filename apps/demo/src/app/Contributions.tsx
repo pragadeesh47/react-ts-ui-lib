@@ -1,8 +1,8 @@
 //@@viewOn:imports
-import { Pending, getBorderColor, Block, ProfileCard, Button } from "@react-ts-ui-lib/ui";
+import { Pending, ProfileCard, Button } from "@react-ts-ui-lib/ui";
 import { useEffect, useState } from "react";
 import { useTheme } from "./context/ThemeContext";
-//import { ProfileCard } from "./ProfileCard";
+import { useTranslation } from "../i18n/useTranslation";
 //@@viewOff:imports
 
 //@@viewOn:constants
@@ -37,8 +37,8 @@ interface Contributor {
 function Contributions() {
   //@@viewOn:private
   const { darkMode } = useTheme();
+  const { t } = useTranslation();
   const [contributors, setContributions] = useState<Contributor[]>([]);
-  const borderColor = getBorderColor(darkMode);
 
   const fetchContributors = async () => {
     const response = await fetch(
@@ -77,10 +77,10 @@ function Contributions() {
 
   return (
     <div style={{ margin: "16px" }}>
-      <Block header="Contributions" borderRadius="md" darkMode={darkMode} card="full" >
+
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
           gap: 16,
           alignItems: "start",
         }}
@@ -91,34 +91,35 @@ function Contributions() {
               photo={c.avatar_url}
               photoLink={c.html_url}
               name={c.login}
-              role="GitHub Contributor"
-              labelName="Contributions"
+              modern
+              role={t("contributions.role")}
+              labelName={t("contributions.labelName")}
               labelValue={c.contributions.toString()}
               darkMode={darkMode}
               collapsed={true}
               width="100%"
               borderRadius="md"
               actionList={[
-                <div style={{ display: "flex", justifyContent: "flex-end" }}>  
                   <Button
                     icon="mdi-github"
                     colorScheme="primary"
                     significance="common"
                     modern
                     darkMode={darkMode}
+                    tooltip={t("contributions.viewProfile")}
                     size="sm"
                     onClick={() => 
                       window.open(c.html_url, "_blank", "noopener,noreferrer")}
                   >
-                    View Profile
+
                   </Button>
-                </div>
+
               ]}
             />
           ))}
         </div>
         
-      </Block>
+
     </div>
 
   );
