@@ -6,6 +6,10 @@
 
 <!-- Add a screenshot or screen recording if the change is visible in the UI. -->
 
+## Issue to close
+
+<!-- e.g. Closes #123 -->
+
 ---
 
 - [ ] Synced repo before changes?
