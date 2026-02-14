@@ -171,7 +171,7 @@ function Contributions() {
         if (!contribRes.ok) throw new Error(`GitHub API: ${contribRes.status}`);
         const apiContributors: GitHubContributor[] = await contribRes.json();
 
-        // 2) Všechny mergnuté PR – přiřadíme je k přispěvatelům podle login
+ 
         const mergedPrs: GitHubPullRequest[] = [];
         let page = 1;
         for (; ;) {
@@ -201,7 +201,6 @@ function Contributions() {
     return () => controller.abort();
   }, []);
 
-  // Contributors API už vrací pořadí podle commitů; pro jistotu řadíme sestupně
   const contributorsSorted = [...contributors].sort(
     (a, b) => b.contributions - a.contributions,
   );
@@ -213,8 +212,6 @@ function Contributions() {
   if (loading || contributors.length === 0) {
     return <Pending />;
   }
-
-  console.log(contributors);
 
   return (
     <div style={{ margin: "16px" }}>
@@ -240,7 +237,7 @@ function Contributions() {
             collapsed={true}
             width="100%"
             borderRadius="md"
-            content={<ContributorPRDetails prs={c.prs} />}
+            content={c.login.toLowerCase() !== owner.toLowerCase() ? <ContributorPRDetails prs={c.prs} /> : undefined}
             actionList={[
               <Button
                 icon="mdi-github"
