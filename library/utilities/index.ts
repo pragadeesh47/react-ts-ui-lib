@@ -5,4 +5,5 @@ export { parseQueryString } from "./parseQueryString";
 export { generateRandomString } from "./generateRandomString";
 export { validateEmail } from "./validateEmail";
 export { validateJson } from "./validateJson";
+export { fromCamelCase } from "./fromCamelCase";
 export { storage } from "./storage";

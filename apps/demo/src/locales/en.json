@@ -681,7 +681,8 @@
       "parseQueryString": "Parse Query String",
       "generateRandomString": "Generate Random String",
       "validateEmail": "Validate Email",
-      "validateJson": "Validate JSON"
+      "validateJson": "Validate JSON",
+      "fromCamelCase": "From Camel Case"
     }
   },
   "block": {
@@ -2365,6 +2366,40 @@
       "basic": {
         "title": "Basic usage",
         "code": "import { validateEmail } from \"@react-ts-ui-lib/utilities\";\n\nconst ok = validateEmail(\"user@example.com\");\n// true"
+      }
+    }
+  },
+  "fromCamelCase": {
+    "title": "From Camel Case",
+    "description": "Converts a camelCase string to space-separated words (e.g. helloWorld → hello World).",
+    "inputs": {
+      "str": {
+        "label": "camelCase string",
+        "placeholder": "helloWorld"
+      }
+    },
+    "actions": {
+      "convert": "Convert"
+    },
+    "result": {
+      "label": "Result"
+    },
+    "parameters": {
+      "str": {
+        "name": "str",
+        "description": "camelCase string to convert.",
+        "type": "string",
+        "required": "true"
+      }
+    },
+    "returnValue": {
+      "description": "String with words separated by spaces.",
+      "type": "string"
+    },
+    "usage": {
+      "basic": {
+        "title": "Basic usage",
+        "code": "import { fromCamelCase } from \"@react-ts-ui-lib/utilities\";\n\nconst text = fromCamelCase(\"helloWorld\");\n// \"hello World\""
       }
     }
   },

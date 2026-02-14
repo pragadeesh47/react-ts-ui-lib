@@ -97,6 +97,9 @@ const componentMap: { [key: string]: React.LazyExoticComponent<React.FC> } = {
   ValidateJson: React.lazy(
     () => import("../../documentation/utilities/ValidateJsonDoc.tsx"),
   ),
+  FromCamelCase: React.lazy(
+    () => import("../../documentation/utilities/FromCamelCaseDoc"),
+  ),
 };
 
 export { componentMap };

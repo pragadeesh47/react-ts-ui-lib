@@ -43,4 +43,10 @@ export const getUtilsList = (t: (key: string) => string): SideBarItem[] => [
     iconColor: "cyan",
     key: "ValidateJson",
   },
+  {
+    title: t("sidebar.utilities.fromCamelCase"),
+    icon: "mdi-format-letter-case",
+    iconColor: "cyan",
+    key: "FromCamelCase",
+  },
 ];

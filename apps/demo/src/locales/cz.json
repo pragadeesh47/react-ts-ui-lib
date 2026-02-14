@@ -441,7 +441,8 @@
       "parseQueryString": "Parsovat query string",
       "generateRandomString": "Generovat náhodný řetězec",
       "validateEmail": "Validovat email",
-      "validateJson": "Validovat JSON"
+      "validateJson": "Validovat JSON",
+      "fromCamelCase": "From Camel Case"
     }
   },
   "block": {
@@ -2126,6 +2127,40 @@
       "basic": {
         "title": "Základní použití",
         "code": "import { validateEmail } from \"@react-ts-ui-lib/utilities\";\n\nconst ok = validateEmail(\"user@example.com\");\n// true"
+      }
+    }
+  },
+  "fromCamelCase": {
+    "title": "From Camel Case",
+    "description": "Převede řetězec v camelCase na slova oddělená mezerami (např. helloWorld → hello World).",
+    "inputs": {
+      "str": {
+        "label": "camelCase řetězec",
+        "placeholder": "helloWorld"
+      }
+    },
+    "actions": {
+      "convert": "Převést"
+    },
+    "result": {
+      "label": "Výsledek"
+    },
+    "parameters": {
+      "str": {
+        "name": "str",
+        "description": "camelCase řetězec k převodu.",
+        "type": "string",
+        "required": "true"
+      }
+    },
+    "returnValue": {
+      "description": "Řetězec se slovy oddělenými mezerami.",
+      "type": "string"
+    },
+    "usage": {
+      "basic": {
+        "title": "Základní použití",
+        "code": "import { fromCamelCase } from \"@react-ts-ui-lib/utilities\";\n\nconst text = fromCamelCase(\"helloWorld\");\n// \"hello World\""
       }
     }
   },
