@@ -102,7 +102,6 @@ const Css = {
         ...baseStyle,
         backgroundColor: primaryRgba,
         color: primaryColor,
-        fontWeight: 500,
         borderLeft: `3px solid ${primaryColor}`,
         borderTopLeftRadius: 0,
         borderBottomLeftRadius: 0,
@@ -148,7 +147,7 @@ const Css = {
     return {
       fontSize: 14,
       color: isActive && primaryScheme ? primaryScheme.color : scheme.textColor,
-      fontWeight: isActive ? 500 : 400,
+      fontWeight: isActive ? 800 : 400,
     };
   },
 };
