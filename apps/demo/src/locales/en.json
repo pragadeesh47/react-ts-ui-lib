@@ -618,6 +618,11 @@
         "description": "Height of the navbar for proper positioning in mobile mode (default: 64).",
         "type": "number",
         "required": "false"
+      },
+      "sortNestedItems": {
+        "description": "When true, nested items are automatically sorted by title in ascending order (A–Z). Does not affect top-level items.",
+        "type": "boolean",
+        "required": "false"
       }
     },
     "categories": {

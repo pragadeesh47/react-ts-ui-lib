@@ -7,6 +7,7 @@ import {
   getBorderColor,
   getRgbaFromScheme,
 } from "../tools/colors";
+import { applySortNestedItems } from "./SideBar.utils";
 //@@viewOff:imports
 
 //@@viewOn:css
@@ -185,6 +186,7 @@ export type SideBarProps = {
   isOpen?: boolean;
   onClose?: () => void;
   navbarHeight?: number;
+  sortNestedItems?: boolean;
 };
 
 // Const array for runtime prop extraction in Documentation
@@ -202,6 +204,7 @@ export const SIDEBAR_PROP_NAMES = [
   "isOpen",
   "onClose",
   "navbarHeight",
+  "sortNestedItems",
 ] as const;
 //@@viewOff:propTypes
 
@@ -219,6 +222,7 @@ function SideBar({
   isOpen = false,
   onClose,
   navbarHeight = 64,
+  sortNestedItems = false,
 }: SideBarProps) {
   const [hoveredKey, setHoveredKey] = useState<string | null>(null);
   const [openMap, setOpenMap] = useState<Record<string, boolean>>(() => {
@@ -278,9 +282,9 @@ function SideBar({
     const isHovered = hoveredKey === key;
     const primaryScheme = getColorScheme("primary", darkMode);
     const iconDefaultColor = getColorScheme(
-    "background",
-    darkMode,
-  ).textColor;
+      "background",
+      darkMode,
+    ).textColor;
 
     return (
       <div key={key}>
@@ -347,7 +351,7 @@ function SideBar({
 
         {hasChildren && open && (
           <div style={Css.nested(removeDefaultStyle)}>
-            {item.itemList?.map((child?: SideBarItem, i?: number | undefined) =>
+            {applySortNestedItems(item.itemList, sortNestedItems)?.map((child?: SideBarItem, i?: number | undefined) =>
               renderItem(child, i, key),
             )}
           </div>
