@@ -618,6 +618,11 @@
         "description": "Height of the navbar for proper positioning in mobile mode (default: 64).",
         "type": "number",
         "required": "false"
+      },
+      "sortNestedItems": {
+        "description": "When true, nested items are automatically sorted by title in ascending order (A–Z). Does not affect top-level items.",
+        "type": "boolean",
+        "required": "false"
       }
     },
     "categories": {
@@ -788,6 +793,26 @@
       },
       "darkMode": {
         "description": "Uses dark mode color palette.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "borderTop": {
+      "description": "Show top border.",
+      "type": "boolean",
+      "required": "false"
+      },
+      "borderRight": {
+        "description": "Show right border.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "borderBottom": {
+        "description": "Show bottom border.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "borderLeft": {
+        "description": "Show left border.",
         "type": "boolean",
         "required": "false"
       }

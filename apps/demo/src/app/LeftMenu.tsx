@@ -64,6 +64,7 @@ const LeftMenu = ({
       isOpen={isOpen}
       onClose={onClose}
       navbarHeight={navbarHeight}
+      sortNestedItems={true}
     />
   );
   //@@viewOff:render
