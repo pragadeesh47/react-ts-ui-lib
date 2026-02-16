@@ -1,4 +1,4 @@
-import { copyToClipboard } from '../utilities/copyToClipboard';
+import { copyToClipboard } from '../../utilities/copyToClipboard';
 
 describe('copyToClipboard', () => {
   let clipboardWriteTextMock: jest.Mock;

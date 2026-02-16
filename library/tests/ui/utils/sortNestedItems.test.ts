@@ -1,4 +1,4 @@
-import { applySortNestedItems } from "../ui/src/basic-components/SideBar.utils";
+import { applySortNestedItems } from "../../../ui/src/basic-components/SideBar.utils";
 
 /**
  * Type mirroring SideBarItem for test data construction.

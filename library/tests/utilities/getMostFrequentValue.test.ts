@@ -1,4 +1,4 @@
-import { getMostFrequentValue } from "../utilities/getMostFrequentValue";
+import { getMostFrequentValue } from "../../utilities/getMostFrequentValue";
 
 describe("getMostFrequentValue", () => {
   it("should return the most frequent value in a simple array", async () => {
