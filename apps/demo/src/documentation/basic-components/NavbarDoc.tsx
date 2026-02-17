@@ -10,6 +10,7 @@ import {
 import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
+import DocSeo from "../../app/DocSeo";
 //@@viewOff:imports
 
 const NAVBAR_EXAMPLE_CODE = `<Navbar
@@ -142,12 +143,16 @@ const NavbarDoc = () => {
   ];
   //@@viewOff:private
 
+  const pageTitle = t("navbar.title");
+  const description = t("navbar.basicInfo.description");
+
   //@@viewOn:render
   return (
     <div>
+      <DocSeo title={pageTitle} description={description} />
       <Documentation
         state="draft"
-        title={t("navbar.title")}
+        title={pageTitle}
         basicInfo={{
           description: t("navbar.basicInfo.description"),
           exampleCode: NAVBAR_EXAMPLE_CODE,

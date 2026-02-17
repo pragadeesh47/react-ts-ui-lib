@@ -3,6 +3,7 @@ import { Documentation, BUTTON_PROP_NAMES, Button } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
+import DocSeo from "../../app/DocSeo";
 //@@viewOff:imports
 
 const BUTTON_EXAMPLE_CODE = `<Button
@@ -21,6 +22,9 @@ const ButtonDoc = () => {
     BUTTON_PROP_NAMES,
     t,
   );
+
+  const pageTitle = t("button.title");
+  const description = t("button.basicInfo.description");
 
   const componentList = [
     {
@@ -493,11 +497,12 @@ const ButtonDoc = () => {
   //@@viewOn:render
   return (
     <div>
+      <DocSeo title={pageTitle} description={description} />
       <Documentation
         state={"production"}
-        title={t("button.title")}
+        title={pageTitle}
         basicInfo={{
-          description: t("button.basicInfo.description"),
+          description,
           exampleCode: BUTTON_EXAMPLE_CODE,
           preview: (
             <span style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>

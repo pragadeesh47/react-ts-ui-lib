@@ -31,12 +31,6 @@ const getInitialLanguage = (): SupportedLanguage => {
   if (typeof window === "undefined") return DEFAULT_LANGUAGE;
 
   try {
-    const url = new URL(window.location.href);
-    const fromUrl = url.searchParams.get("lang");
-    if (isSupportedLanguage(fromUrl)) {
-      return fromUrl;
-    }
-
     const stored = storage.get(LANGUAGE_STORAGE_KEY, DEFAULT_LANGUAGE) as string;
     if (isSupportedLanguage(stored)) {
       return stored;
@@ -58,15 +52,6 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
     // persist to local storage
     storage.set(LANGUAGE_STORAGE_KEY, language);
-
-    // sync language to URL without reloading the page
-    try {
-      const url = new URL(window.location.href);
-      url.searchParams.set("lang", language);
-      window.history.replaceState({}, "", url.toString());
-    } catch {
-      // ignore URL errors (e.g., unsupported environment)
-    }
   }, [language]);
 
   const setLanguage = (value: string) => {

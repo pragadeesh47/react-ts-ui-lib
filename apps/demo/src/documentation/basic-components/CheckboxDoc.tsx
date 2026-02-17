@@ -4,6 +4,7 @@ import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 import { useState } from "react";
+import DocSeo from "../../app/DocSeo";
 //@@viewOff:imports
 
 const CHECKBOX_EXAMPLE_CODE = `<Checkbox
@@ -157,12 +158,16 @@ const CheckboxDoc = () => {
   ];
   //@@viewOff:private
 
+  const pageTitle = t("checkbox.title");
+  const description = t("checkbox.basicInfo.description");
+
   //@@viewOn:render
   return (
     <div>
+      <DocSeo title={pageTitle} description={description} />
       <Documentation
         state="inProgress"
-        title={t("checkbox.title")}
+        title={pageTitle}
         basicInfo={{
           description: t("checkbox.basicInfo.description"),
           exampleCode: CHECKBOX_EXAMPLE_CODE,

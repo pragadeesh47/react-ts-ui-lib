@@ -5,6 +5,7 @@ import type { TabGroupItem } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
+import DocSeo from "../../app/DocSeo";
 //@@viewOff:imports
 
 const TAB_GROUP_EXAMPLE_CODE = `<TabGroup
@@ -256,12 +257,16 @@ const TabGroupDoc = () => {
   ];
   //@@viewOff:private
 
+  const pageTitle = t("tabgroup.title");
+  const description = t("tabgroup.basicInfo.description");
+
   //@@viewOn:render
   return (
     <div>
+      <DocSeo title={pageTitle} description={description} />
       <Documentation
         state="inProgress"
-        title={t("tabgroup.title")}
+        title={pageTitle}
         basicInfo={{
           description: t("tabgroup.basicInfo.description"),
           exampleCode: TAB_GROUP_EXAMPLE_CODE,

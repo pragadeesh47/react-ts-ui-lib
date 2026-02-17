@@ -5,6 +5,7 @@ import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 import { useState } from "react";
+import DocSeo from "../../app/DocSeo";
 //@@viewOff:imports
 
 const RADIOS_EXAMPLE_CODE = `<Radios
@@ -87,12 +88,16 @@ const RadiosDoc = () => {
   ];
   //@@viewOff:private
 
+  const pageTitle = t("radios.title");
+  const description = t("radios.basicInfo.description");
+
   //@@viewOn:render
   return (
     <div>
+      <DocSeo title={pageTitle} description={description} />
       <Documentation
         state="draft"
-        title={t("radios.title")}
+        title={pageTitle}
         basicInfo={{
           description: t("radios.basicInfo.description"),
           exampleCode: RADIOS_EXAMPLE_CODE,

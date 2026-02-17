@@ -4,6 +4,7 @@ import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 import { useState } from "react";
+import DocSeo from "../../app/DocSeo";
 //@@viewOff:imports
 
 const INPUT_EXAMPLE_CODE = `<Input
@@ -168,14 +169,18 @@ const InputDoc = () => {
   ];
   //@@viewOff:private
 
+  const pageTitle = t("input.title");
+  const description = t("input.basicInfo.description");
+
   //@@viewOn:render
   return (
     <div>
+      <DocSeo title={pageTitle} description={description} />
       <Documentation
         state="draft"
-        title={t("input.title")}
+        title={pageTitle}
         basicInfo={{
-          description: t("input.basicInfo.description"),
+          description,
           exampleCode: INPUT_EXAMPLE_CODE,
           preview: (
             <Input

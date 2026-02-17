@@ -9,6 +9,7 @@ import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 import { useRef, useState } from "react";
+import DocSeo from "../../app/DocSeo";
 //@@viewOff:imports
 
 const POPOVER_EXAMPLE_CODE = `<Popover
@@ -93,14 +94,18 @@ const PopoverDoc = () => {
   ];
   //@@viewOff:private
 
+  const pageTitle = t("popover.title");
+  const description = t("popover.basicInfo.description");
+
   //@@viewOn:render
   return (
     <div>
+      <DocSeo title={pageTitle} description={description} />
       <Documentation
         state="draft"
-        title={t("popover.title")}
+        title={pageTitle}
         basicInfo={{
-          description: t("popover.basicInfo.description"),
+          description,
           exampleCode: POPOVER_EXAMPLE_CODE,
           preview: (
             <>

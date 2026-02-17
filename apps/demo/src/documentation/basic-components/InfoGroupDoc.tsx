@@ -4,6 +4,7 @@ import type { InfoGroupItem } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
+import DocSeo from "../../app/DocSeo";
 //@@viewOff:imports
 
 const INFO_GROUP_EXAMPLE_CODE = `<InfoGroup
@@ -22,6 +23,9 @@ const InfoGroupDoc = () => {
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const propTypesList = getPropsWithTranslations("infogroup", INFO_GROUP_PROP_NAMES, t);
+
+  const pageTitle = t("infogroup.title");
+  const description = t("infogroup.basicInfo.description");
 
   const basicItems: InfoGroupItem[] = [
     { title: t("infogroup.examples.item1Title"), subtitle: t("infogroup.examples.item1Subtitle") },
@@ -212,9 +216,10 @@ const InfoGroupDoc = () => {
   //@@viewOn:render
   return (
     <div>
+      <DocSeo title={pageTitle} description={description} />
       <Documentation
         state="nearlyReady"
-        title={t("infogroup.title")}
+        title={pageTitle}
         basicInfo={{
           description: t("infogroup.basicInfo.description"),
           exampleCode: INFO_GROUP_EXAMPLE_CODE,

@@ -1,9 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
   <url>
     <loc>https://react-ts-kit.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Basic components -->
+  <url><loc>https://react-ts-kit.com/Basic/Button</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://react-ts-kit.com/Basic/ButtonGroup</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://react-ts-kit.com/Basic/Icon</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://react-ts-kit.com/Basic/Pending</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://react-ts-kit.com/Basic/Badge</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://react-ts-kit.com/Basic/Number</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://react-ts-kit.com/Basic/Label</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://react-ts-kit.com/Basic/Breadcrumb</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://react-ts-kit.com/Basic/ThemeToggle</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://react-ts-kit.com/Basic/CopyToClipboardComponent</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://react-ts-kit.com/Basic/InfoGroup</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://react-ts-kit.com/Basic/ProfileCard</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://react-ts-kit.com/Basic/Popover</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+
+  <!-- Form components -->
+  <url><loc>https://react-ts-kit.com/Form/Input</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://react-ts-kit.com/Form/Checkbox</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://react-ts-kit.com/Form/Date</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://react-ts-kit.com/Form/Select</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://react-ts-kit.com/Form/Radios</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- Layout & structure components -->
+  <url><loc>https://react-ts-kit.com/LayoutStructure/Navbar</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://react-ts-kit.com/LayoutStructure/SideBar</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://react-ts-kit.com/LayoutStructure/TabGroup</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://react-ts-kit.com/LayoutStructure/Block</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- Utility docs -->
+  <url><loc>https://react-ts-kit.com/Utilities/CopyToClipboard</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://react-ts-kit.com/Utilities/GetMostFrequentValue</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://react-ts-kit.com/Utilities/GeneratePassword</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://react-ts-kit.com/Utilities/ParseQueryString</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://react-ts-kit.com/Utilities/GenerateRandomString</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://react-ts-kit.com/Utilities/ValidateEmail</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://react-ts-kit.com/Utilities/ValidateJson</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://react-ts-kit.com/Utilities/FromCamelCase</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
 </urlset>
 

@@ -3,6 +3,7 @@ import { Documentation, NUMBER_PROP_NAMES, Number } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
+import DocSeo from "../../app/DocSeo";
 //@@viewOff:imports
 
 const NUMBER_EXAMPLE_CODE = `<Number
@@ -125,12 +126,16 @@ const NumberDoc = () => {
   ];
   //@@viewOff:private
 
+  const pageTitle = t("number.title");
+  const description = t("number.basicInfo.description");
+
   //@@viewOn:render
   return (
     <div>
+      <DocSeo title={pageTitle} description={description} />
       <Documentation
         state="draft"
-        title={t("number.title")}
+        title={pageTitle}
         basicInfo={{
           description: t("number.basicInfo.description"),
           exampleCode: NUMBER_EXAMPLE_CODE,

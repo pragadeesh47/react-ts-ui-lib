@@ -9,6 +9,7 @@ import type { ButtonGroupItem } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
+import DocSeo from "../../app/DocSeo";
 //@@viewOff:imports
 
 const BUTTON_GROUP_EXAMPLE_CODE = `<ButtonGroup
@@ -143,14 +144,18 @@ const ButtonGroupDoc = () => {
   ];
   //@@viewOff:private
 
+  const pageTitle = t("buttongroup.title");
+  const description = t("buttongroup.basicInfo.description");
+
   //@@viewOn:render
   return (
     <div>
+      <DocSeo title={pageTitle} description={description} />
       <Documentation
         state="inProgress"
-        title={t("buttongroup.title")}
+        title={pageTitle}
         basicInfo={{
-          description: t("buttongroup.basicInfo.description"),
+          description,
           exampleCode: BUTTON_GROUP_EXAMPLE_CODE,
           preview: (
             <ButtonGroup

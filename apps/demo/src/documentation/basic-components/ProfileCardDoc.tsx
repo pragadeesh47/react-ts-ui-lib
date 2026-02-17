@@ -8,6 +8,7 @@ import {
 import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
+import DocSeo from "../../app/DocSeo";
 //@@viewOff:imports
 
 const PROFILE_CARD_EXAMPLE_CODE = `<ProfileCard
@@ -316,12 +317,16 @@ const ProfileCardDoc = () => {
   ];
   //@@viewOff:private
 
+  const pageTitle = t("profileCard.title");
+  const description = t("profileCard.basicInfo.description");
+
   //@@viewOn:render
   return (
     <div>
+      <DocSeo title={pageTitle} description={description} />
       <Documentation
         state="inProgress"
-        title={t("profileCard.title")}
+        title={pageTitle}
         basicInfo={{
           description: t("profileCard.basicInfo.description"),
           exampleCode: PROFILE_CARD_EXAMPLE_CODE,

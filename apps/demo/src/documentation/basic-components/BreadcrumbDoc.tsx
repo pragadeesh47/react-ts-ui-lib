@@ -1,74 +1,41 @@
 //@@viewOn:imports
-import {
-  Documentation,
-  SIDEBAR_PROP_NAMES,
-  SideBar as UiSideBar,
-} from "@react-ts-ui-lib/ui";
-import type { SideBarItem } from "@react-ts-ui-lib/ui";
+import { Documentation, BREADCRUMB_PROP_NAMES, Breadcrumb } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 import DocSeo from "../../app/DocSeo";
 //@@viewOff:imports
 
-const SIDEBAR_EXAMPLE_CODE = `<SideBar
-  itemList={itemList}
-  collapsed={collapsed}
-  onItemClick={handleClick}
-  darkMode={darkMode}
-/>`;
+const BREADCRUMB_EXAMPLE_CODE = `<Breadcrumb fromUrl={true} basePath="/" />`;
 
 //@@viewOn:component
-const SideBarDoc = () => {
+const BreadcrumbDoc = () => {
   //@@viewOn:private
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const propTypesList = getPropsWithTranslations(
-    "sidebar",
-    SIDEBAR_PROP_NAMES,
+    "breadcrumb",
+    BREADCRUMB_PROP_NAMES,
     t,
   );
 
-  const items: SideBarItem[] = [
-    { title: t("sidebar.examples.dashboard"), icon: "mdi-view-dashboard" },
-    {
-      title: t("sidebar.examples.settings"),
-      icon: "mdi-cog",
-      itemList: [
-        { title: t("sidebar.examples.profile"), icon: "mdi-account" },
-        { title: t("sidebar.examples.security"), icon: "mdi-shield-lock" },
-      ],
-    },
-  ];
+  const pageTitle = t("breadcrumb.title");
+  const description = t("breadcrumb.basicInfo.description");
 
   const componentList = [
     {
-      category: t("sidebar.categories.basic"),
+      category: t("breadcrumb.categories.basic"),
       itemList: [
         {
-          label: t("sidebar.examples.default"),
-          components: <UiSideBar itemList={items} />,
-        },
-        {
-          label: t("sidebar.examples.light"),
-          components: <UiSideBar itemList={items} darkMode={false} />,
-        },
-      ],
-    },
-    {
-      category: t("sidebar.categories.styling"),
-      itemList: [
-        {
-          label: t("sidebar.examples.raw"),
-          components: <UiSideBar itemList={items} removeDefaultStyle />,
+          label: t("breadcrumb.examples.basic"),
+          components: (
+            <Breadcrumb fromUrl={true} basePath="/" />
+          ),
         },
       ],
     },
   ];
   //@@viewOff:private
-
-  const pageTitle = t("sidebar.title");
-  const description = t("sidebar.basicInfo.description");
 
   //@@viewOn:render
   return (
@@ -78,18 +45,10 @@ const SideBarDoc = () => {
         state="draft"
         title={pageTitle}
         basicInfo={{
-          description: t("sidebar.basicInfo.description"),
-          exampleCode: SIDEBAR_EXAMPLE_CODE,
+          description,
+          exampleCode: BREADCRUMB_EXAMPLE_CODE,
           preview: (
-            <UiSideBar
-              itemList={[
-                { title: t("sidebar.examples.dashboard"), icon: "mdi-view-dashboard" },
-                { title: t("sidebar.examples.settings"), icon: "mdi-cog" },
-              ]}
-              collapsed={false}
-              darkMode={darkMode}
-              onItemClick={() => {}}
-            />
+            <Breadcrumb fromUrl={true} basePath="/" />
           ),
         }}
         basicInfoDescriptionHeader={t("documentation.basicInfo.descriptionHeader")}
@@ -117,6 +76,7 @@ const SideBarDoc = () => {
 //@@viewOff:component
 
 //@@viewOn:exports
-export { SideBarDoc as SideBar };
-export default SideBarDoc;
+export { BreadcrumbDoc };
+export default BreadcrumbDoc;
 //@@viewOff:exports
+

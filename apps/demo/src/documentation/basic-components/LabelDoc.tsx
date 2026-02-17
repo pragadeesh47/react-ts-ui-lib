@@ -3,6 +3,7 @@ import { Documentation, LABEL_PROP_NAMES, Label } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
+import DocSeo from "../../app/DocSeo";
 //@@viewOff:imports
 
 const LABEL_EXAMPLE_CODE = `<Label darkMode={darkMode}>
@@ -15,6 +16,9 @@ const LabelDoc = () => {
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const propTypesList = getPropsWithTranslations("label", LABEL_PROP_NAMES, t);
+
+  const pageTitle = t("label.title");
+  const description = t("label.basicInfo.description");
 
   const componentList = [
     {
@@ -85,11 +89,12 @@ const LabelDoc = () => {
   //@@viewOn:render
   return (
     <div>
+      <DocSeo title={pageTitle} description={description} />
       <Documentation
         state="inProgress"
-        title={t("label.title")}
+        title={pageTitle}
         basicInfo={{
-          description: t("label.basicInfo.description"),
+          description,
           exampleCode: LABEL_EXAMPLE_CODE,
           preview: <Label darkMode={darkMode}>Nadpis sekce</Label>,
         }}

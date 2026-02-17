@@ -1,6 +1,7 @@
 //@@viewOn:imports
 import { useState, useMemo, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import { useLocation, useNavigate } from "react-router-dom";
 import LeftMenu from "./LeftMenu";
 import Content from "./Content";
 import type { SelectItem, SideBarItem } from "@react-ts-ui-lib/ui";
@@ -32,10 +33,6 @@ const Logo = ({ isMobile }: { isMobile?: boolean }) => (
     }}
   />
 );
-// const LANGUAGE_MAP: Record<string, string> = {
-//   en: "EN",
-//   cz: "CZ",
-// };
 
 
 const STORAGE_KEY_DARK_MODE = "app-dark-mode";
@@ -66,12 +63,9 @@ function App() {
   const { language, setLanguage } = useLanguage();
   const { t } = useTranslation();
   const { user, signOut, loading } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
   const routeList = useMemo(() => getRouteList(t), [t]);
-  const [selectedItem, setSelectedItem] = useState<SideBarItem | null>(() => {
-    if (routeList.length === 0) return null;
-    const first = routeList[0];
-    return first?.itemList?.[0] ?? first ?? null;
-  });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -112,6 +106,65 @@ function App() {
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
+
+  const pathSegments = location.pathname.split("/").filter(Boolean);
+
+  const categoryKeyFromUrl = pathSegments[0];
+  const componentKeyFromUrl = pathSegments[1];
+
+  const defaultDocPath = useMemo(() => {
+    if (routeList.length === 0) return "/";
+    const first = routeList[0];
+    const categoryKey = String(first.key ?? "");
+    const componentKey = first.itemList?.[0]?.key ?? first.key;
+    if (!categoryKey) return "/";
+    if (!componentKey) return `/${categoryKey}`;
+    return `/${categoryKey}/${componentKey}`;
+  }, [routeList]);
+
+  useEffect(() => {
+    if (routeList.length === 0) return;
+
+    const segments = location.pathname.split("/").filter(Boolean);
+    if (segments.length === 0) {
+      navigate(defaultDocPath, { replace: true });
+    }
+  }, [routeList, location.pathname, navigate, defaultDocPath]);
+
+  const selectedItem: SideBarItem | null = useMemo(() => {
+    if (!componentKeyFromUrl && !categoryKeyFromUrl) {
+      if (routeList.length === 0) return null;
+      const first = routeList[0];
+      return first?.itemList?.[0] ?? first ?? null;
+    }
+
+    let targetItem: SideBarItem | undefined;
+
+    if (componentKeyFromUrl) {
+      const categoryWithItem = routeList.find(
+        (routeItem) =>
+          routeItem.itemList &&
+          routeItem.itemList.some(
+            (child) => String(child.key) === componentKeyFromUrl,
+          ),
+      );
+
+      targetItem =
+        categoryWithItem?.itemList?.find(
+          (child) => String(child.key) === componentKeyFromUrl,
+        ) ??
+        routeList.find(
+          (routeItem) => String(routeItem.key) === componentKeyFromUrl,
+        );
+    } else if (categoryKeyFromUrl) {
+      const categoryOnly = routeList.find(
+        (routeItem) => String(routeItem.key) === categoryKeyFromUrl,
+      );
+      targetItem = categoryOnly?.itemList?.[0] ?? categoryOnly;
+    }
+
+    return targetItem ?? null;
+  }, [routeList, componentKeyFromUrl, categoryKeyFromUrl]);
 
   const RightContent = () => {
     return (
@@ -173,23 +226,45 @@ function App() {
   const handleSetSelectedItem: React.Dispatch<
     React.SetStateAction<SideBarItem | null>
   > = (item) => {
-    const actualItem = typeof item === "function" ? item(selectedItem) : item;
-    setSelectedItem(actualItem);
+    const actualItem =
+      typeof item === "function" ? item(selectedItem) : item;
+    if (actualItem) {
+      const matchedCategory = routeList.find(
+        (routeItem) =>
+          routeItem.itemList &&
+          routeItem.itemList.some(
+            (child) => child.key === actualItem.key,
+          ),
+      );
+
+      const categoryKey = matchedCategory?.key ?? actualItem.key;
+      const componentKey = actualItem.key;
+
+      if (categoryKey && componentKey) {
+        navigate(`/${categoryKey}/${componentKey}`);
+      } else if (categoryKey) {
+        navigate(`/${categoryKey}`);
+      }
+    }
+
     if (isMobile) {
       setIsMobileMenuOpen(false);
     }
   };
   //@@viewOff:private
 
+  const htmlLang = language === "cz" ? "cs" : "en";
+
   //@@viewOn:render
   return (
     <>
-      <Helmet>
+      <Helmet htmlAttributes={{ lang: htmlLang }}>
         <title>React TS Kit – React TypeScript UI components</title>
         <meta
           name="description"
           content="React TS Kit is a modern React &amp; TypeScript UI component library for building consistent, scalable interfaces."
         />
+        <meta httpEquiv="content-language" content={htmlLang} />
       </Helmet>
       <div
         style={{

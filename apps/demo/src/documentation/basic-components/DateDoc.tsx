@@ -4,6 +4,7 @@ import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 import { useState } from "react";
+import DocSeo from "../../app/DocSeo";
 //@@viewOff:imports
 
 const DATE_EXAMPLE_CODE = `<Date
@@ -135,14 +136,18 @@ const DateDoc = () => {
   ];
   //@@viewOff:private
 
+  const pageTitle = t("date.title");
+  const description = t("date.basicInfo.description");
+
   //@@viewOn:render
   return (
     <div>
+      <DocSeo title={pageTitle} description={description} />
       <Documentation
         state="inProgress"
-        title={t("date.title")}
+        title={pageTitle}
         basicInfo={{
-          description: t("date.basicInfo.description"),
+          description,
           exampleCode: DATE_EXAMPLE_CODE,
           preview: (
             <DateComponent

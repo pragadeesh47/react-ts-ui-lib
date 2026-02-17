@@ -8,6 +8,7 @@ import {
 import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
+import DocSeo from "../../app/DocSeo";
 //@@viewOff:imports
 
 const THEME_TOGGLE_EXAMPLE_CODE = `<ThemeToggle
@@ -154,11 +155,15 @@ const ThemeToggleDoc = () => {
     },
   ];
 
+  const pageTitle = t("themeToggle.title");
+  const description = t("themeToggle.basicInfo.description");
+
   return (
     <div>
+      <DocSeo title={pageTitle} description={description} />
       <Documentation
         state="inProgress"
-        title={t("themeToggle.title")}
+        title={pageTitle}
         basicInfo={{
           description: t("themeToggle.basicInfo.description"),
           exampleCode: THEME_TOGGLE_EXAMPLE_CODE,

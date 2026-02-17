@@ -1,8 +1,9 @@
 //@@viewOn:imports
-import { Documentation, BADGE_PROP_NAMES, Badge } from "@react-ts-ui-lib/ui";
+import { Documentation, BADGE_PROP_NAMES, Badge, Breadcrumb } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
+import DocSeo from "../../app/DocSeo";
 //@@viewOff:imports
 
 const BADGE_EXAMPLE_CODE = `<Badge
@@ -18,6 +19,9 @@ const BadgeDoc = () => {
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const propTypesList = getPropsWithTranslations("badge", BADGE_PROP_NAMES, t);
+
+  const pageTitle = t("badge.title");
+  const description = t("badge.basicInfo.description");
 
   const componentList = [
     {
@@ -265,11 +269,13 @@ const BadgeDoc = () => {
   //@@viewOn:render
   return (
     <div>
+      <DocSeo title={pageTitle} description={description} />
+      <Breadcrumb fromUrl={true} basePath="/" />
       <Documentation
         state="production"
-        title={t("badge.title")}
+        title={pageTitle}
         basicInfo={{
-          description: t("badge.basicInfo.description"),
+          description,
           exampleCode: BADGE_EXAMPLE_CODE,
           preview: (
             <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
@@ -313,3 +319,4 @@ const BadgeDoc = () => {
 export { BadgeDoc };
 export default BadgeDoc;
 //@@viewOff:exports
+

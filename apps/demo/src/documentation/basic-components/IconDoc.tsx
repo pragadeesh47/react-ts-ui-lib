@@ -7,6 +7,7 @@ import {
 import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
+import DocSeo from "../../app/DocSeo";
 //@@viewOff:imports
 
 const ICON_EXAMPLE_CODE = `<Icon
@@ -21,6 +22,9 @@ const IconDoc = () => {
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const propTypesList = getPropsWithTranslations("icon", ICON_PROP_NAMES, t);
+
+  const pageTitle = t("icon.title");
+  const description = t("icon.basicInfo.description");
 
   const componentList = [
     {
@@ -160,11 +164,12 @@ const IconDoc = () => {
   //@@viewOn:render
   return (
     <div>
+      <DocSeo title={pageTitle} description={description} />
       <Documentation
         state="inProgress"
-        title={t("icon.title")}
+        title={pageTitle}
         basicInfo={{
-          description: t("icon.basicInfo.description"),
+          description,
           exampleCode: ICON_EXAMPLE_CODE,
           preview: (
             <UiIcon icon="mdi-check" size="md" darkMode={darkMode} />

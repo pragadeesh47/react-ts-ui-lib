@@ -8,6 +8,7 @@ import { copyToClipboard } from "@react-ts-ui-lib/utilities";
 import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
+import DocSeo from "../../app/DocSeo";
 //@@viewOff:imports
 
 const COPY_TO_CLIPBOARD_EXAMPLE_CODE = `<CopyToClipboard
@@ -84,40 +85,46 @@ const CopyToClipboardDoc = () => {
     },
   ];
 
+  const pageTitle = t("copyToClipboard.title");
+  const description = t("copyToClipboard.basicInfo.description");
+
   return (
-    <Documentation
-      state="inProgress"
-      title={t("copyToClipboard.title")}
-      basicInfo={{
-        description: t("copyToClipboard.basicInfo.description"),
-        exampleCode: COPY_TO_CLIPBOARD_EXAMPLE_CODE,
-        preview: (
-          <CopyToClipboard
-            text="Text to copy"
-            onCopy={copyToClipboard}
-            label={t("copyToClipboard.examples.copyLabel")}
-            darkMode={darkMode}
-          />
-        ),
-      }}
-      basicInfoDescriptionHeader={t("documentation.basicInfo.descriptionHeader")}
-      basicInfoPreviewHeader={t("documentation.basicInfo.previewHeader")}
-      basicInfoCodeHeader={t("documentation.basicInfo.codeHeader")}
-      propTypesList={propTypesList}
-      componentList={componentList}
-      propTypesTitle={t("documentation.propTypes.title")}
-      propTypesNameLabel={t("documentation.propTypes.name")}
-      propTypesDescriptionLabel={t("documentation.propTypes.description")}
-      propTypesTypeLabel={t("documentation.propTypes.type")}
-      propTypesRequiredLabel={t("documentation.propTypes.required")}
-      propTypesYes={t("documentation.propTypes.yes")}
-      propTypesNo={t("documentation.propTypes.no")}
-      tabBasicInfoLabel={t("documentation.tabs.basicInfo")}
-      tabExamplesLabel={t("documentation.tabs.examples")}
-      tabUsageLabel={t("documentation.tabs.usage")}
-      tabPropTypesLabel={t("documentation.tabs.propTypes")}
-      darkMode={darkMode}
-    />
+    <div>
+      <DocSeo title={pageTitle} description={description} />
+      <Documentation
+        state="inProgress"
+        title={pageTitle}
+        basicInfo={{
+          description,
+          exampleCode: COPY_TO_CLIPBOARD_EXAMPLE_CODE,
+          preview: (
+            <CopyToClipboard
+              text="Text to copy"
+              onCopy={copyToClipboard}
+              label={t("copyToClipboard.examples.copyLabel")}
+              darkMode={darkMode}
+            />
+          ),
+        }}
+        basicInfoDescriptionHeader={t("documentation.basicInfo.descriptionHeader")}
+        basicInfoPreviewHeader={t("documentation.basicInfo.previewHeader")}
+        basicInfoCodeHeader={t("documentation.basicInfo.codeHeader")}
+        propTypesList={propTypesList}
+        componentList={componentList}
+        propTypesTitle={t("documentation.propTypes.title")}
+        propTypesNameLabel={t("documentation.propTypes.name")}
+        propTypesDescriptionLabel={t("documentation.propTypes.description")}
+        propTypesTypeLabel={t("documentation.propTypes.type")}
+        propTypesRequiredLabel={t("documentation.propTypes.required")}
+        propTypesYes={t("documentation.propTypes.yes")}
+        propTypesNo={t("documentation.propTypes.no")}
+        tabBasicInfoLabel={t("documentation.tabs.basicInfo")}
+        tabExamplesLabel={t("documentation.tabs.examples")}
+        tabUsageLabel={t("documentation.tabs.usage")}
+        tabPropTypesLabel={t("documentation.tabs.propTypes")}
+        darkMode={darkMode}
+      />
+    </div>
   );
 };
 //@@viewOff:component

@@ -8,6 +8,7 @@ import {
 import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
+import DocSeo from "../../app/DocSeo";
 //@@viewOff:imports
 
 const BLOCK_EXAMPLE_CODE = `<Block
@@ -573,14 +574,18 @@ const BlockDoc = () => {
   ];
   //@@viewOff:private
 
+  const pageTitle = t("block.title");
+  const description = t("block.basicInfo.description");
+
   //@@viewOn:render
   return (
     <div>
+      <DocSeo title={pageTitle} description={description} />
       <Documentation
         state="nearlyReady"
-        title={t("block.title")}
+        title={pageTitle}
         basicInfo={{
-          description: t("block.basicInfo.description"),
+          description,
           exampleCode: BLOCK_EXAMPLE_CODE,
           preview: (
             <Block header={t("block.examples.basic")} darkMode={darkMode} card="full">

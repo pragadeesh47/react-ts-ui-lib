@@ -15,6 +15,7 @@ export { UtilityDocumentation } from "./app-components/UtilityDocumentation";
 export { Badge } from "./basic-components/Badge";
 export { Block } from "./basic-components/Block";
 export { Box } from "./basic-components/Box";
+export { Breadcrumb } from "./basic-components/Breadcrumb";
 export { Modal } from "./basic-components/Modal";
 export { Number } from "./basic-components/Number";
 export { Input } from "./basic-components/Input";
@@ -62,6 +63,7 @@ export { RADIOS_PROP_NAMES } from "./basic-components/Radios";
 export { LABEL_PROP_NAMES } from "./basic-components/Label";
 export { POPOVER_PROP_NAMES } from "./basic-components/Popover";
 export { COPY_TO_CLIPBOARD_PROP_NAMES } from "./basic-components/CopyToClipboard";
+export { BREADCRUMB_PROP_NAMES } from "./basic-components/Breadcrumb";
 
 // Types
 export type { PendingProps } from "./basic-components/Pending";
@@ -88,3 +90,4 @@ export type { RadiosProps, RadiosItem } from "./basic-components/Radios";
 export type { LabelProps } from "./basic-components/Label";
 export type { PopoverProps } from "./basic-components/Popover";
 export type { CopyToClipboardProps } from "./basic-components/CopyToClipboard";
+export type { BreadcrumbProps } from "./basic-components/Breadcrumb";

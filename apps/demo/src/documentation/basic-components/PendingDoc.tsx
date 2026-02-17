@@ -7,6 +7,7 @@ import {
 import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
+import DocSeo from "../../app/DocSeo";
 //@@viewOff:imports
 
 const PENDING_EXAMPLE_CODE = `<Pending
@@ -120,12 +121,16 @@ const PendingDoc = () => {
   ];
   //@@viewOff:private
 
+  const pageTitle = t("pending.title");
+  const description = t("pending.basicInfo.description");
+
   //@@viewOn:render
   return (
     <div>
+      <DocSeo title={pageTitle} description={description} />
       <Documentation
         state="nearlyReady"
-        title={t("pending.title")}
+        title={pageTitle}
         basicInfo={{
           description: t("pending.basicInfo.description"),
           exampleCode: PENDING_EXAMPLE_CODE,

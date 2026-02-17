@@ -129,6 +129,25 @@
       "noPrintTooltip": "Hidden when printing"
     }
   },
+  "breadcrumb": {
+    "title": "Breadcrumb Component",
+    "basicInfo": {
+      "description": "Simple placeholder for breadcrumb navigation. Currently renders a text label; can be extended later to full breadcrumb navigation."
+    },
+    "props": {
+      "label": {
+        "description": "Text content of the breadcrumb.",
+        "type": "string",
+        "required": "false"
+      }
+    },
+    "categories": {
+      "basic": "Basic"
+    },
+    "examples": {
+      "basic": "Basic breadcrumb"
+    }
+  },
   "button": {
     "title": "Button Component",
     "basicInfo": {
@@ -676,6 +695,7 @@
       "select": "Select",
       "radios": "Radios",
       "label": "Label",
+      "breadcrumb": "Breadcrumb",
       "popover": "Popover",
       "copyToClipboard": "Copy to Clipboard"
     },
