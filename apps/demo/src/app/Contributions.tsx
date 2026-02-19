@@ -55,7 +55,8 @@ interface Contributor {
   login: string;
   html_url: string;
   avatar_url: string;
-  contributions: number;
+  totalCommits: number;
+  mergedPrCount: number;
   prs: PullRequest[];
 }
 
@@ -85,15 +86,24 @@ function mergeContributorsWithPrs(
   apiContributors: GitHubContributor[],
   prsByLogin: Map<string, PullRequest[]>,
 ): Contributor[] {
-  return apiContributors.map((c) => ({
-    id: c.id,
-    login: c.login,
-    html_url: c.html_url,
-    avatar_url: c.avatar_url,
-    contributions: c.contributions,
-    prs: prsByLogin.get(c.login) ?? [],
-  }));
+  return apiContributors.map((c) => {
+
+    const prs = prsByLogin.get(c.login) ?? [];
+
+    return {
+      id: c.id,
+      login: c.login,
+      html_url: c.html_url,
+      avatar_url: c.avatar_url,
+
+      totalCommits: c.contributions,
+      mergedPrCount: prs.length,
+
+      prs,
+    };
+  });
 }
+
 //@@viewOff:helpers
 
 //@@viewOn:propTypes
@@ -171,7 +181,7 @@ function Contributions() {
         if (!contribRes.ok) throw new Error(`GitHub API: ${contribRes.status}`);
         const apiContributors: GitHubContributor[] = await contribRes.json();
 
- 
+
         const mergedPrs: GitHubPullRequest[] = [];
         let page = 1;
         for (; ;) {
@@ -202,8 +212,11 @@ function Contributions() {
   }, []);
 
   const contributorsSorted = [...contributors].sort(
-    (a, b) => b.contributions - a.contributions,
+    (a, b) =>
+      (b.mergedPrCount * 5 + b.totalCommits) -
+      (a.mergedPrCount * 5 + a.totalCommits)
   );
+
 
   //@@viewOff:private
 
@@ -231,8 +244,16 @@ function Contributions() {
             name={c.login}
             modern
             role={c.login.toLowerCase() === owner.toLowerCase() ? t("contributions.owner") : t("contributions.role")}
-            labelName={t("contributions.labelName")}
-            labelValue={c.contributions.toString()}
+            metrics={[
+              {
+                label: t("MergedPRs"),
+                value: c.mergedPrCount,
+              },
+              {
+                label: t("TotalCommits"),
+                value: c.totalCommits,
+              },
+            ]}
             darkMode={darkMode}
             collapsed={true}
             width="100%"

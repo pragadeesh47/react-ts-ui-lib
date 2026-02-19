@@ -20,6 +20,12 @@ const DEFAULT_MIN_HEIGHT = 200;
 const DEFAULT_MIN_HEIGHT_HEADER_ONLY = 0;
 //@@viewOff:constants
 
+export type ProfileMetric = {
+  label: string;
+  value: React.ReactNode;
+};
+
+
 //@@viewOn:helpers
 const formatUnit = (value: string | number | undefined): string | undefined => {
   if (value === undefined) return undefined;
@@ -64,7 +70,7 @@ const Css = {
       borderRadius: borderRadiusValue,
     };
   },
-  
+
   header: (
     removeDefaultStyle?: boolean,
     padding?: number,
@@ -294,6 +300,8 @@ export type ProfileCardProps = {
   role?: string;
   labelName?: string;
   labelValue?: string;
+  metrics?: ProfileMetric[];
+
   descriptionName?: string;
   descriptionValue?: string;
   content?: React.ReactNode;
@@ -323,6 +331,8 @@ export const PROFILE_CARD_PROP_NAMES = [
   "role",
   "labelName",
   "labelValue",
+  "metrics",
+
   "descriptionName",
   "descriptionValue",
   "content",
@@ -353,6 +363,7 @@ const ProfileCard = ({
   role,
   labelName,
   labelValue,
+  metrics,
   descriptionName,
   descriptionValue,
   content,
@@ -377,7 +388,7 @@ const ProfileCard = ({
   //@@viewOn:private
   const [isCollapsed, setIsCollapsed] = useState(collapsed);
   const bodyVisible = !isCollapsed;
-  
+
 
   if (hidden) return null;
 
@@ -407,12 +418,16 @@ const ProfileCard = ({
     shadow = undefined;
   }
 
+  const hasMetrics = metrics != null && metrics.length > 0;
+
   const hasBody =
+    hasMetrics ||
     (labelName !== undefined && labelName !== "") ||
     labelValue !== undefined ||
     (descriptionName !== undefined && descriptionName !== "") ||
     descriptionValue !== undefined ||
     content != null;
+
   const hasFooter = actionList != null && actionList.length > 0;
   const useCompactMinHeight = !hasBody || !bodyVisible;
 
@@ -486,7 +501,7 @@ const ProfileCard = ({
             )}
           </div>
           {hasBody && (
-          <button
+            <button
               type="button"
               onClick={() => setIsCollapsed((prev) => !prev)}
               style={Css.collapsibleButton(removeDefaultStyle)}
@@ -506,16 +521,32 @@ const ProfileCard = ({
       {hasBody && (
         <div style={Css.bodyWrapper(removeDefaultStyle, !bodyVisible)}>
           <div style={Css.body(removeDefaultStyle, padding, borderColor)}>
-            {(labelName !== undefined || labelValue !== undefined) && (
-              <div style={Css.labelRow(removeDefaultStyle)}>
-                {labelName !== undefined && labelName !== "" && (
-                  <span style={Css.labelName(removeDefaultStyle)}>{labelName}</span>
-                )}
-                {labelValue !== undefined && (
-                  <span style={Css.labelValue(removeDefaultStyle)}>{labelValue}</span>
-                )}
-              </div>
+
+            {metrics && metrics.length > 0 ? (
+              metrics.map((metric, index) => (
+                <div key={index} style={Css.labelRow(removeDefaultStyle)}>
+                  <span style={Css.labelName(removeDefaultStyle)}>
+                    {metric.label}
+                  </span>
+                  <span style={Css.labelValue(removeDefaultStyle)}>
+                    {metric.value}
+                  </span>
+                </div>
+              ))
+            ) : (
+              (labelName !== undefined || labelValue !== undefined) && (
+                <div style={Css.labelRow(removeDefaultStyle)}>
+                  {labelName !== undefined && labelName !== "" && (
+                    <span style={Css.labelName(removeDefaultStyle)}>{labelName}</span>
+                  )}
+                  {labelValue !== undefined && (
+                    <span style={Css.labelValue(removeDefaultStyle)}>{labelValue}</span>
+                  )}
+                </div>
+              )
             )}
+
+
             {(descriptionName !== undefined || descriptionValue !== undefined) && (
               <div style={Css.labelRow(removeDefaultStyle)}>
                 {descriptionName !== undefined && descriptionName !== "" && (
