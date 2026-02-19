@@ -248,6 +248,11 @@
         "description": "Enables modern gradient styling.",
         "type": "boolean",
         "required": "false"
+      },
+      "hidden": {
+        "description": "Hides the component when true (renders nothing).",
+        "type": "boolean",
+        "required": "false"
       }
     },
     "categories": {

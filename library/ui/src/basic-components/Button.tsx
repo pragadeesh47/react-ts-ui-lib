@@ -114,6 +114,7 @@ export type ButtonProps = {
   isPending?: boolean;
   noPrint?: boolean;
   modern?: boolean;
+  hidden?: boolean;
 };
 
 // Const array for runtime prop extraction in Documentation
@@ -137,6 +138,7 @@ export const BUTTON_PROP_NAMES = [
   "isPending",
   "noPrint",
   "modern",
+  "hidden"
 ] as const;
 //@@viewOff:propTypes
 
@@ -159,6 +161,7 @@ const Button = ({
   darkMode = true,
   noPrint = false,
   modern = false,
+  hidden = false
 }: ButtonProps) => {
   //@@viewOn:private
   const [hover, setHover] = useState(false);
@@ -223,6 +226,10 @@ const Button = ({
     shadow,
     hoverShadow,
   );
+
+  if(hidden){
+    return null;
+  }
 
   return (
     <button
