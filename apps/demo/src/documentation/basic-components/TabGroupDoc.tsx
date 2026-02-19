@@ -254,6 +254,43 @@ const TabGroupDoc = () => {
         },
       ],
     },
+    {
+      category: "Border Radius (Top Corners Only)",
+      itemList: [
+        {
+          label: "Small Radius",
+          components: (
+            <TabGroup
+              itemList={basicTabs}
+              codeActive="best"
+              borderRadius="sm"
+              darkMode={darkMode}
+            />
+          ),
+        },
+        {
+          label: "Large Radius",
+          components: (
+            <TabGroup
+              itemList={basicTabs}
+              codeActive="best"
+              borderRadius="lg"
+              darkMode={darkMode}
+            />
+          ),
+        },
+        {
+          label: "Default (md)",
+          components: (
+            <TabGroup
+              itemList={basicTabs}
+              codeActive="best"
+              darkMode={darkMode}
+            />
+          ),
+        },
+      ],
+    },
   ];
   //@@viewOff:private
 

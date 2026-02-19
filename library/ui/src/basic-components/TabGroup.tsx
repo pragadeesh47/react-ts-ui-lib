@@ -7,6 +7,7 @@ import {
   getBorderColor,
 } from "../tools/colors";
 import Icon from "./Icon";
+import { getRadiusValue, type RadiusToken } from "../tools/radius";
 //@@viewOff:imports
 
 //@@viewOn:constants
@@ -33,6 +34,7 @@ const Css = {
     borderRight = false,
     borderBottom = true,
     borderLeft = false,
+    borderRadiusValue?: number,
   ): React.CSSProperties => {
     if (removeDefaultStyle) {
       return {};
@@ -50,6 +52,8 @@ const Css = {
       borderRight: borderRight ? borderStyle : undefined,
       borderBottom: borderBottom ? borderStyle : undefined,
       borderLeft: borderLeft ? borderStyle : undefined,
+      borderTopLeftRadius: borderRadiusValue,
+      borderTopRightRadius: borderRadiusValue,
       gap: "1rem",
     };
   },
@@ -224,6 +228,7 @@ export type TabGroupProps = {
   hidden?: boolean;
   removeDefaultStyle?: boolean;
   darkMode?: boolean;
+  borderRadius?: RadiusToken;
 };
 
 // Const array for runtime prop extraction in Documentation
@@ -243,6 +248,7 @@ export const TAB_GROUP_PROP_NAMES = [
   "hidden",
   "removeDefaultStyle",
   "darkMode",
+  "borderRadius",
 ] as const;
 //@@viewOff:propTypes
 
@@ -262,12 +268,14 @@ const TabGroup = ({
   hidden = false,
   removeDefaultStyle = false,
   darkMode = true,
+  borderRadius = "md",
 }: TabGroupProps) => {
   //@@viewOn:private
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   if (hidden) return null;
 
+  const borderRadiusValue = getRadiusValue(borderRadius);
   const activeItem = itemList.find((item) => item.code === codeActive);
   const activeContent = activeItem?.content || null;
 
@@ -299,6 +307,7 @@ const TabGroup = ({
             borderRight,
             borderBottom,
             borderLeft,
+            borderRadiusValue,
           )}
         >
         <div style={Css.tabsWrapper(removeDefaultStyle)}>

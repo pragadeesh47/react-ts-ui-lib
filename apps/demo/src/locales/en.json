@@ -1396,7 +1396,7 @@
         "description": "Whether to show a border on the left edge of the tab bar.",
         "type": "boolean",
         "required": "false"
-      },
+      },      
       "noPrint": {
         "description": "Hides the component when printing (adds no-print class).",
         "type": "boolean",
@@ -1416,6 +1416,11 @@
         "description": "Renders the component using dark mode palette.",
         "type": "boolean",
         "required": "false"
+      },
+      "borderRadius": {
+      "description": "Border radius token applied only to the top-left and top-right corners of the tab bar.",
+      "type": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"full\"",
+      "required": "false"
       }
     },
     "categories": {
