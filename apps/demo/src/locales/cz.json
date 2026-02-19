@@ -1416,6 +1416,11 @@
         "description": "Renderuje komponentu pomocí tmavé palety barev.",
         "type": "boolean",
         "required": "false"
+      },
+      "borderRadius": {
+        "description": "Token zaoblení aplikovaný pouze na levý horní a pravý horní roh tab baru.",
+        "type": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"full\"",
+        "required": "false"
       }
     },
     "categories": {
