@@ -248,6 +248,11 @@
         "description": "Zapne moderní gradientní styl.",
         "type": "boolean",
         "required": "false"
+      },
+      "hidden": {
+        "description": "Skryje komponentu, pokud je nastavena na true (nevykreslí nic).",
+        "type": "boolean",
+        "required": "false"
       }
     },
     "categories": {
